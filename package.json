@@ -1,0 +1,17 @@
+{
+  "name": "discordbot",
+  "version": "1.0.0",
+  "description": "discord bot",
+  "main": "src/index.ts",
+  "author": "deegles <diegobenitezc@gmail.com>",
+  "license": "SEE LICENSE.TXT",
+  "private": true,
+  "dependencies": {
+    "typescript": "^4.9.4"
+  },
+  "scripts": {
+    "build": "tsc",
+    "package": "mkdir -p bin && rm -f ./bin/lambda.zip && zip -r ./bin/lambda.zip ./build/ ",
+    "clean": "rm -rf build bin"
+  }
+}
