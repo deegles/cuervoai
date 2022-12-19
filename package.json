@@ -7,11 +7,19 @@
   "license": "SEE LICENSE.TXT",
   "private": true,
   "dependencies": {
+    "aws-lambda": "^1.0.7",
     "typescript": "^4.9.4"
   },
   "scripts": {
-    "build": "tsc",
+    "build": "esbuild src/index.ts --bundle --minify --sourcemap --platform=node --target=es2020 --outfile=dist/index.js",
     "package": "mkdir -p bin && rm -f ./bin/lambda.zip && zip -r ./bin/lambda.zip ./build/ ",
-    "clean": "rm -rf build bin"
+    "clean": "rm -rf build bin",
+    "docker:build": "docker build --platform=linux/amd64 -t discordbot .",
+    "docker:push": "./dockerPush.sh",
+    "docker:login": "aws ecr get-login-password --region us-east-2 --profile discordbot-deployer | docker login --username AWS --password-stdin 653625749031.dkr.ecr.us-east-2.amazonaws.com"
+  },
+  "devDependencies": {
+    "@types/aws-lambda": "^8.10.109",
+    "esbuild": "^0.16.9"
   }
 }
