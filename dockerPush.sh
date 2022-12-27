@@ -41,24 +41,23 @@ echo "updating lambda function code for revision $revisionId"
 update_result=$(aws --region us-east-2 --profile discordbot-deployer lambda update-function-code --function-name discordbot --revision-id $revisionId --image-uri "$repo_tag") 
 
 
-images="[{\"imageTag\":\"$app_name\"},\"]"
-describe_output=$(aws --region us-east-2 --profile discordbot-deployer ecr describe-images --repository-name yourbit_ecr)
-images=$(echo "$describe_output" | jq -r '.[] | map(. | select(.imageTags | any(startswith("discordbot"))))')
+# TODO: replace with lifecycle rule https://docs.aws.amazon.com/AmazonECR/latest/userguide/LifecyclePolicies.html#lp_count_number
+# images="[{\"imageTag\":\"$app_name\"},\"]"
+# describe_output=$(aws --region us-east-2 --profile discordbot-deployer ecr describe-images --repository-name yourbit_ecr)
+# images=$(echo "$describe_output" | jq -r '.[] | map(. | select(.imageTags | any(startswith("discordbot"))))')
 
-num_images=$(echo "$images" | jq -r 'length')
+# num_images=$(echo "$images" | jq -r 'length')
 
-echo "num images $num_images"
+# echo "num images $num_images"
 
-if [[ "$num_images" -le 2 ]]; then
-  echo "No deletions needed"
-else
-  images_to_delete=$(echo "$images" | jq '.[0: length - 2]')
-  echo "deleting $(echo "$images_to_delete" | jq -r 'length') old images..."
-  image_digests="{\"imageDigest\":\"$(echo "$images_to_delete" | jq -r 'map(.imageDigest) | join("\"},{\"imageDigest\":\"")')\"}"
-  input_json="{\"imageIds\":[$image_digests]}"
-  aws --region us-east-2 --profile discordbot-deployer ecr batch-delete-image --repository-name yourbit_ecr --cli-input-json "$input_json"
-fi
+# if [[ "$num_images" -le 2 ]]; then
+#   echo "No deletions needed"
+# else
+#   images_to_delete=$(echo "$images" | jq '.[0: length - 2]')
+#   echo "deleting $(echo "$images_to_delete" | jq -r 'length') old images..."
+#   image_digests="{\"imageDigest\":\"$(echo "$images_to_delete" | jq -r 'map(.imageDigest) | join("\"},{\"imageDigest\":\"")')\"}"
+#   input_json="{\"imageIds\":[$image_digests]}"
+#   aws --region us-east-2 --profile discordbot-deployer ecr batch-delete-image --repository-name yourbit_ecr --cli-input-json "$input_json"
+# fi
 
-#echo "$describe_output" 
-#echo "sliced: $images"
 echo "Done."
