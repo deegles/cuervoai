@@ -1,8 +1,11 @@
 import { Context, APIGatewayProxyResult, APIGatewayEvent } from 'aws-lambda';
-import { markAsRead, sendInteractiveMessage, sendMessage } from './api';
+import { markAsRead, sendInteractiveMessage, sendMessage } from './apis/whatsapp';
 import { FBWebhook, MessageObject, Metadata, Status, Value } from './types';
 
-const verify_token = "659631c882fc11eda1eb0242ac120002";
+import {constants} from './resources';
+import { getCompletion } from './apis/openai';
+
+const {config} = constants;
 
 export const handler = async (event: APIGatewayEvent, context: Context): Promise<APIGatewayProxyResult> => {
     console.log(`Event: ${JSON.stringify(event, null, 2)}`);
@@ -12,7 +15,7 @@ export const handler = async (event: APIGatewayEvent, context: Context): Promise
 
     // handle challenge event
     if(queryStringParameters?.['hub.mode'] === "subscribe" &&
-    queryStringParameters?.['hub.verify_token'] === verify_token &&
+    queryStringParameters?.['hub.verify_token'] === config.whatsapp_verify_token &&
     !!queryStringParameters?.['hub.challenge']) {
         return {
             statusCode: 200,
@@ -21,13 +24,13 @@ export const handler = async (event: APIGatewayEvent, context: Context): Promise
     }
 
 
-    const message: FBWebhook = JSON.parse(body || '{}');
+    const hook: FBWebhook = JSON.parse(body || '{}');
 
-    console.log(JSON.stringify(message, null, 2));
+    console.log(JSON.stringify(hook, null, 2));
 
     let response: Promise<APIGatewayProxyResult> | undefined = undefined;
 
-    message.entry.forEach(({changes}) => {
+    hook.entry.forEach(({changes}) => {
         changes.forEach(({value}) => {
 
             value?.statuses?.forEach((status) => {
@@ -70,23 +73,27 @@ async function handleTextMessage(message: MessageObject, value: Value): Promise<
         to = '528117466017'
     }
 
-    let response =  `echoing: ${message.text.body}`;
+    // let response =  `echoing: ${message.text.body}`;
     
-    // reply
-    if(message.context) {
-        response = `this is a reply to ${message.text.body}`;
-    }
+    // // reply
+    // if(message.context) {
+    //     response = `this is a reply to ${message.text.body}`;
+    // }
 
 
-    console.log(`sending message to ${to}`)
+    const response = await getCompletion(message.text.body);
 
+
+    console.log('openai response: ', response)
     // ordering not guaranteed
-    promises.push(sendMessage(phone_number_id, to, response))
-    promises.push(sendInteractiveMessage(phone_number_id, to, response))
+    //promises.push(sendInteractiveMessage(phone_number_id, to, response))
 
-    const results = await Promise.all(promises);
+    
+    console.log(`sending message to ${to}`)
+    
+    promises.push(await sendMessage(phone_number_id, to, response));
 
-    console.log(JSON.stringify(results, null, 2));
+    console.log(await Promise.all(promises))
     
     return {
         statusCode: 200,
@@ -114,6 +121,9 @@ async function handleStatusChange(status: Status, metadata: Metadata): Promise<A
 async function handleInteractiveSelection(message: MessageObject, value: Value): Promise<APIGatewayProxyResult> {
     console.log('interactive not implemented');
     
+    const phone_number_id = value.metadata.phone_number_id;
+
+    await markAsRead(phone_number_id, message.id);
     return {
         statusCode: 200,
         body: ""

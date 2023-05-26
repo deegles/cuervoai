@@ -1,12 +1,13 @@
-const access_token = 'EAAJeYsHUU68BAJ52C6ZCANKcw0lkFtsJYlScpZC52ec8eKAcf7PpkykSd9dlQQHREZCUm9sRi07UqKTCmprtlV2C36foZC6AoKPU6ZCnQcWgY0RE0e7LmI52qoiN9z3Tdy4fORZAstDDhsZBT8Ui5go9wZCe4gN5LHgbWU2GgGA9QktZCBjw6CAJ8WKXgkAMutfXpnch4UHnYOYgQnPZBGAxdT';
-
+import { constants } from "../../resources";
 import fetch from "node-fetch";
-import { MessageObject } from "./types";
+import { MessageObject } from "../../types";
 
-const markAsReadOptions: (message_id: string) => RequestInit = (message_id: string) => ({
+const {api_keys} = constants;
+
+const markAsReadOptions = (message_id: string) => ({
      method: 'POST',
     headers: {
-        'Authorization' : `Bearer ${access_token}`,
+        'Authorization' : `Bearer ${api_keys.whatsapp}`,
         'Content-Type': 'application/json'
     },
     body: JSON.stringify({
@@ -17,17 +18,17 @@ const markAsReadOptions: (message_id: string) => RequestInit = (message_id: stri
 })
 
 const markAsRead: (phone_number_id: string, message_id: string) => Promise<boolean> = async (phone_number_id: string, message_id: string) => {
-    const url = `https://graph.facebook.com/v15.0/${phone_number_id}/messages`
+    const url = `https://graph.facebook.com/v16.0/${phone_number_id}/messages`
     const result = await (await fetch(url, markAsReadOptions(message_id))).json();
     console.log(result);
     return !!(result as unknown as any)?.success
 }
 
 
-const sendMessageOptions: (to: string, message: string) => RequestInit = (to: string, message: string) => ({
+const sendMessageOptions = (to: string, message: string) => ({
      method: 'POST',
     headers: {
-        'Authorization' : `Bearer ${access_token}`,
+        'Authorization' : `Bearer ${api_keys.whatsapp}`,
         'Content-Type': 'application/json'
     },
     body: JSON.stringify({
@@ -43,17 +44,17 @@ const sendMessageOptions: (to: string, message: string) => RequestInit = (to: st
 })
 
 const sendMessage: (phone_number_id: string, to: string, message: string) => Promise<boolean> = async (phone_number_id: string, to: string, message: string) => {
-    const url = `https://graph.facebook.com/v15.0/${phone_number_id}/messages`
+    const url = `https://graph.facebook.com/v16.0/${phone_number_id}/messages`
     
     const result = await (await fetch(url, sendMessageOptions(to, message))).json();
     console.log(result);
     return (result as unknown as any)?.messages?.length > 0
 }
 
-const sendInteractiveMessageOptions: (to: string, message: string) => RequestInit = (to: string, message: string) => ({
+const sendInteractiveMessageOptions = (to: string, message: string) => ({
      method: 'POST',
     headers: {
-        'Authorization' : `Bearer ${access_token}`,
+        'Authorization' : `Bearer ${api_keys.whatsapp}`,
         'Content-Type': 'application/json'
     },
     body: JSON.stringify({
@@ -112,7 +113,7 @@ const sendInteractiveMessageOptions: (to: string, message: string) => RequestIni
 )});
 
 const sendInteractiveMessage: (phone_number_id: string, to: string, message: string) => Promise<boolean> = async (phone_number_id: string, to: string, message: string) => {
-    const url = `https://graph.facebook.com/v15.0/${phone_number_id}/messages`
+    const url = `https://graph.facebook.com/v16.0/${phone_number_id}/messages`
     
     const result = await (await fetch(url, sendInteractiveMessageOptions(to, message))).json();
     console.log(result);
@@ -125,3 +126,53 @@ export {
     sendMessage,
     sendInteractiveMessage
 }
+
+// message
+// check for keywords?
+// check message type (text, voice note, image)
+// save message id
+// reply with options for message
+// save message id + reply id
+// if reply is valid option
+// call openai api
+// respond with text
+// save reply id
+
+
+/**
+ * other todos:
+ * logging
+ * metrics for api calls
+ * data layer
+ * - save tokens used + type for cost
+ * - formula for Points or Credits used
+ * - keep track per user
+ * - message and reply chains
+ * stripe integration
+ * - handle invoice paid webhook
+ * - set credits on phone number
+ * - handle uploading usage metrics
+ * - handle other webhooks
+ * openai
+ * - get token
+ * - set up client
+ * devops
+ * - save env vars and secrets
+ * - staging env?
+ * - set up sqs queue
+ * - set up mapping templates for webhook challenges
+ * - set up url endpoint (api.yourbit.network/webhook)
+ * marketing
+ * - instagram
+ * - settle on name
+ * - settle on free tier behavior
+ * ux
+ * - settle on mvp flows
+ * - settle on payment flow
+ * other
+ * - fb business verification
+ * - associate new phone number
+ * - set up cost monitoring in case of too much free tier usage?
+ * get mx phone number
+ * - set up payment on it
+ */
