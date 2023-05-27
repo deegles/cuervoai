@@ -4,8 +4,17 @@ import { FBWebhook, MessageObject, Metadata, Status, Value } from './types';
 
 import {constants} from './resources';
 import { getCompletion } from './apis/openai';
+import { DynamoDBItem, DynamoItemDAL } from './apis/dynamo';
 
 const {config} = constants;
+
+interface UserData {
+    waid: string;
+    tokensLeft: number;
+    timesCalled: number;
+    setOfStrs: string[];
+    total_tokens_openai: number;
+}
 
 export const handler = async (event: APIGatewayEvent, context: Context): Promise<APIGatewayProxyResult> => {
     console.log(`Event: ${JSON.stringify(event, null, 2)}`);
@@ -66,6 +75,12 @@ async function handleTextMessage(message: MessageObject, value: Value): Promise<
     promises.push(markAsRead(phone_number_id, message.id));
     console.log(`marked message ${message.id} as read...`)
 
+    const table: DynamoDBItem<Partial<UserData>> = {tableName: 'UserData', primaryKey: phone_number_id, primaryKeyName: 'id'};
+    const userData = new DynamoItemDAL<UserData>(table);
+
+    promises.push(userData.updateItem('waid', phone_number_id));
+    promises.push(userData.incrementCounter('timesCalled'));
+
     let to = message.from;
 
     // hack
@@ -82,7 +97,9 @@ async function handleTextMessage(message: MessageObject, value: Value): Promise<
 
 
     const response = await getCompletion(message.text.body);
+    
 
+    const counter = await userData.incrementCounter('total_tokens_openai', response?.usage?.total_tokens || 0) as number;
 
     console.log('openai response: ', response)
     // ordering not guaranteed
@@ -90,8 +107,11 @@ async function handleTextMessage(message: MessageObject, value: Value): Promise<
 
     
     console.log(`sending message to ${to}`)
+
+    const text = response?.choices?.map(({text})=> text).join(' ') || 'no response!';
     
-    promises.push(await sendMessage(phone_number_id, to, response));
+    promises.push(sendMessage(phone_number_id, to, `${text} \n tokens used: ${counter}`));
+    promises.push(userData.incrementCounter('timesCalled'))
 
     console.log(await Promise.all(promises))
     

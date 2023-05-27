@@ -29,7 +29,7 @@ configPath="/tmp/tagConfig.json"
 
 echo "$json" > $configPath 
 
-echo "updating function tag..."
+echo "updating function tag in S3..."
 put_result=$(aws s3api put-object --bucket $bucket --key $key --body $configPath --region us-east-2 --profile discordbot-deployer --acl=bucket-owner-full-control --content-type=application/json)
 
 sleep 3
