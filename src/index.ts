@@ -3,7 +3,7 @@ import { markAsRead, sendInteractiveMessage, sendMessage } from './apis/whatsapp
 import { FBWebhook, MessageObject, Metadata, Status, Value } from './types';
 
 import {constants} from './resources';
-import { getCompletion } from './apis/openai';
+import { getChatCompletion, getCompletion } from './apis/openai';
 import { DynamoDBItem, DynamoItemDAL } from './apis/dynamo';
 
 const {config} = constants;
@@ -51,6 +51,10 @@ export const handler = async (event: APIGatewayEvent, context: Context): Promise
 
                 switch (messageType) {
                     case 'text':
+                        if((Date.now() / 1000) - parseInt(message.timestamp) > (60 * 3)) {
+                            console.log('old message, discarding: ', JSON.stringify(message))
+                            break;
+                        }
                         response = handleTextMessage(message, value);
                         break;
                     case 'interactive':
@@ -95,9 +99,11 @@ async function handleTextMessage(message: MessageObject, value: Value): Promise<
     //     response = `this is a reply to ${message.text.body}`;
     // }
 
-
-    const response = await getCompletion(message.text.body);
-    
+    const response = await getChatCompletion([{
+        content: message.text.body,
+        role: 'user',
+        name: message.from
+    }]);
 
     const counter = await userData.incrementCounter('total_tokens_openai', response?.usage?.total_tokens || 0) as number;
 
@@ -108,7 +114,7 @@ async function handleTextMessage(message: MessageObject, value: Value): Promise<
     
     console.log(`sending message to ${to}`)
 
-    const text = response?.choices?.map(({text})=> text).join(' ') || 'no response!';
+    const text = response?.choices?.map(({message})=> message?.content).join(' ') || 'no response!';
     
     promises.push(sendMessage(phone_number_id, to, `${text} \n tokens used: ${counter}`));
     promises.push(userData.incrementCounter('timesCalled'))

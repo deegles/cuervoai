@@ -1,4 +1,4 @@
-import { Configuration, CreateCompletionRequest, CreateCompletionResponse, OpenAIApi } from "openai";
+import { Configuration, CreateChatCompletionRequest, CreateChatCompletionResponse, CreateCompletionRequest, CreateCompletionResponse, OpenAIApi } from "openai";
 import { constants } from "../../resources";
 
 const {config, api_keys} = constants;
@@ -35,8 +35,36 @@ const getCompletion = async (prompt: string): Promise<CreateCompletionResponse |
     return response.data;
 }
 
-const getChatCompletion = async (chats: [string]): Promise<
+const chatCompletionConfig: CreateChatCompletionRequest = {
+    model: 'gpt-3.5-turbo',
+    temperature: .8,
+    messages: []
+}
+
+export interface chatMessage {
+    "role" : "assistant" | "system" | 'user';
+    "content": string;
+    name?: string // The name of the author of this message. May contain a-z, A-Z, 0-9, and underscores, with a maximum length of 64 characters.
+}
+
+const getChatCompletion = async (messages: chatMessage[], configOverrides: Partial<CreateCompletionRequest> = {}): Promise<CreateChatCompletionResponse | null> => {
+    const request = {
+        ...chatCompletionConfig,
+        ...configOverrides,
+        messages
+    } as CreateChatCompletionRequest;
+try {
+    const {data} = await openai.createChatCompletion(request);
+    console.log('chat response ', data);
+
+    return data;
+
+    } catch(err) {
+        console.log('error with chat request: ', err)
+    }
+}
 
 export {
-    getCompletion
+    getCompletion,
+    getChatCompletion
 }

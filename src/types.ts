@@ -91,7 +91,7 @@ interface MessageObject {
     text: {
         body: string
     }
-    timestamp: number
+    timestamp: string
     type: MessageType
     video: {
         caption: string

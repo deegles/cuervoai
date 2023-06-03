@@ -24,6 +24,32 @@ const markAsRead: (phone_number_id: string, message_id: string) => Promise<boole
     return !!(result as unknown as any)?.success
 }
 
+const addReactionOptions = (message_id: string, to: string, emoji: string = "\uD83D\uDE00") => ({
+   method: 'POST',
+  headers: {
+      'Authorization' : `Bearer ${api_keys.whatsapp}`,
+      'Content-Type': 'application/json'
+  },
+  body: JSON.stringify({
+      "messaging_product": "whatsapp",
+      "recipient_type": "individual",
+      to,
+      "type": "reaction",
+      "reaction": {
+        message_id,
+        emoji
+      }
+  })
+})
+
+const addReaction = async (from_phone_number_id: string, to_phone_number_id: string, message_id: string, emoji: string): Promise<boolean> => {
+  const url = `https://graph.facebook.com/v16.0/${from_phone_number_id}/messages`
+  const result = await (await fetch(url, addReactionOptions(message_id, to_phone_number_id))).json();
+  console.log(result);
+  return !!(result as unknown as any)?.success
+}
+
+// todo: delete reaction based on response message id? https://developers.facebook.com/docs/whatsapp/cloud-api/guides/send-messages/#reaction-messages
 
 const sendMessageOptions = (to: string, message: string) => ({
      method: 'POST',
@@ -122,6 +148,7 @@ const sendInteractiveMessage: (phone_number_id: string, to: string, message: str
 
 
 export {
+    addReaction,
     markAsRead,
     sendMessage,
     sendInteractiveMessage
