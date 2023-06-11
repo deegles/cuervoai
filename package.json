@@ -8,12 +8,13 @@
   "private": true,
   "dependencies": {
     "aws-lambda": "^1.0.7",
+    "aws-sdk": "^2.1395.0",
     "node-fetch": "^3.3.0",
     "openai": "^3.2.1",
     "typescript": "^4.9.4"
   },
   "scripts": {
-    "build": "esbuild src/index.ts --bundle --minify --sourcemap --platform=node --target=es2020 --outfile=dist/index.js",
+    "build": "esbuild src/index.ts --bundle --sourcemap --platform=node --target=es2020 --outfile=dist/index.js",
     "package": "mkdir -p bin && rm -f ./bin/lambda.zip && zip -r ./bin/lambda.zip ./build/ ",
     "clean": "rm -rf build bin",
     "docker:build": "docker build --platform=linux/amd64 -t discordbot .",

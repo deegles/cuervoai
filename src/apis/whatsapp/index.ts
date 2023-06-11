@@ -1,6 +1,5 @@
 import { constants } from "../../resources";
 import fetch from "node-fetch";
-import { MessageObject } from "../../types";
 
 const {api_keys} = constants;
 
@@ -18,10 +17,17 @@ const markAsReadOptions = (message_id: string) => ({
 })
 
 const markAsRead: (phone_number_id: string, message_id: string) => Promise<boolean> = async (phone_number_id: string, message_id: string) => {
-    const url = `https://graph.facebook.com/v16.0/${phone_number_id}/messages`
-    const result = await (await fetch(url, markAsReadOptions(message_id))).json();
-    console.log(result);
-    return !!(result as unknown as any)?.success
+    return new Promise(async (resolve, reject) => {
+      try{const url = `https://graph.facebook.com/v17.0/${phone_number_id}/messages`
+      const result = await (await fetch(url, markAsReadOptions(message_id))).json();
+      console.log(result);
+      resolve( !!(result as unknown as any)?.success)
+
+      }catch(e){
+        console.log(e);
+        reject(false)
+      }
+    });
 }
 
 const addReactionOptions = (message_id: string, to: string, emoji: string = "\uD83D\uDE00") => ({
@@ -43,7 +49,7 @@ const addReactionOptions = (message_id: string, to: string, emoji: string = "\uD
 })
 
 const addReaction = async (from_phone_number_id: string, to_phone_number_id: string, message_id: string, emoji: string): Promise<boolean> => {
-  const url = `https://graph.facebook.com/v16.0/${from_phone_number_id}/messages`
+  const url = `https://graph.facebook.com/v17.0/${from_phone_number_id}/messages`
   const result = await (await fetch(url, addReactionOptions(message_id, to_phone_number_id))).json();
   console.log(result);
   return !!(result as unknown as any)?.success
@@ -70,7 +76,7 @@ const sendMessageOptions = (to: string, message: string) => ({
 })
 
 const sendMessage: (phone_number_id: string, to: string, message: string) => Promise<boolean> = async (phone_number_id: string, to: string, message: string) => {
-    const url = `https://graph.facebook.com/v16.0/${phone_number_id}/messages`
+    const url = `https://graph.facebook.com/v17.0/${phone_number_id}/messages`
     
     const result = await (await fetch(url, sendMessageOptions(to, message))).json();
     console.log(result);
@@ -139,7 +145,7 @@ const sendInteractiveMessageOptions = (to: string, message: string) => ({
 )});
 
 const sendInteractiveMessage: (phone_number_id: string, to: string, message: string) => Promise<boolean> = async (phone_number_id: string, to: string, message: string) => {
-    const url = `https://graph.facebook.com/v16.0/${phone_number_id}/messages`
+    const url = `https://graph.facebook.com/v17.0/${phone_number_id}/messages`
     
     const result = await (await fetch(url, sendInteractiveMessageOptions(to, message))).json();
     console.log(result);
