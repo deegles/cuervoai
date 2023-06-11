@@ -56,7 +56,6 @@ const getChatCompletion = async (messages: chatMessage[], configOverrides: Parti
         } as CreateChatCompletionRequest;
 
         openai.createChatCompletion(request).then((response) => {
-            console.log('chat response ', response);
             resolve(response?.data);
         }).catch(err => {
             console.log('error with chat request: ', err)

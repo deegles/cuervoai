@@ -1,4 +1,4 @@
-import { Context, APIGatewayProxyResult, APIGatewayEvent, SQSEvent, SQSBatchResponse, SQSHandler, APIGatewayProxyEvent } from 'aws-lambda';
+import { Context, APIGatewayProxyResult, APIGatewayEvent, SQSEvent, SQSBatchResponse, SQSHandler, APIGatewayProxyEvent, APIGatewayProxyStructuredResultV2, SQSRecord, SQSBatchItemFailure } from 'aws-lambda';
 import { markAsRead, sendInteractiveMessage, sendMessage } from './apis/whatsapp';
 import { eventIdentifiers, EventType, EventTypeLiterals, Metadata, Status, Value, WhatsAppEvent, Message, TextMessage, MessageType } from './types';
 
@@ -16,8 +16,13 @@ interface UserData {
     total_tokens_openai: number;
 }
 
+interface RejectedSQSRecordError {
+    error: Error;
+    record: SQSRecord
+}
+
 const eventHandlers: Record<EventTypeLiterals, any> = {
-    APIGatewayEvent: async (event: APIGatewayEvent, context: Context): Promise<APIGatewayProxyResult> => {
+    APIGatewayEvent: async (event: APIGatewayEvent, context: Context): Promise<APIGatewayProxyStructuredResultV2> => {
         const { queryStringParameters } = event;
 
         // handle challenge event
@@ -27,11 +32,20 @@ const eventHandlers: Record<EventTypeLiterals, any> = {
             return {
                 statusCode: 200,
                 body: queryStringParameters?.['hub.challenge'],
+                isBase64Encoded: false,
+                headers: {
+                    'Content-Type': 'text/plain'
+                }
             };
         } else {
+            console.log('returning 403 \n' + JSON.stringify(event, null, 2));
             return {
                 statusCode: 403,
                 body: 'bad request',
+                isBase64Encoded: false,
+                headers: {
+                    'Content-Type': 'text/plain'
+                }
             };
         }
     },
@@ -58,12 +72,43 @@ const eventHandlers: Record<EventTypeLiterals, any> = {
             return { statusCode: 403, body: 'bad request' };
         }
     },
-    SQSEvent: async (event: SQSEvent, context: Context): Promise<SQSBatchResponse> => {
-        return new Promise((resolve, reject) => {
-            console.log('got sqs events:' + event.Records.map((record) => { JSON.stringify(record, null, 2) }).join('\n'))
+    SQSEvent: async ({ Records }: SQSEvent, context: Context): Promise<SQSBatchResponse> => {
+        return new Promise(async (resolve, reject) => {
+            const promises: Promise<any>[] = [];
+
+
+            const isRejectedRecord = (input: any): input is RejectedSQSRecordError => input.status === 'rejected';
+
+            Records.forEach((record) => {
+                promises.push(new Promise(async (resolve, reject) => {
+                    try {
+                        const parsed = JSON.parse(record.body);
+                        resolve(await routeEvent(parsed, context));
+                    } catch (error) {
+                        reject({
+                            error,
+                            record,
+                        });
+                    }
+                }));
+            });
+
+            const results = await Promise.allSettled(promises);
+
+            const batchItemFailures: SQSBatchItemFailure[] = (results as PromiseSettledResult<RejectedSQSRecordError>[])
+                .filter((result): result is PromiseRejectedResult => isRejectedRecord(result))
+                .map((result) => {
+                    return {
+                        itemIdentifier: (result.reason as RejectedSQSRecordError).record.messageId,
+                    };
+                });
+
+            if (batchItemFailures.length > 0) {
+                console.log('failed messages: ' + batchItemFailures.map((failure) => failure.itemIdentifier).join(', '));
+            }
 
             const response: SQSBatchResponse = {
-                batchItemFailures: []
+                batchItemFailures
             }
 
             resolve(response)
@@ -119,20 +164,10 @@ export const handler = async (event: EventType, context: Context): Promise<any> 
 
 
 async function routeEvent(event: EventType, context: Context, params: any = {}) {
-    console.log('routing event: ' + event)
-
     for (const eventIdentifier in eventIdentifiers) {
-        console.log('event identifier: ' + eventIdentifier + ' event: ');
-
         const eventFunctionHandler = eventIdentifiers[eventIdentifier as EventTypeLiterals];
-
-        console.log('event function handler: ' + eventFunctionHandler)
         if (eventFunctionHandler && eventFunctionHandler(event)) {
-            console.log(eventFunctionHandler(event))
-            await eventHandlers[eventIdentifier as EventTypeLiterals](event, context, params);
-            return;
-        } else {
-            console.log('No event handler found for event:', eventIdentifier);
+            return await eventHandlers[eventIdentifier as EventTypeLiterals](event, context, params);
         }
     }
 
