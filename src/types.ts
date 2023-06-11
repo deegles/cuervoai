@@ -148,8 +148,8 @@ export interface Status {
 
 // EventType Definitions
 // Be sure to add to both the EventTypeLiterals and EventIdentifiers types
-export type EventTypeLiterals = 'WhatsAppEvent' | 'SQSEvent' | 'APIGatewayProxyEvent' | 'TextMessage';
-export type EventType = WhatsAppEvent | SQSEvent | APIGatewayProxyEvent | TextMessage;
+export type EventTypeLiterals = 'WhatsAppEvent' | 'SQSEvent' | 'APIGatewayProxyEvent' | 'APIGatewayEvent' | 'TextMessage';
+export type EventType = WhatsAppEvent | SQSEvent | APIGatewayProxyEvent |APIGatewayEvent| TextMessage;
 
 export type EventIdentifierFn<T extends EventType> = (event: any) => event is T;
 
@@ -160,8 +160,9 @@ export type EventIdentifiers = {
 export const eventIdentifiers: EventIdentifiers = {
     WhatsAppEvent: isWhatsappWebhook,
     SQSEvent: isSQSEvent,
-    APIGatewayProxyEvent: isAPIGatewayEvent,
+    APIGatewayProxyEvent: isAPIGatewayProxyEvent,
     TextMessage: isTextMessage,
+    APIGatewayEvent: isAPIGatewayEvent,
 };
 
 export function isWhatsappWebhook(event: any): event is WhatsAppEvent {
@@ -172,8 +173,12 @@ export function isSQSEvent(event: any): event is SQSEvent {
     return event?.Records && Array.isArray(event?.Records);
 }
 
-export function isAPIGatewayEvent(event: any): event is APIGatewayProxyEvent {
+export function isAPIGatewayProxyEvent(event: any): event is APIGatewayProxyEvent {
     return event?.version === "2.0" && event?.routeKey && event?.requestContext?.http?.method;
+}
+
+export function isAPIGatewayEvent(event: any): event is APIGatewayEvent {
+    return event?.resource === "/webhooks" && event?.requestContext.stage
 }
 
 export type MessageIdentifierFn = (message: Message) => message is MessageType;

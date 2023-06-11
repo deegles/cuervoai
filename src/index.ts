@@ -1,4 +1,4 @@
-import { Context, APIGatewayProxyResult, APIGatewayEvent, SQSEvent, SQSBatchResponse, SQSHandler } from 'aws-lambda';
+import { Context, APIGatewayProxyResult, APIGatewayEvent, SQSEvent, SQSBatchResponse, SQSHandler, APIGatewayProxyEvent } from 'aws-lambda';
 import { markAsRead, sendInteractiveMessage, sendMessage } from './apis/whatsapp';
 import { eventIdentifiers, EventType, EventTypeLiterals, Metadata, Status, Value, WhatsAppEvent, Message, TextMessage, MessageType } from './types';
 
@@ -17,8 +17,25 @@ interface UserData {
 }
 
 const eventHandlers: Record<EventTypeLiterals, any> = {
-    // must return APIGatewayProxyResult
-    APIGatewayProxyEvent: async (event: APIGatewayEvent, context: Context): Promise<APIGatewayProxyResult> => {
+    APIGatewayEvent: async (event: APIGatewayEvent, context: Context): Promise<APIGatewayProxyResult> => {
+        const { queryStringParameters } = event;
+
+        // handle challenge event
+        if (queryStringParameters?.['hub.mode'] === "subscribe" &&
+            queryStringParameters?.['hub.verify_token'] === config.whatsapp_verify_token &&
+            !!queryStringParameters?.['hub.challenge']) {
+            return {
+                statusCode: 200,
+                body: queryStringParameters?.['hub.challenge'],
+            };
+        } else {
+            return {
+                statusCode: 403,
+                body: 'bad request',
+            };
+        }
+    },
+    APIGatewayProxyEvent: async (event: APIGatewayProxyEvent, context: Context): Promise<APIGatewayProxyResult> => {
         const { queryStringParameters, headers, body } = event;
 
         // handle challenge event
