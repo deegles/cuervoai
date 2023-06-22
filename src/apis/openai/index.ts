@@ -15,7 +15,7 @@ export type OpenAiModels = 'text-davinci-003' | 'gpt-3.5-turbo';
 const completionConfig = (prompt: string, stop = '<|endoftext|>'): CreateCompletionRequest => ({
     "model": "text-davinci-003",
     prompt: `${prompt}${stop}`,
-    "max_tokens": 1024,
+    "max_tokens": 3072,
     "temperature": 0,
     "top_p": 1,
     "n": 1,
@@ -25,7 +25,7 @@ const completionConfig = (prompt: string, stop = '<|endoftext|>'): CreateComplet
 })
 
 const getCompletion = async (prompt: string): Promise<CreateCompletionResponse | null> => {
-    console.log('models: ', JSON.stringify((await openai.listModels()).data))
+    //console.log('models: ', JSON.stringify((await openai.listModels()).data))
     const response = await openai.createCompletion(completionConfig(prompt));
 
 
@@ -36,7 +36,7 @@ const getCompletion = async (prompt: string): Promise<CreateCompletionResponse |
 }
 
 const chatCompletionConfig: CreateChatCompletionRequest = {
-    model: 'gpt-3.5-turbo',
+    model: 'gpt-3.5-turbo-0613',
     temperature: .8,
     messages: []
 }
@@ -51,14 +51,15 @@ const getChatCompletion = async (messages: chatMessage[], configOverrides: Parti
     return new Promise((resolve, reject) => {
         const request = {
             ...chatCompletionConfig,
+            messages,
             ...configOverrides,
-            messages
         } as CreateChatCompletionRequest;
 
         openai.createChatCompletion(request).then((response) => {
+            console.log('got chat completion: ' + JSON.stringify(response?.data, null, 2))
             resolve(response?.data);
         }).catch(err => {
-            console.log('error with chat request: ', err)
+            console.log('error with chat request: ', err.response.data?.error)
             reject(err);
         })
     });

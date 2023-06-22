@@ -5,5 +5,6 @@ export const api_keys = {
 
 export const config = {
     openai_org: process.env.OPENAI_ORG_PROD,
-    whatsapp_verify_token: "659631c882fc11eda1eb0242ac120002"
+    whatsapp_verify_token: "659631c882fc11eda1eb0242ac120002",
+    mount_root: '/mnt/data'
 }
