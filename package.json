@@ -10,8 +10,10 @@
     "aws-lambda": "^1.0.7",
     "aws-sdk": "^2.1395.0",
     "aws-xray-sdk": "^3.5.0",
+    "bignumber.js": "^9.1.1",
     "node-fetch": "^3.3.0",
     "openai": "^3.3.0",
+    "stripe-event-types": "^2.3.0",
     "typescript": "^4.9.4"
   },
   "scripts": {

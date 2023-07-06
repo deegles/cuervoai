@@ -1,6 +1,7 @@
+/// <reference types="stripe-event-types" />
+import Stripe from 'stripe';
 import { Context, APIGatewayProxyResult, APIGatewayEvent, SQSEvent, SQSBatchResponse, SQSHandler, APIGatewayProxyEvent, APIGatewayProxyStructuredResultV2, SQSRecord, SQSBatchItemFailure } from 'aws-lambda';
 import { markAsRead, sendButtonMessage, sendInteractiveMessage, sendMessage } from './apis/whatsapp';
-import { eventIdentifiers, EventType, EventTypeLiterals, Metadata, Status, Value, WhatsAppEvent, MessageEvent, TextMessageEvent, MessageType, isWhatsappWebhook, Change, isTextMessage, InteractiveMessageEvent, isRejectedRecord, RejectedSQSRecordError, InteractiveMessageRequest } from './types';
 
 import { constants } from './resources';
 import { getChatCompletion, getCompletion } from './apis/openai';
@@ -12,10 +13,13 @@ import { createHash } from 'node:crypto'
 import { SendMessageBatchRequestEntry } from 'aws-sdk/clients/sqs';
 // const AWSXRay = require('aws-xray-sdk');
 import AWSXRay, { Segment, setSegment, TraceID, utils } from 'aws-xray-sdk';
-import { ChatCompletionFunctions, CreateChatCompletionRequest, CreateChatCompletionResponse } from 'openai';
+import { ChatCompletionFunctions, ChatCompletionRequestMessage, CreateChatCompletionRequest, CreateChatCompletionResponse } from 'openai';
 import { promisify } from 'node:util';
 import { F_OK } from 'constants';
-import { appendToFile, getFileJson, sha256 } from './resources/utils';
+import { appendToFile, getFileJson, moveFile, sha256, writeFileContent } from './resources/utils';
+import { ButtonReply, eventIdentifiers, EventType, EventTypeLiterals, InteractiveMessageEvent, InteractiveMessageRequest, isRejectedRecord, isWhatsappWebhook, Metadata, RejectedSQSRecordError, Status, TextMessageEvent, Value, WhatsAppEvent, MessageEvent } from './resources/types/types';
+import { isStripeEvent, StripeEvent, StripeEventEnvelope } from './resources/types/stripe/events';
+import { handleStripeEvent } from './handlers/stripe';
 
 
 // https://github.com/aws-samples/aws-xray-sdk-node-sample/blob/master/index.js
@@ -27,6 +31,10 @@ const sqs = new SQS()
 
 sqs.config.update({
     region: 'us-east-2',
+});
+
+const stripe = new Stripe(constants.api_keys.stripe_private, {
+    apiVersion: '2022-11-15'
 });
 
 // const sqsXray = AWSXRay.captureAWSClient(sqs);
@@ -41,6 +49,7 @@ interface UserData {
     timesCalled: number;
     setOfStrs: string[];
     total_tokens_openai: number;
+    free_trial_tokens: number;
 }
 
 
@@ -81,6 +90,7 @@ const eventHandlers: Record<EventTypeLiterals, any> = {
                 const parsed = JSON.parse(body);
                 const statuses: Status[] = [];
                 const messages: MessageEvent[] = [];
+                const stripeEvents: StripeEventEnvelope[] = []
 
                 if (isWhatsappWebhook(parsed)) {
                     parsed.entry.forEach(({ changes }) => {
@@ -96,17 +106,72 @@ const eventHandlers: Record<EventTypeLiterals, any> = {
                     });
                 }
 
-                const chunkSizeLimit = (256 * 1024); //- (236 * messages.length); // 256 KB max minus 236 bytes per message overhead
-                const chunks: MessageEvent[][] = [];
-                let currentChunkSize = 0;
-                let currentChunk: MessageEvent[] = [];
+                if (isStripeEvent(parsed)) {
+                    const signature = headers['Stripe-Signature'] || '';
 
-                console.log(`queueing ${messages.length} messages...`);
+                    try {
+                        const event = stripe.webhooks.constructEvent(
+                            body,
+                            signature,
+                            constants.api_keys.stripe_wh_secret
+                        ) as Stripe.DiscriminatedEvent;
+
+                        stripeEvents.push({ event: body, signature });
+                    } catch (err) {
+
+                        console.log('error verifying stripe event ' + err)
+                        return {
+                            statusCode: 403,
+                            body: 'bad event',
+                            isBase64Encoded: false,
+                            headers: {
+                                'Content-Type': 'text/plain'
+                            }
+                        };
+                    }
+                }
+
+                const chunkSizeLimit = (262144); //- (236 * messages.length); // 256 KB max minus 236 bytes per message overhead
+                const maxMessagesPerChunk = 10;
+                const chunks: any[][] = [];
+                let currentChunkSize = 0;
+                let currentChunk = [];
+
+                console.log(`queueing ${messages.length} messages and ${stripeEvents.length} stripe events......`);
 
                 for (const message of messages) {
                     const messageSize = Buffer.byteLength(JSON.stringify(message), 'utf8');
 
-                    if (currentChunkSize + messageSize > chunkSizeLimit) {
+                    if(messageSize > chunkSizeLimit) {
+                        console.log('unable to queue message, size exceeded: ' + JSON.stringify(message, null, 2));
+                        continue;
+                    }
+
+                    if (currentChunkSize + messageSize > chunkSizeLimit || currentChunk.length >= maxMessagesPerChunk) {
+                        chunks.push(currentChunk);
+                        currentChunk = [];
+                        currentChunkSize = 0;
+                    }
+                    currentChunk.push(message);
+                    currentChunkSize += messageSize;
+                }
+
+                if (currentChunk.length > 0) {
+                    chunks.push(currentChunk);
+                }
+
+                currentChunkSize = 0;
+                currentChunk = [];
+
+                for (const message of stripeEvents) {
+                    const messageSize = Buffer.byteLength(JSON.stringify(message), 'utf8');
+
+                    if(messageSize > chunkSizeLimit) {
+                        console.log('unable to queue message, size exceeded: ' + JSON.stringify(message, null, 2));
+                        continue;
+                    }
+                    
+                    if (currentChunkSize + messageSize > chunkSizeLimit || currentChunk.length >= maxMessagesPerChunk) {
                         chunks.push(currentChunk);
                         currentChunk = [];
                         currentChunkSize = 0;
@@ -295,12 +360,17 @@ const eventHandlers: Record<EventTypeLiterals, any> = {
 
         const { from, interactive, id, context, type } = message;
 
-        const path: string[] = [constants.config.mount_root, from, 'messages', `${context?.id}.json`];
+        //const path: string[] = [constants.config.mount_root, from, 'messages', `${context?.id}.json`];
 
         let text = ''
         if (interactive.button_reply) {
             const { id, title } = interactive.button_reply;
             text = title;
+
+            if (id === 'endChat') {
+                await moveFile(getChatPath(from), getChatHistoryPath(from));
+                await sendMessage(message.from, `Your chat is reset, please start a new conversation.`)
+            }
 
         } else if (interactive.list_reply) {
             const { id, title } = interactive.list_reply;
@@ -308,15 +378,27 @@ const eventHandlers: Record<EventTypeLiterals, any> = {
         }
 
         try {
-            const wam = await getFileJson<InteractiveMessageRequest>(path);
-            await sendMessage(from, `selected: ${text}`)
+            // const wams = await getFileJson<InteractiveMessageRequest>(path);
+            //await sendMessage(from, `selected: ${text}`)
             await markAsRead(id);
         } catch (err: any) {
             if (err.code === -2) {
-                await sendMessage(from, `could not find: ${path}`)
+                // await sendMessage(from, `could not find: ${path}`)
             }
         }
     },
+    StripeEvent: async (event: StripeEvent, lambdaContext: Context, params: { value: Value, traceId?: string }): Promise<void> => {
+        await handleStripeEvent(event);
+    },
+    StripeEventEnvelope: async ({ event, signature }: StripeEventEnvelope, lambdaContext: Context, params: { value: Value, traceId?: string }): Promise<void> => {
+        const parsed = stripe.webhooks.constructEvent(
+            event,
+            signature,
+            constants.api_keys.stripe_wh_secret
+        ) as Stripe.DiscriminatedEvent;
+
+        await handleStripeEvent(parsed);
+    }
 };
 
 export const handler = async (event: EventType, context: Context): Promise<any> => {
@@ -339,13 +421,13 @@ async function routeEvent(event: EventType, context: Context, params: any = {}) 
     throw new Error('No event handler found for event\n' + JSON.stringify(event, null, 2) + '\n' + JSON.stringify(context, null, 2));
 }
 
-type MessageIntentTypes = 'chat' | 'chat_end' | 'single_task_text' | 'help' | 'unknown'; // rename to one_shot_task or similar
+type MessageIntentTypes = 'chat_start' | 'chat_end' | 'single_task_text' | 'help' | 'unknown'; // rename to one_shot_task or similar
 
 type MessageIntentsMap = { [key in MessageIntentTypes]: { descriptions: string[] } };
 
 // a map of intents we expect to handle and sample phrases that should trigger them
 const messageIntents: MessageIntentsMap = {
-    chat: { descriptions: ['a message that could be the start of a chat or part of an ongoing chat'] },
+    chat_start: { descriptions: ['a message that could be the start of a chat or part of an ongoing chat'] },
     chat_end: { descriptions: ['trying to end the chat'] },
     single_task_text: { descriptions: ['trying to complete a specific task with a given text', 'a direct question about a subject'] },
     help: { descriptions: ['trying to ask for help about the bot', 'not understanding what to do'] },
@@ -407,6 +489,13 @@ async function getMessageIntent(message: TextMessageEvent): Promise<CreateChatCo
     return response;
 }
 
+const getChatPath = (from: string): string[] => ([constants.config.mount_root, from, 'current_chat.json']);
+const getChatHistoryPath = (from: string): string[] => ([constants.config.mount_root, from, 'chat_history', `${new Date().toISOString()}.json`]);
+
+const systemMessage: ChatCompletionRequestMessage = {
+    role: 'system',
+    content: "You are a helpful assistant named Cuervo AI. do your best to predict what the user needs and feel free to suggest better ways to prompt you to get what they seem to need. Always answer in the primary language of the user (excluding text that they need translated)."
+}
 
 async function handleTextMessage(message: TextMessageEvent, traceId?: string): Promise<void> {
     try {
@@ -415,18 +504,46 @@ async function handleTextMessage(message: TextMessageEvent, traceId?: string): P
         const table: DynamoDBItem<Partial<UserData>> = { tableName: 'UserData', primaryKey: message.from, primaryKeyName: 'id' };
         const userData = new DynamoItemDAL<UserData>(table);
 
+        const numMessages = await userData.incrementCounter('timesCalled') || 0;
+
+        let tokens = await userData.getItem('free_trial_tokens') || 0;
+
+        if (!tokens || numMessages <= 1) {
+            await userData.incrementCounter('free_trial_tokens', 75000);
+            tokens = 75000;
+        }
+
+        if (tokens <= 0) {
+            console.log(`${message.from} has depleted tokens`)
+            await sendMessage(message.from, `you are out of free tokens! please try again later`)
+            return;
+        }
+
+        const chatPath = getChatPath(message.from);
+
+        const chatMessages = await getFileJson<ChatCompletionRequestMessage>(chatPath);
+
+        const messageEvent: ChatCompletionRequestMessage = {
+            role: 'user',
+            content: message.text.body,
+        };
+
+        if (chatMessages.length === 0) {
+            chatMessages.push(systemMessage)
+            chatMessages.push(messageEvent)
+
+            const data = chatMessages.map(cm => JSON.stringify(cm)).join('\n');
+            await writeFileContent(chatPath, `${data}\n`);
+        } else {
+            chatMessages.push(messageEvent)
+            await appendToFile(chatPath, JSON.stringify(messageEvent));
+        }
+
         promises.push(userData.updateItem('waid', message.from));
         promises.push(userData.incrementCounter('timesCalled'));
         //promises.push(appendToFile(`${message.from}/chat.txt`, `${message.from}: ${message.text.body}\n`))
 
         let to = message.from;
-
-        // let response =  `echoing: ${message.text.body}`;
-
-        // // reply
-        // if(message.context) {
-        //     response = `this is a reply to ${message.text.body}`;
-        // }
 
         const response = await getMessageIntent(message);
 
@@ -436,37 +553,68 @@ async function handleTextMessage(message: TextMessageEvent, traceId?: string): P
 
         const choice = response?.choices[0];
 
-        // const counter = await userData.incrementCounter('total_tokens_openai', response?.usage?.total_tokens || 0) as number;
+        const counter = await userData.incrementCounter('total_tokens_openai', response?.usage?.total_tokens || 0) as number;
 
         if (choice && choice.message?.function_call?.name === 'identify_intent') {
             const args = JSON.parse(choice.message?.function_call.arguments || '{}'); // TODO: type this
             const lang = args?.language_tag || 'en'; // TODO: use configurable language
 
             // handle single task intent
-            if (args?.intent === 'single_task_text') {
-               promises.push(new Promise<void>(async (resolve, reject) => {
+            if (args?.intent === 'single_task_text' || args?.intent === 'chat_start' || args?.intent === 'unknown') {
+                promises.push(new Promise<void>(async (resolve, reject) => {
                     try {
-                        const completion = await getChatCompletion([{
-                            content: message.text.body,
-                            role: 'user',
-                            name: message.from
-                        }]);
+                        const messagePromises: Promise<any>[] = [markAsRead(message.id)];
 
-                        const text = completion?.choices?.map(({ message }) => message?.content).join(' ') || 'no response!';
+                        // TODO: implement 'we're working on it' message for in progress message
+                        const completion = await getChatCompletion(chatMessages, { user: message.from });
 
-                        await sendMessage(to, `${text} \n tokens used: ${completion?.usage?.total_tokens}`);
-                        await markAsRead(message.id);
-                       resolve();
+                        const content = completion?.choices?.map(({ message }) => message?.content).join(' ') || 'no response!';
+
+                        messagePromises.push(userData.incrementCounter('total_tokens_openai', completion?.usage?.total_tokens || 0));
+                        messagePromises.push(userData.incrementCounter('free_trial_tokens', (completion?.usage?.total_tokens || 0) * -1));
+
+                        const messageResponse: ChatCompletionRequestMessage = {
+                            role: 'assistant',
+                            content
+                        };
+
+                        if (chatMessages.length % 3 === 0) {
+                            const text = `${content}`;
+
+                            const buttons: ButtonReply[] = [{
+                                "type": "reply",
+                                "reply": {
+                                    "id": "endChat", // TODO: type this
+                                    "title": "end chat"
+                                }
+                            }];
+
+                            messagePromises.push(sendButtonMessage(to, text, buttons));
+                        } else {
+                            messagePromises.push(sendMessage(to, `${content}`));
+                        }
+
+                        await appendToFile(chatPath, JSON.stringify(messageResponse));
+                        const settled = await Promise.allSettled(messagePromises);
+
+
+                        const errors = settled.filter(({ status }) => status === 'rejected').map((result: PromiseSettledResult<any>) => JSON.stringify(result, null, 2)).join(',\n');
+
+                        if (errors.length > 0) {
+                            console.log('errors handling message: ' + errors);
+                        }
+                        resolve();
                     } catch (err) {
                         console.log('err ' + err)
-                       reject(err);
+                        reject(err);
                     }
-              }))
+                }))
+            } else if (args?.intent === 'help') {
+                await sendMessage(message.from, `Cuervo AI is your personal digital assistant. Try asking me for translations, correcting text, or to brainstorm ideas. New features coming soon.`)
+            } else if (args?.intent === 'chat_end') {
+                await moveFile(chatPath, getChatHistoryPath(message.from));
+                await sendMessage(message.from, `Your chat is reset, please start a new conversation.`)
             }
-            // handle possible chat request
-
-            // handle help request
-
         }
 
 
@@ -484,7 +632,6 @@ async function handleTextMessage(message: TextMessageEvent, traceId?: string): P
 
         // TODO: handle response size greater than 4096 characters
         // promises.push(sendMessage(to, `${text} \n tokens used: ${response?.usage?.total_tokens}, total: ${counter}`));
-        promises.push(userData.incrementCounter('timesCalled'))
 
         console.log(await Promise.allSettled(promises))
 
@@ -500,9 +647,7 @@ async function handleUnknownMessage(message: MessageEvent, value: Value): Promis
 
 async function handleStatusChange(status: Status, metadata: Metadata): Promise<void> {
     console.log('status not implemented');
-
 }
-
 
 async function handleInteractiveSelection(message: MessageEvent, value: Value): Promise<void> {
     console.log('interactive not implemented');

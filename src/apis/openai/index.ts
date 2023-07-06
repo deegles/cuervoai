@@ -1,4 +1,4 @@
-import { Configuration, CreateChatCompletionRequest, CreateChatCompletionResponse, CreateCompletionRequest, CreateCompletionResponse, OpenAIApi } from "openai";
+import { ChatCompletionRequestMessage, Configuration, CreateChatCompletionRequest, CreateChatCompletionResponse, CreateCompletionRequest, CreateCompletionResponse, OpenAIApi } from "openai";
 import { constants } from "../../resources";
 
 const { config, api_keys } = constants;
@@ -41,19 +41,15 @@ const chatCompletionConfig: CreateChatCompletionRequest = {
     messages: []
 }
 
-export interface chatMessage {
-    "role": "assistant" | "system" | 'user';
-    "content": string;
-    name?: string // The name of the author of this message. May contain a-z, A-Z, 0-9, and underscores, with a maximum length of 64 characters.
-}
-
-const getChatCompletion = async (messages: chatMessage[], configOverrides: Partial<CreateCompletionRequest> = {}): Promise<CreateChatCompletionResponse | null> => {
+const getChatCompletion = async (messages: ChatCompletionRequestMessage[], configOverrides: Partial<CreateCompletionRequest> = {}): Promise<CreateChatCompletionResponse | null> => {
     return new Promise((resolve, reject) => {
         const request = {
             ...chatCompletionConfig,
             messages,
             ...configOverrides,
         } as CreateChatCompletionRequest;
+
+        console.log('getting chat with: ' + JSON.stringify(request, null, 2))
 
         openai.createChatCompletion(request).then((response) => {
             console.log('got chat completion: ' + JSON.stringify(response?.data, null, 2))

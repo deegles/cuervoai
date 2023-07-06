@@ -1,7 +1,8 @@
 import { constants } from "../../resources";
 import fetch from "node-fetch";
 import { appendToFile } from "../../resources/utils";
-import { InteractiveButton, InteractiveMessageRequest } from "../../types";
+import { ButtonReply, InteractiveButton, InteractiveMessageRequest } from "../../resources/types/types";
+import { GetSubscriptionActivatedRequestMX, GetSubscriptionActivatedRequestUS } from "../../resources/types/whatsapp/requests";
 
 const { api_keys } = constants;
 
@@ -23,9 +24,7 @@ const markAsRead: (message_id: string, phone_number_id?: string) => Promise<bool
     try {
       const url = `https://graph.facebook.com/v17.0/${phone_number_id}/messages`
       const result = await (await fetch(url, markAsReadOptions(message_id))).json();
-      console.log('mark as read result: ' + JSON.stringify(result, null, 2));
       resolve(!!(result as unknown as any)?.success)
-
     } catch (e) {
       console.log(e);
       reject(false)
@@ -93,6 +92,26 @@ interface SendMessageResult {
   ];
 }
 
+const sendMessageTemplateOptions = (body: string) => ({
+  method: 'POST',
+  headers: {
+    'Authorization': `Bearer ${api_keys.whatsapp}`,
+    'Content-Type': 'application/json'
+  },
+  body
+})
+
+export async function sendSubscriptionActivatedTemplate(to: string, phone_number_id: string = '101522546303093'): Promise<{ wa_id: string; id: string; }> {
+  const subscriptionActivatedRequest = JSON.stringify(GetSubscriptionActivatedRequestUS(to));
+  const url = `https://graph.facebook.com/v17.0/${phone_number_id}/messages`
+
+  const result = await (await fetch(url, sendMessageTemplateOptions(subscriptionActivatedRequest))).json() as SendMessageResult;
+  console.log('send message result: ' + JSON.stringify(result, null, 2) + ' request:' + JSON.stringify(subscriptionActivatedRequest));
+  await saveMessageResult(subscriptionActivatedRequest, result);
+  return { id: result?.messages[0].id, wa_id: result.contacts[0].wa_id }
+
+}
+
 async function saveMessageResult(body: string, result: SendMessageResult) {
   const { contacts, messages } = result
 
@@ -103,7 +122,7 @@ async function saveMessageResult(body: string, result: SendMessageResult) {
     throw new Error(`missing wa_id or wamid: ${wa_id} ${wam_id}`);
   }
 
-  const path: string[] = [constants.config.mount_root, wa_id, 'messages',`${wam_id}.json`];
+  const path: string[] = [constants.config.mount_root, wa_id, 'messages', `${wam_id}.json`];
 
   await appendToFile(path, `${body}\n`);
 }
@@ -186,38 +205,23 @@ const sendInteractiveMessage: (to: string, message: string, phone_number_id?: st
   const url = `https://graph.facebook.com/v17.0/${phone_number_id}/messages`
 
   const sendMessageRequest = sendInteractiveMessageOptions(to, message);
-  const result = await (await fetch(url,sendMessageRequest)).json() as SendMessageResult;
+  const result = await (await fetch(url, sendMessageRequest)).json() as SendMessageResult;
 
   // console.log('send interactive result:' + JSON.stringify(result, null, 2));
   await saveMessageResult(sendMessageRequest.body, result);
   return (result as unknown as any)?.messages?.length > 0
 }
 
-const sendButtonMessage = async (to: string, phone_number_id: string = '101522546303093') => { 
+const sendButtonMessage = async (to: string, text: string, buttons: ButtonReply[], phone_number_id: string = '101522546303093') => {
   const url = `https://graph.facebook.com/v17.0/${phone_number_id}/messages`
 
   const button: InteractiveButton = {
     type: 'button',
     body: {
-      text: 'Begin chat'
+      text
     },
     action: {
-      buttons: [
-        // {
-        //   "type": "reply",
-        //   "reply": {
-        //     "id": "abc123",
-        //     "title": "chat"
-        //   }
-        // },
-        // {
-        //   "type": "reply",
-        //   "reply": {
-        //     "id": "abc124",
-        //     "title": "magic"
-        //   }
-        // }
-      ]
+      buttons
     }
   }
 
@@ -229,13 +233,14 @@ const sendButtonMessage = async (to: string, phone_number_id: string = '10152254
     interactive: button
   }
 
-  const sendRequest = {method: 'POST',
-  headers: {
-    'Authorization': `Bearer ${api_keys.whatsapp}`,
-    'Content-Type': 'application/json'
-  },
-  body: JSON.stringify(body)
-}
+  const sendRequest = {
+    method: 'POST',
+    headers: {
+      'Authorization': `Bearer ${api_keys.whatsapp}`,
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(body)
+  }
 
   const result = await (await fetch(url, sendRequest)).json() as SendMessageResult;
   // console.log('send button result:' + JSON.stringify(result, null, 2));

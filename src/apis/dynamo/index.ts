@@ -31,7 +31,7 @@ export class DynamoItemDAL<T> {
         })
     }
 
-    async getItem<T>(attributeName: keyof T): Promise<T[keyof T] | null> {
+    async getItem(attributeName: keyof T): Promise<T[keyof T] | null> {
         const params = {
             TableName: this.tableName,
             Key: {
@@ -62,41 +62,36 @@ export class DynamoItemDAL<T> {
             },
             ReturnValues: "NONE"
         };
-
+    
         try {
             await docClient.update(attributeParams).promise();
             return null;
         } catch (error: any) {
-
             if(error?.statusCode === 400 && error?.code === 'ValidationException') {
                 await this.sleep(parseFloat(error?.retryDelay || '10') || 10);
                 
                 const itemParams = {
                     ...attributeParams,
-                    UpdateExpression: 'SET #a = :value',
-                    ConditionExpression: 'attribute_not_exists(#a)',
+                    UpdateExpression: `set d = if_not_exists(d, :emptyMap)`,
                     ExpressionAttributeValues: {
-                        ":value": {
-                            [String(attributeName)]: newValue
-                        },
+                        ":emptyMap": {},
+                        ":v": newValue
                     },
-                    ExpressionAttributeNames: {
-                        '#a': 'd'
-                    }
                 };
-
+    
                 try{
                     await docClient.update(itemParams).promise();
+                    return null;
                 } catch(err) {
                     console.error("Unable to create item. Error: ", error);
+                    throw err;
                 }
             }
             console.error("Unable to update item. Error: ", error);
-
-            
-            return null;
+            throw error;
         }
     }
+    
 
     async incrementCounter(attributeName: keyof T, incrementValue: number = 1): Promise<number | null> {
         const attributeParams = {
