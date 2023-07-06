@@ -1,0 +1,3930 @@
+message
+"2023-06-30T06:16:54.046Z	c7682090-a8c5-46b1-bedd-4fb23ffb35f3	INFO	Event: {
+  ""resource"": ""/webhooks"",
+  ""path"": ""/webhooks"",
+  ""httpMethod"": ""POST"",
+  ""headers"": {
+    ""Accept"": ""*/*; q=0.5, application/xml"",
+    ""Cache-Control"": ""no-cache"",
+    ""CloudFront-Forwarded-Proto"": ""https"",
+    ""CloudFront-Is-Desktop-Viewer"": ""true"",
+    ""CloudFront-Is-Mobile-Viewer"": ""false"",
+    ""CloudFront-Is-SmartTV-Viewer"": ""false"",
+    ""CloudFront-Is-Tablet-Viewer"": ""false"",
+    ""CloudFront-Viewer-ASN"": ""16509"",
+    ""CloudFront-Viewer-Country"": ""US"",
+    ""Content-Type"": ""application/json; charset=utf-8"",
+    ""Host"": ""bsgf1dpgt1.execute-api.us-east-2.amazonaws.com"",
+    ""Stripe-Signature"": ""t=1688105812,v1=f787bc60e86daaaf37f6639ba79add857139676fc109781048332b6f4361c50e,v0=d7b76188db7fe72238658cb0dc46d2a4bdb1823cebf06b4ef487f5a50c520ac6"",
+    ""User-Agent"": ""Stripe/1.0 (+https://stripe.com/docs/webhooks)"",
+    ""Via"": ""1.1 e39f48cc8f516dc1072afdb086c71f32.cloudfront.net (CloudFront)"",
+    ""X-Amz-Cf-Id"": ""Ceey48TfikLMCBL_50MTdKezBmE38EswZAeMlAxItSkoNaWG5Xz9uA=="",
+    ""X-Amzn-Trace-Id"": ""Root=1-649e7354-43367b142788fc7c0425a82c"",
+    ""X-Forwarded-For"": ""54.187.174.169, 15.158.54.47"",
+    ""X-Forwarded-Port"": ""443"",
+    ""X-Forwarded-Proto"": ""https""
+  },
+  ""multiValueHeaders"": {
+    ""Accept"": [
+      ""*/*; q=0.5, application/xml""
+    ],
+    ""Cache-Control"": [
+      ""no-cache""
+    ],
+    ""CloudFront-Forwarded-Proto"": [
+      ""https""
+    ],
+    ""CloudFront-Is-Desktop-Viewer"": [
+      ""true""
+    ],
+    ""CloudFront-Is-Mobile-Viewer"": [
+      ""false""
+    ],
+    ""CloudFront-Is-SmartTV-Viewer"": [
+      ""false""
+    ],
+    ""CloudFront-Is-Tablet-Viewer"": [
+      ""false""
+    ],
+    ""CloudFront-Viewer-ASN"": [
+      ""16509""
+    ],
+    ""CloudFront-Viewer-Country"": [
+      ""US""
+    ],
+    ""Content-Type"": [
+      ""application/json; charset=utf-8""
+    ],
+    ""Host"": [
+      ""bsgf1dpgt1.execute-api.us-east-2.amazonaws.com""
+    ],
+    ""Stripe-Signature"": [
+      ""t=1688105812,v1=f787bc60e86daaaf37f6639ba79add857139676fc109781048332b6f4361c50e,v0=d7b76188db7fe72238658cb0dc46d2a4bdb1823cebf06b4ef487f5a50c520ac6""
+    ],
+    ""User-Agent"": [
+      ""Stripe/1.0 (+https://stripe.com/docs/webhooks)""
+    ],
+    ""Via"": [
+      ""1.1 e39f48cc8f516dc1072afdb086c71f32.cloudfront.net (CloudFront)""
+    ],
+    ""X-Amz-Cf-Id"": [
+      ""Ceey48TfikLMCBL_50MTdKezBmE38EswZAeMlAxItSkoNaWG5Xz9uA==""
+    ],
+    ""X-Amzn-Trace-Id"": [
+      ""Root=1-649e7354-43367b142788fc7c0425a82c""
+    ],
+    ""X-Forwarded-For"": [
+      ""54.187.174.169, 15.158.54.47""
+    ],
+    ""X-Forwarded-Port"": [
+      ""443""
+    ],
+    ""X-Forwarded-Proto"": [
+      ""https""
+    ]
+  },
+  ""queryStringParameters"": null,
+  ""multiValueQueryStringParameters"": null,
+  ""pathParameters"": null,
+  ""stageVariables"": null,
+  ""requestContext"": {
+    ""resourceId"": ""e5lf6p"",
+    ""resourcePath"": ""/webhooks"",
+    ""httpMethod"": ""POST"",
+    ""extendedRequestId"": ""HUb1SFCBCYcFrjA="",
+    ""requestTime"": ""30/Jun/2023:06:16:52 +0000"",
+    ""path"": ""/webhooks/webhooks"",
+    ""accountId"": ""653625749031"",
+    ""protocol"": ""HTTP/1.1"",
+    ""stage"": ""webhooks"",
+    ""domainPrefix"": ""bsgf1dpgt1"",
+    ""requestTimeEpoch"": 1688105812772,
+    ""requestId"": ""2e49f35a-85c2-43a0-8ee4-0fb0030f777b"",
+    ""identity"": {
+      ""cognitoIdentityPoolId"": null,
+      ""accountId"": null,
+      ""cognitoIdentityId"": null,
+      ""caller"": null,
+      ""sourceIp"": ""54.187.174.169"",
+      ""principalOrgId"": null,
+      ""accessKey"": null,
+      ""cognitoAuthenticationType"": null,
+      ""cognitoAuthenticationProvider"": null,
+      ""userArn"": null,
+      ""userAgent"": ""Stripe/1.0 (+https://stripe.com/docs/webhooks)"",
+      ""user"": null
+    },
+    ""domainName"": ""bsgf1dpgt1.execute-api.us-east-2.amazonaws.com"",
+    ""apiId"": ""bsgf1dpgt1""
+  },
+  ""body"": ""{
+  \""id\"": \""evt_1NOadUFTufv5jJIdIsYDHlEg\"",
+  \""object\"": \""event\"",
+  \""api_version\"": \""2022-11-15\"",
+  \""created\"": 1688105812,
+  \""data\"": {
+    \""object\"": {
+      \""id\"": \""bpc_1NOadUFTufv5jJIdf9bjeJne\"",
+      \""object\"": \""billing_portal.configuration\"",
+      \""active\"": true,
+      \""application\"": null,
+      \""business_profile\"": {
+        \""headline\"": null,
+        \""privacy_policy_url\"": null,
+        \""terms_of_service_url\"": null
+      },
+      \""created\"": 1688105812,
+      \""default_return_url\"": null,
+      \""features\"": {
+        \""customer_update\"": {
+          \""allowed_updates\"": [
+            \""name\"",
+            \""email\"",
+            \""address\"",
+            \""phone\""
+          ],
+          \""enabled\"": true
+        },
+        \""invoice_history\"": {
+          \""enabled\"": true
+        },
+        \""payment_method_update\"": {
+          \""enabled\"": true
+        },
+        \""subscription_cancel\"": {
+          \""cancellation_reason\"": {
+            \""enabled\"": true,
+            \""options\"": [
+              \""too_expensive\"",
+              \""switched_service\"",
+              \""unused\"",
+              \""other\""
+            ]
+          },
+          \""enabled\"": true,
+          \""mode\"": \""at_period_end\"",
+          \""proration_behavior\"": \""none\""
+        },
+        \""subscription_pause\"": {
+          \""enabled\"": false
+        },
+        \""subscription_update\"": {
+          \""default_allowed_updates\"": [
+            \""price\""
+          ],
+          \""enabled\"": true,
+          \""proration_behavior\"": \""always_invoice\""
+        }
+      },
+      \""is_default\"": true,
+      \""livemode\"": false,
+      \""login_page\"": {
+        \""enabled\"": true,
+        \""url\"": \""https://billing.stripe.com/p/login/test_9AQ7u06LUet31aM6oo\""
+      },
+      \""metadata\"": {
+      },
+      \""updated\"": 1688105812
+    }
+  },
+  \""livemode\"": false,
+  \""pending_webhooks\"": 3,
+  \""request\"": {
+    \""id\"": \""req_rHjkN4u7QLwW69\"",
+    \""idempotency_key\"": \""a26e989b-6bf7-4428-aa02-d7ea3332ff8a\""
+  },
+  \""type\"": \""billing_portal.configuration.created\""
+}"",
+  ""isBase64Encoded"": false
+}
+"
+"2023-06-30T06:20:16.986Z	63f96519-f529-4e20-bb32-be04e7fd1c6d	INFO	Event: {
+  ""resource"": ""/webhooks"",
+  ""path"": ""/webhooks"",
+  ""httpMethod"": ""POST"",
+  ""headers"": {
+    ""Accept"": ""*/*; q=0.5, application/xml"",
+    ""Cache-Control"": ""no-cache"",
+    ""CloudFront-Forwarded-Proto"": ""https"",
+    ""CloudFront-Is-Desktop-Viewer"": ""true"",
+    ""CloudFront-Is-Mobile-Viewer"": ""false"",
+    ""CloudFront-Is-SmartTV-Viewer"": ""false"",
+    ""CloudFront-Is-Tablet-Viewer"": ""false"",
+    ""CloudFront-Viewer-ASN"": ""16509"",
+    ""CloudFront-Viewer-Country"": ""US"",
+    ""Content-Type"": ""application/json; charset=utf-8"",
+    ""Host"": ""bsgf1dpgt1.execute-api.us-east-2.amazonaws.com"",
+    ""Stripe-Signature"": ""t=1688106016,v1=432080abd355bb71daa16ba304110b058616c039c9d3fbd817e95aaa80cece64,v0=f8adcfd5a477fc1645cac1255088f14c180606acbe8262d14ca3606cd18f98e9"",
+    ""User-Agent"": ""Stripe/1.0 (+https://stripe.com/docs/webhooks)"",
+    ""Via"": ""1.1 f3802d173009698413044360f84de06c.cloudfront.net (CloudFront)"",
+    ""X-Amz-Cf-Id"": ""eOh511Fg1q1zaHu8B8-gw-qY2ZYCUrQAIQbWhlqid4Pads3-lPN1HA=="",
+    ""X-Amzn-Trace-Id"": ""Root=1-649e7420-1e5e563b683cbe6d25e22b15"",
+    ""X-Forwarded-For"": ""54.187.174.169, 15.158.54.47"",
+    ""X-Forwarded-Port"": ""443"",
+    ""X-Forwarded-Proto"": ""https""
+  },
+  ""multiValueHeaders"": {
+    ""Accept"": [
+      ""*/*; q=0.5, application/xml""
+    ],
+    ""Cache-Control"": [
+      ""no-cache""
+    ],
+    ""CloudFront-Forwarded-Proto"": [
+      ""https""
+    ],
+    ""CloudFront-Is-Desktop-Viewer"": [
+      ""true""
+    ],
+    ""CloudFront-Is-Mobile-Viewer"": [
+      ""false""
+    ],
+    ""CloudFront-Is-SmartTV-Viewer"": [
+      ""false""
+    ],
+    ""CloudFront-Is-Tablet-Viewer"": [
+      ""false""
+    ],
+    ""CloudFront-Viewer-ASN"": [
+      ""16509""
+    ],
+    ""CloudFront-Viewer-Country"": [
+      ""US""
+    ],
+    ""Content-Type"": [
+      ""application/json; charset=utf-8""
+    ],
+    ""Host"": [
+      ""bsgf1dpgt1.execute-api.us-east-2.amazonaws.com""
+    ],
+    ""Stripe-Signature"": [
+      ""t=1688106016,v1=432080abd355bb71daa16ba304110b058616c039c9d3fbd817e95aaa80cece64,v0=f8adcfd5a477fc1645cac1255088f14c180606acbe8262d14ca3606cd18f98e9""
+    ],
+    ""User-Agent"": [
+      ""Stripe/1.0 (+https://stripe.com/docs/webhooks)""
+    ],
+    ""Via"": [
+      ""1.1 f3802d173009698413044360f84de06c.cloudfront.net (CloudFront)""
+    ],
+    ""X-Amz-Cf-Id"": [
+      ""eOh511Fg1q1zaHu8B8-gw-qY2ZYCUrQAIQbWhlqid4Pads3-lPN1HA==""
+    ],
+    ""X-Amzn-Trace-Id"": [
+      ""Root=1-649e7420-1e5e563b683cbe6d25e22b15""
+    ],
+    ""X-Forwarded-For"": [
+      ""54.187.174.169, 15.158.54.47""
+    ],
+    ""X-Forwarded-Port"": [
+      ""443""
+    ],
+    ""X-Forwarded-Proto"": [
+      ""https""
+    ]
+  },
+  ""queryStringParameters"": null,
+  ""multiValueQueryStringParameters"": null,
+  ""pathParameters"": null,
+  ""stageVariables"": null,
+  ""requestContext"": {
+    ""resourceId"": ""e5lf6p"",
+    ""resourcePath"": ""/webhooks"",
+    ""httpMethod"": ""POST"",
+    ""extendedRequestId"": ""HUcVLEpNiYcF5og="",
+    ""requestTime"": ""30/Jun/2023:06:20:16 +0000"",
+    ""path"": ""/webhooks/webhooks"",
+    ""accountId"": ""653625749031"",
+    ""protocol"": ""HTTP/1.1"",
+    ""stage"": ""webhooks"",
+    ""domainPrefix"": ""bsgf1dpgt1"",
+    ""requestTimeEpoch"": 1688106016849,
+    ""requestId"": ""72855d01-0cdb-4565-bd2a-f91fb0970780"",
+    ""identity"": {
+      ""cognitoIdentityPoolId"": null,
+      ""accountId"": null,
+      ""cognitoIdentityId"": null,
+      ""caller"": null,
+      ""sourceIp"": ""54.187.174.169"",
+      ""principalOrgId"": null,
+      ""accessKey"": null,
+      ""cognitoAuthenticationType"": null,
+      ""cognitoAuthenticationProvider"": null,
+      ""userArn"": null,
+      ""userAgent"": ""Stripe/1.0 (+https://stripe.com/docs/webhooks)"",
+      ""user"": null
+    },
+    ""domainName"": ""bsgf1dpgt1.execute-api.us-east-2.amazonaws.com"",
+    ""apiId"": ""bsgf1dpgt1""
+  },
+  ""body"": ""{
+  \""id\"": \""evt_3NOagkFTufv5jJId1kX5aM0l\"",
+  \""object\"": \""event\"",
+  \""api_version\"": \""2022-11-15\"",
+  \""created\"": 1688106015,
+  \""data\"": {
+    \""object\"": {
+      \""id\"": \""ch_3NOagkFTufv5jJId1zEldpzj\"",
+      \""object\"": \""charge\"",
+      \""amount\"": 9900,
+      \""amount_captured\"": 9900,
+      \""amount_refunded\"": 0,
+      \""application\"": null,
+      \""application_fee\"": null,
+      \""application_fee_amount\"": null,
+      \""balance_transaction\"": \""txn_3NOagkFTufv5jJId1eJu6IAT\"",
+      \""billing_details\"": {
+        \""address\"": {
+          \""city\"": null,
+          \""country\"": \""MX\"",
+          \""line1\"": null,
+          \""line2\"": null,
+          \""postal_code\"": null,
+          \""state\"": null
+        },
+        \""email\"": \""test@cuervoai.com\"",
+        \""name\"": \""diego test\"",
+        \""phone\"": null
+      },
+      \""calculated_statement_descriptor\"": \""YOURBIT, LLC\"",
+      \""captured\"": true,
+      \""created\"": 1688106015,
+      \""currency\"": \""mxn\"",
+      \""customer\"": \""cus_OAwZcy606y2ntb\"",
+      \""description\"": \""Subscription creation\"",
+      \""destination\"": null,
+      \""dispute\"": null,
+      \""disputed\"": false,
+      \""failure_balance_transaction\"": null,
+      \""failure_code\"": null,
+      \""failure_message\"": null,
+      \""fraud_details\"": {
+      },
+      \""invoice\"": \""in_1NOagjFTufv5jJIdaaP6HUqf\"",
+      \""livemode\"": false,
+      \""metadata\"": {
+      },
+      \""on_behalf_of\"": null,
+      \""order\"": null,
+      \""outcome\"": {
+        \""network_status\"": \""approved_by_network\"",
+        \""reason\"": null,
+        \""risk_level\"": \""normal\"",
+        \""risk_score\"": 50,
+        \""seller_message\"": \""Payment complete.\"",
+        \""type\"": \""authorized\""
+      },
+      \""paid\"": true,
+      \""payment_intent\"": \""pi_3NOagkFTufv5jJId1rK0vBmI\"",
+      \""payment_method\"": \""pm_1NOagiFTufv5jJIdAHQQ44K5\"",
+      \""payment_method_details\"": {
+        \""card\"": {
+          \""brand\"": \""visa\"",
+          \""checks\"": {
+            \""address_line1_check\"": null,
+            \""address_postal_code_check\"": null,
+            \""cvc_check\"": \""pass\""
+          },
+          \""country\"": \""US\"",
+          \""exp_month\"": 1,
+          \""exp_year\"": 2024,
+          \""fingerprint\"": \""9lRkeKsPAhcUbM8O\"",
+          \""funding\"": \""credit\"",
+          \""installments\"": null,
+          \""last4\"": \""4242\"",
+          \""mandate\"": null,
+          \""network\"": \""visa\"",
+          \""network_token\"": {
+            \""used\"": false
+          },
+          \""three_d_secure\"": null,
+          \""wallet\"": null
+        },
+        \""type\"": \""card\""
+      },
+      \""receipt_email\"": null,
+      \""receipt_number\"": null,
+      \""receipt_url\"": \""https://pay.stripe.com/receipts/invoices/CAcaFwoVYWNjdF8xTG1LUXNGVHVmdjVqSklkKKDo-aQGMgZ6Aez7OaA6LBZiAkK-R5lJcItKfBXUnMMUww_f2o6Yk3dXfE_-Axlb9PSv2-yCDoeADNtc?s=ap\"",
+      \""refunded\"": false,
+      \""review\"": null,
+      \""shipping\"": null,
+      \""source\"": null,
+      \""source_transfer\"": null,
+      \""statement_descriptor\"": null,
+      \""statement_descriptor_suffix\"": null,
+      \""status\"": \""succeeded\"",
+      \""transfer_data\"": null,
+      \""transfer_group\"": null
+    }
+  },
+  \""livemode\"": false,
+  \""pending_webhooks\"": 3,
+  \""request\"": {
+    \""id\"": \""req_XrMsj4cg5H1C8S\"",
+    \""idempotency_key\"": \""0a1a9359-5b32-4ddf-828e-a8b639ab6139\""
+  },
+  \""type\"": \""charge.succeeded\""
+}"",
+  ""isBase64Encoded"": false
+}
+"
+"2023-06-30T06:20:17.026Z	9a46e2fc-db41-48a1-8322-47efd5a0e65f	INFO	Event: {
+  ""resource"": ""/webhooks"",
+  ""path"": ""/webhooks"",
+  ""httpMethod"": ""POST"",
+  ""headers"": {
+    ""Accept"": ""*/*; q=0.5, application/xml"",
+    ""Cache-Control"": ""no-cache"",
+    ""CloudFront-Forwarded-Proto"": ""https"",
+    ""CloudFront-Is-Desktop-Viewer"": ""true"",
+    ""CloudFront-Is-Mobile-Viewer"": ""false"",
+    ""CloudFront-Is-SmartTV-Viewer"": ""false"",
+    ""CloudFront-Is-Tablet-Viewer"": ""false"",
+    ""CloudFront-Viewer-ASN"": ""16509"",
+    ""CloudFront-Viewer-Country"": ""US"",
+    ""Content-Type"": ""application/json; charset=utf-8"",
+    ""Host"": ""bsgf1dpgt1.execute-api.us-east-2.amazonaws.com"",
+    ""Stripe-Signature"": ""t=1688106016,v1=ad2d04f741bea96aeb84a947877cb2713f423f4992abd01a173775769b7775d8,v0=84718f8e77ecb889d564483d8b30e7e7244e6da583de2a6596d337a99a020b64"",
+    ""User-Agent"": ""Stripe/1.0 (+https://stripe.com/docs/webhooks)"",
+    ""Via"": ""1.1 f193acd25f2604e189bfbfaf539aaa06.cloudfront.net (CloudFront)"",
+    ""X-Amz-Cf-Id"": ""OWQ4_beJ6bJEYrvGoLZq5J7SxDq8zbTpjE9DjVZzUW583MWvBO9hig=="",
+    ""X-Amzn-Trace-Id"": ""Root=1-649e7420-6098b0f46ea2149176701bd8"",
+    ""X-Forwarded-For"": ""54.187.174.169, 15.158.54.7"",
+    ""X-Forwarded-Port"": ""443"",
+    ""X-Forwarded-Proto"": ""https""
+  },
+  ""multiValueHeaders"": {
+    ""Accept"": [
+      ""*/*; q=0.5, application/xml""
+    ],
+    ""Cache-Control"": [
+      ""no-cache""
+    ],
+    ""CloudFront-Forwarded-Proto"": [
+      ""https""
+    ],
+    ""CloudFront-Is-Desktop-Viewer"": [
+      ""true""
+    ],
+    ""CloudFront-Is-Mobile-Viewer"": [
+      ""false""
+    ],
+    ""CloudFront-Is-SmartTV-Viewer"": [
+      ""false""
+    ],
+    ""CloudFront-Is-Tablet-Viewer"": [
+      ""false""
+    ],
+    ""CloudFront-Viewer-ASN"": [
+      ""16509""
+    ],
+    ""CloudFront-Viewer-Country"": [
+      ""US""
+    ],
+    ""Content-Type"": [
+      ""application/json; charset=utf-8""
+    ],
+    ""Host"": [
+      ""bsgf1dpgt1.execute-api.us-east-2.amazonaws.com""
+    ],
+    ""Stripe-Signature"": [
+      ""t=1688106016,v1=ad2d04f741bea96aeb84a947877cb2713f423f4992abd01a173775769b7775d8,v0=84718f8e77ecb889d564483d8b30e7e7244e6da583de2a6596d337a99a020b64""
+    ],
+    ""User-Agent"": [
+      ""Stripe/1.0 (+https://stripe.com/docs/webhooks)""
+    ],
+    ""Via"": [
+      ""1.1 f193acd25f2604e189bfbfaf539aaa06.cloudfront.net (CloudFront)""
+    ],
+    ""X-Amz-Cf-Id"": [
+      ""OWQ4_beJ6bJEYrvGoLZq5J7SxDq8zbTpjE9DjVZzUW583MWvBO9hig==""
+    ],
+    ""X-Amzn-Trace-Id"": [
+      ""Root=1-649e7420-6098b0f46ea2149176701bd8""
+    ],
+    ""X-Forwarded-For"": [
+      ""54.187.174.169, 15.158.54.7""
+    ],
+    ""X-Forwarded-Port"": [
+      ""443""
+    ],
+    ""X-Forwarded-Proto"": [
+      ""https""
+    ]
+  },
+  ""queryStringParameters"": null,
+  ""multiValueQueryStringParameters"": null,
+  ""pathParameters"": null,
+  ""stageVariables"": null,
+  ""requestContext"": {
+    ""resourceId"": ""e5lf6p"",
+    ""resourcePath"": ""/webhooks"",
+    ""httpMethod"": ""POST"",
+    ""extendedRequestId"": ""HUcVMH7HiYcFhwA="",
+    ""requestTime"": ""30/Jun/2023:06:20:16 +0000"",
+    ""path"": ""/webhooks/webhooks"",
+    ""accountId"": ""653625749031"",
+    ""protocol"": ""HTTP/1.1"",
+    ""stage"": ""webhooks"",
+    ""domainPrefix"": ""bsgf1dpgt1"",
+    ""requestTimeEpoch"": 1688106016902,
+    ""requestId"": ""b5895822-e76c-4da0-8b0e-47b6526ac6cd"",
+    ""identity"": {
+      ""cognitoIdentityPoolId"": null,
+      ""accountId"": null,
+      ""cognitoIdentityId"": null,
+      ""caller"": null,
+      ""sourceIp"": ""54.187.174.169"",
+      ""principalOrgId"": null,
+      ""accessKey"": null,
+      ""cognitoAuthenticationType"": null,
+      ""cognitoAuthenticationProvider"": null,
+      ""userArn"": null,
+      ""userAgent"": ""Stripe/1.0 (+https://stripe.com/docs/webhooks)"",
+      ""user"": null
+    },
+    ""domainName"": ""bsgf1dpgt1.execute-api.us-east-2.amazonaws.com"",
+    ""apiId"": ""bsgf1dpgt1""
+  },
+  ""body"": ""{
+  \""id\"": \""evt_1NOagmFTufv5jJIdr0jg5Njg\"",
+  \""object\"": \""event\"",
+  \""api_version\"": \""2022-11-15\"",
+  \""created\"": 1688106016,
+  \""data\"": {
+    \""object\"": {
+      \""id\"": \""cs_test_b1uiBezcTy9GnK3WvBSQa0ZHPl6Sz9qMYzCceDveJzawNXemSLCnuZxQbd\"",
+      \""object\"": \""checkout.session\"",
+      \""after_expiration\"": null,
+      \""allow_promotion_codes\"": true,
+      \""amount_subtotal\"": 9900,
+      \""amount_total\"": 9900,
+      \""automatic_tax\"": {
+        \""enabled\"": true,
+        \""status\"": \""complete\""
+      },
+      \""billing_address_collection\"": \""auto\"",
+      \""cancel_url\"": \""https://stripe.com\"",
+      \""client_reference_id\"": null,
+      \""consent\"": null,
+      \""consent_collection\"": {
+        \""promotions\"": \""none\"",
+        \""terms_of_service\"": \""none\""
+      },
+      \""created\"": 1688105841,
+      \""currency\"": \""mxn\"",
+      \""currency_conversion\"": null,
+      \""custom_fields\"": [
+
+      ],
+      \""custom_text\"": {
+        \""shipping_address\"": null,
+        \""submit\"": null
+      },
+      \""customer\"": \""cus_OAwZcy606y2ntb\"",
+      \""customer_creation\"": \""always\"",
+      \""customer_details\"": {
+        \""address\"": {
+          \""city\"": null,
+          \""country\"": \""MX\"",
+          \""line1\"": null,
+          \""line2\"": null,
+          \""postal_code\"": null,
+          \""state\"": null
+        },
+        \""email\"": \""test@cuervoai.com\"",
+        \""name\"": \""diego test\"",
+        \""phone\"": \""+528117466017\"",
+        \""tax_exempt\"": \""none\"",
+        \""tax_ids\"": [
+
+        ]
+      },
+      \""customer_email\"": null,
+      \""expires_at\"": 1688192241,
+      \""invoice\"": \""in_1NOagjFTufv5jJIdaaP6HUqf\"",
+      \""invoice_creation\"": null,
+      \""livemode\"": false,
+      \""locale\"": \""en\"",
+      \""metadata\"": {
+      },
+      \""mode\"": \""subscription\"",
+      \""payment_intent\"": null,
+      \""payment_link\"": null,
+      \""payment_method_collection\"": \""always\"",
+      \""payment_method_options\"": null,
+      \""payment_method_types\"": [
+        \""card\""
+      ],
+      \""payment_status\"": \""paid\"",
+      \""phone_number_collection\"": {
+        \""enabled\"": true
+      },
+      \""recovered_from\"": null,
+      \""setup_intent\"": null,
+      \""shipping_address_collection\"": null,
+      \""shipping_cost\"": null,
+      \""shipping_details\"": null,
+      \""shipping_options\"": [
+
+      ],
+      \""status\"": \""complete\"",
+      \""submit_type\"": null,
+      \""subscription\"": \""sub_1NOagjFTufv5jJId0xgDmmM7\"",
+      \""success_url\"": \""https://stripe.com\"",
+      \""total_details\"": {
+        \""amount_discount\"": 0,
+        \""amount_shipping\"": 0,
+        \""amount_tax\"": 0
+      },
+      \""url\"": null
+    }
+  },
+  \""livemode\"": false,
+  \""pending_webhooks\"": 3,
+  \""request\"": {
+    \""id\"": null,
+    \""idempotency_key\"": null
+  },
+  \""type\"": \""checkout.session.completed\""
+}"",
+  ""isBase64Encoded"": false
+}
+"
+"2023-06-30T06:20:17.034Z	d6683f7e-7fca-4a61-9c42-9014198bbf6f	INFO	Event: {
+  ""resource"": ""/webhooks"",
+  ""path"": ""/webhooks"",
+  ""httpMethod"": ""POST"",
+  ""headers"": {
+    ""Accept"": ""*/*; q=0.5, application/xml"",
+    ""Cache-Control"": ""no-cache"",
+    ""CloudFront-Forwarded-Proto"": ""https"",
+    ""CloudFront-Is-Desktop-Viewer"": ""true"",
+    ""CloudFront-Is-Mobile-Viewer"": ""false"",
+    ""CloudFront-Is-SmartTV-Viewer"": ""false"",
+    ""CloudFront-Is-Tablet-Viewer"": ""false"",
+    ""CloudFront-Viewer-ASN"": ""16509"",
+    ""CloudFront-Viewer-Country"": ""US"",
+    ""Content-Type"": ""application/json; charset=utf-8"",
+    ""Host"": ""bsgf1dpgt1.execute-api.us-east-2.amazonaws.com"",
+    ""Stripe-Signature"": ""t=1688106016,v1=6ab12dbe39a99e8d6e0286bb26ce0b63667e5362f40ec5e20c90e8dbda55360c,v0=87929762501e385c3e66ed53829eadc224efcf59f977717dc20ea82b3dbd687b"",
+    ""User-Agent"": ""Stripe/1.0 (+https://stripe.com/docs/webhooks)"",
+    ""Via"": ""1.1 b6cdb2111444305bd4957a473b711ad6.cloudfront.net (CloudFront)"",
+    ""X-Amz-Cf-Id"": ""r_EZioAY5BhIcxzI9v7d22nK2EC2f1gsZpY6uZDdpH865284UruJTw=="",
+    ""X-Amzn-Trace-Id"": ""Root=1-649e7420-264533a4628b1eac56259fe6"",
+    ""X-Forwarded-For"": ""54.187.205.235, 15.158.54.7"",
+    ""X-Forwarded-Port"": ""443"",
+    ""X-Forwarded-Proto"": ""https""
+  },
+  ""multiValueHeaders"": {
+    ""Accept"": [
+      ""*/*; q=0.5, application/xml""
+    ],
+    ""Cache-Control"": [
+      ""no-cache""
+    ],
+    ""CloudFront-Forwarded-Proto"": [
+      ""https""
+    ],
+    ""CloudFront-Is-Desktop-Viewer"": [
+      ""true""
+    ],
+    ""CloudFront-Is-Mobile-Viewer"": [
+      ""false""
+    ],
+    ""CloudFront-Is-SmartTV-Viewer"": [
+      ""false""
+    ],
+    ""CloudFront-Is-Tablet-Viewer"": [
+      ""false""
+    ],
+    ""CloudFront-Viewer-ASN"": [
+      ""16509""
+    ],
+    ""CloudFront-Viewer-Country"": [
+      ""US""
+    ],
+    ""Content-Type"": [
+      ""application/json; charset=utf-8""
+    ],
+    ""Host"": [
+      ""bsgf1dpgt1.execute-api.us-east-2.amazonaws.com""
+    ],
+    ""Stripe-Signature"": [
+      ""t=1688106016,v1=6ab12dbe39a99e8d6e0286bb26ce0b63667e5362f40ec5e20c90e8dbda55360c,v0=87929762501e385c3e66ed53829eadc224efcf59f977717dc20ea82b3dbd687b""
+    ],
+    ""User-Agent"": [
+      ""Stripe/1.0 (+https://stripe.com/docs/webhooks)""
+    ],
+    ""Via"": [
+      ""1.1 b6cdb2111444305bd4957a473b711ad6.cloudfront.net (CloudFront)""
+    ],
+    ""X-Amz-Cf-Id"": [
+      ""r_EZioAY5BhIcxzI9v7d22nK2EC2f1gsZpY6uZDdpH865284UruJTw==""
+    ],
+    ""X-Amzn-Trace-Id"": [
+      ""Root=1-649e7420-264533a4628b1eac56259fe6""
+    ],
+    ""X-Forwarded-For"": [
+      ""54.187.205.235, 15.158.54.7""
+    ],
+    ""X-Forwarded-Port"": [
+      ""443""
+    ],
+    ""X-Forwarded-Proto"": [
+      ""https""
+    ]
+  },
+  ""queryStringParameters"": null,
+  ""multiValueQueryStringParameters"": null,
+  ""pathParameters"": null,
+  ""stageVariables"": null,
+  ""requestContext"": {
+    ""resourceId"": ""e5lf6p"",
+    ""resourcePath"": ""/webhooks"",
+    ""httpMethod"": ""POST"",
+    ""extendedRequestId"": ""HUcVMEoLiYcFW6Q="",
+    ""requestTime"": ""30/Jun/2023:06:20:16 +0000"",
+    ""path"": ""/webhooks/webhooks"",
+    ""accountId"": ""653625749031"",
+    ""protocol"": ""HTTP/1.1"",
+    ""stage"": ""webhooks"",
+    ""domainPrefix"": ""bsgf1dpgt1"",
+    ""requestTimeEpoch"": 1688106016935,
+    ""requestId"": ""546ce535-dad6-4b96-9e38-9f319e42be9d"",
+    ""identity"": {
+      ""cognitoIdentityPoolId"": null,
+      ""accountId"": null,
+      ""cognitoIdentityId"": null,
+      ""caller"": null,
+      ""sourceIp"": ""54.187.205.235"",
+      ""principalOrgId"": null,
+      ""accessKey"": null,
+      ""cognitoAuthenticationType"": null,
+      ""cognitoAuthenticationProvider"": null,
+      ""userArn"": null,
+      ""userAgent"": ""Stripe/1.0 (+https://stripe.com/docs/webhooks)"",
+      ""user"": null
+    },
+    ""domainName"": ""bsgf1dpgt1.execute-api.us-east-2.amazonaws.com"",
+    ""apiId"": ""bsgf1dpgt1""
+  },
+  ""body"": ""{
+  \""id\"": \""evt_1NOagmFTufv5jJIdtnlFoxkG\"",
+  \""object\"": \""event\"",
+  \""api_version\"": \""2022-11-15\"",
+  \""created\"": 1688106015,
+  \""data\"": {
+    \""object\"": {
+      \""id\"": \""pm_1NOagiFTufv5jJIdAHQQ44K5\"",
+      \""object\"": \""payment_method\"",
+      \""billing_details\"": {
+        \""address\"": {
+          \""city\"": null,
+          \""country\"": \""MX\"",
+          \""line1\"": null,
+          \""line2\"": null,
+          \""postal_code\"": null,
+          \""state\"": null
+        },
+        \""email\"": \""test@cuervoai.com\"",
+        \""name\"": \""diego test\"",
+        \""phone\"": null
+      },
+      \""card\"": {
+        \""brand\"": \""visa\"",
+        \""checks\"": {
+          \""address_line1_check\"": null,
+          \""address_postal_code_check\"": null,
+          \""cvc_check\"": \""pass\""
+        },
+        \""country\"": \""US\"",
+        \""exp_month\"": 1,
+        \""exp_year\"": 2024,
+        \""fingerprint\"": \""9lRkeKsPAhcUbM8O\"",
+        \""funding\"": \""credit\"",
+        \""generated_from\"": null,
+        \""last4\"": \""4242\"",
+        \""networks\"": {
+          \""available\"": [
+            \""visa\""
+          ],
+          \""preferred\"": null
+        },
+        \""three_d_secure_usage\"": {
+          \""supported\"": true
+        },
+        \""wallet\"": null
+      },
+      \""created\"": 1688106012,
+      \""customer\"": \""cus_OAwZcy606y2ntb\"",
+      \""livemode\"": false,
+      \""metadata\"": {
+      },
+      \""type\"": \""card\""
+    }
+  },
+  \""livemode\"": false,
+  \""pending_webhooks\"": 3,
+  \""request\"": {
+    \""id\"": \""req_XrMsj4cg5H1C8S\"",
+    \""idempotency_key\"": \""0a1a9359-5b32-4ddf-828e-a8b639ab6139\""
+  },
+  \""type\"": \""payment_method.attached\""
+}"",
+  ""isBase64Encoded"": false
+}
+"
+"2023-06-30T06:20:17.040Z	72f67de3-b24b-4909-856f-f61e3378eca0	INFO	Event: {
+  ""resource"": ""/webhooks"",
+  ""path"": ""/webhooks"",
+  ""httpMethod"": ""POST"",
+  ""headers"": {
+    ""Accept"": ""*/*; q=0.5, application/xml"",
+    ""Cache-Control"": ""no-cache"",
+    ""CloudFront-Forwarded-Proto"": ""https"",
+    ""CloudFront-Is-Desktop-Viewer"": ""true"",
+    ""CloudFront-Is-Mobile-Viewer"": ""false"",
+    ""CloudFront-Is-SmartTV-Viewer"": ""false"",
+    ""CloudFront-Is-Tablet-Viewer"": ""false"",
+    ""CloudFront-Viewer-ASN"": ""16509"",
+    ""CloudFront-Viewer-Country"": ""US"",
+    ""Content-Type"": ""application/json; charset=utf-8"",
+    ""Host"": ""bsgf1dpgt1.execute-api.us-east-2.amazonaws.com"",
+    ""Stripe-Signature"": ""t=1688106016,v1=74a9a053c46abc3ecd4762d54bfe2a50de4efe05a1a35615efcff19ff75e3ec6,v0=2cc7f37062ee087f5a789c86110f5a82f772e3ffa5b8240f4495bdd1031a22ae"",
+    ""User-Agent"": ""Stripe/1.0 (+https://stripe.com/docs/webhooks)"",
+    ""Via"": ""1.1 8ead054384c1626556ee4410cad35692.cloudfront.net (CloudFront)"",
+    ""X-Amz-Cf-Id"": ""FzxRrhhoc1-LK8zVxA0NT1Y_L9-l9ndbdxvKxOs9o_V_OpfpSucBag=="",
+    ""X-Amzn-Trace-Id"": ""Root=1-649e7420-4e7ddebc0698b1a00ff79405"",
+    ""X-Forwarded-For"": ""54.187.205.235, 15.158.54.47"",
+    ""X-Forwarded-Port"": ""443"",
+    ""X-Forwarded-Proto"": ""https""
+  },
+  ""multiValueHeaders"": {
+    ""Accept"": [
+      ""*/*; q=0.5, application/xml""
+    ],
+    ""Cache-Control"": [
+      ""no-cache""
+    ],
+    ""CloudFront-Forwarded-Proto"": [
+      ""https""
+    ],
+    ""CloudFront-Is-Desktop-Viewer"": [
+      ""true""
+    ],
+    ""CloudFront-Is-Mobile-Viewer"": [
+      ""false""
+    ],
+    ""CloudFront-Is-SmartTV-Viewer"": [
+      ""false""
+    ],
+    ""CloudFront-Is-Tablet-Viewer"": [
+      ""false""
+    ],
+    ""CloudFront-Viewer-ASN"": [
+      ""16509""
+    ],
+    ""CloudFront-Viewer-Country"": [
+      ""US""
+    ],
+    ""Content-Type"": [
+      ""application/json; charset=utf-8""
+    ],
+    ""Host"": [
+      ""bsgf1dpgt1.execute-api.us-east-2.amazonaws.com""
+    ],
+    ""Stripe-Signature"": [
+      ""t=1688106016,v1=74a9a053c46abc3ecd4762d54bfe2a50de4efe05a1a35615efcff19ff75e3ec6,v0=2cc7f37062ee087f5a789c86110f5a82f772e3ffa5b8240f4495bdd1031a22ae""
+    ],
+    ""User-Agent"": [
+      ""Stripe/1.0 (+https://stripe.com/docs/webhooks)""
+    ],
+    ""Via"": [
+      ""1.1 8ead054384c1626556ee4410cad35692.cloudfront.net (CloudFront)""
+    ],
+    ""X-Amz-Cf-Id"": [
+      ""FzxRrhhoc1-LK8zVxA0NT1Y_L9-l9ndbdxvKxOs9o_V_OpfpSucBag==""
+    ],
+    ""X-Amzn-Trace-Id"": [
+      ""Root=1-649e7420-4e7ddebc0698b1a00ff79405""
+    ],
+    ""X-Forwarded-For"": [
+      ""54.187.205.235, 15.158.54.47""
+    ],
+    ""X-Forwarded-Port"": [
+      ""443""
+    ],
+    ""X-Forwarded-Proto"": [
+      ""https""
+    ]
+  },
+  ""queryStringParameters"": null,
+  ""multiValueQueryStringParameters"": null,
+  ""pathParameters"": null,
+  ""stageVariables"": null,
+  ""requestContext"": {
+    ""resourceId"": ""e5lf6p"",
+    ""resourcePath"": ""/webhooks"",
+    ""httpMethod"": ""POST"",
+    ""extendedRequestId"": ""HUcVMFKBCYcF7kw="",
+    ""requestTime"": ""30/Jun/2023:06:20:16 +0000"",
+    ""path"": ""/webhooks/webhooks"",
+    ""accountId"": ""653625749031"",
+    ""protocol"": ""HTTP/1.1"",
+    ""stage"": ""webhooks"",
+    ""domainPrefix"": ""bsgf1dpgt1"",
+    ""requestTimeEpoch"": 1688106016995,
+    ""requestId"": ""d9fece63-6f26-4b15-a00e-9ca58df561e8"",
+    ""identity"": {
+      ""cognitoIdentityPoolId"": null,
+      ""accountId"": null,
+      ""cognitoIdentityId"": null,
+      ""caller"": null,
+      ""sourceIp"": ""54.187.205.235"",
+      ""principalOrgId"": null,
+      ""accessKey"": null,
+      ""cognitoAuthenticationType"": null,
+      ""cognitoAuthenticationProvider"": null,
+      ""userArn"": null,
+      ""userAgent"": ""Stripe/1.0 (+https://stripe.com/docs/webhooks)"",
+      ""user"": null
+    },
+    ""domainName"": ""bsgf1dpgt1.execute-api.us-east-2.amazonaws.com"",
+    ""apiId"": ""bsgf1dpgt1""
+  },
+  ""body"": ""{
+  \""id\"": \""evt_1NOagmFTufv5jJId6rQVlvCx\"",
+  \""object\"": \""event\"",
+  \""api_version\"": \""2022-11-15\"",
+  \""created\"": 1688106013,
+  \""data\"": {
+    \""object\"": {
+      \""id\"": \""cus_OAwZcy606y2ntb\"",
+      \""object\"": \""customer\"",
+      \""address\"": {
+        \""city\"": null,
+        \""country\"": \""MX\"",
+        \""line1\"": null,
+        \""line2\"": null,
+        \""postal_code\"": null,
+        \""state\"": null
+      },
+      \""balance\"": 0,
+      \""created\"": 1688106013,
+      \""currency\"": null,
+      \""default_source\"": null,
+      \""delinquent\"": false,
+      \""description\"": null,
+      \""discount\"": null,
+      \""email\"": \""test@cuervoai.com\"",
+      \""invoice_prefix\"": \""335FD8CC\"",
+      \""invoice_settings\"": {
+        \""custom_fields\"": null,
+        \""default_payment_method\"": null,
+        \""footer\"": null,
+        \""rendering_options\"": null
+      },
+      \""livemode\"": false,
+      \""metadata\"": {
+      },
+      \""name\"": \""diego test\"",
+      \""next_invoice_sequence\"": 2,
+      \""phone\"": \""+528117466017\"",
+      \""preferred_locales\"": [
+        \""en-US\"",
+        \""en\""
+      ],
+      \""shipping\"": null,
+      \""tax_exempt\"": \""none\"",
+      \""test_clock\"": null
+    }
+  },
+  \""livemode\"": false,
+  \""pending_webhooks\"": 3,
+  \""request\"": {
+    \""id\"": \""req_XrMsj4cg5H1C8S\"",
+    \""idempotency_key\"": \""0a1a9359-5b32-4ddf-828e-a8b639ab6139\""
+  },
+  \""type\"": \""customer.created\""
+}"",
+  ""isBase64Encoded"": false
+}
+"
+"2023-06-30T06:20:17.129Z	1b88176a-2010-47fb-a277-1d6af222318a	INFO	Event: {
+  ""resource"": ""/webhooks"",
+  ""path"": ""/webhooks"",
+  ""httpMethod"": ""POST"",
+  ""headers"": {
+    ""Accept"": ""*/*; q=0.5, application/xml"",
+    ""Cache-Control"": ""no-cache"",
+    ""CloudFront-Forwarded-Proto"": ""https"",
+    ""CloudFront-Is-Desktop-Viewer"": ""true"",
+    ""CloudFront-Is-Mobile-Viewer"": ""false"",
+    ""CloudFront-Is-SmartTV-Viewer"": ""false"",
+    ""CloudFront-Is-Tablet-Viewer"": ""false"",
+    ""CloudFront-Viewer-ASN"": ""16509"",
+    ""CloudFront-Viewer-Country"": ""US"",
+    ""Content-Type"": ""application/json; charset=utf-8"",
+    ""Host"": ""bsgf1dpgt1.execute-api.us-east-2.amazonaws.com"",
+    ""Stripe-Signature"": ""t=1688106016,v1=e9c1248f6beec50647126949e08c94cab5d80f0d06f17dd525dd251fa184455a,v0=9ef4d3959906bbba9d6db5ed9bb62106c8d92734059f9ead41de0fbbefed81e2"",
+    ""User-Agent"": ""Stripe/1.0 (+https://stripe.com/docs/webhooks)"",
+    ""Via"": ""1.1 5502255f9557c1e2c098b94110b6151c.cloudfront.net (CloudFront)"",
+    ""X-Amz-Cf-Id"": ""1pt-Esr1JJ_nPnZWbToY8AtTbacLeU3zOc8ZNC97fbWyCFk4tz-yvw=="",
+    ""X-Amzn-Trace-Id"": ""Root=1-649e7421-7b015ca4467293194ebc841b"",
+    ""X-Forwarded-For"": ""54.187.216.72, 15.158.54.21"",
+    ""X-Forwarded-Port"": ""443"",
+    ""X-Forwarded-Proto"": ""https""
+  },
+  ""multiValueHeaders"": {
+    ""Accept"": [
+      ""*/*; q=0.5, application/xml""
+    ],
+    ""Cache-Control"": [
+      ""no-cache""
+    ],
+    ""CloudFront-Forwarded-Proto"": [
+      ""https""
+    ],
+    ""CloudFront-Is-Desktop-Viewer"": [
+      ""true""
+    ],
+    ""CloudFront-Is-Mobile-Viewer"": [
+      ""false""
+    ],
+    ""CloudFront-Is-SmartTV-Viewer"": [
+      ""false""
+    ],
+    ""CloudFront-Is-Tablet-Viewer"": [
+      ""false""
+    ],
+    ""CloudFront-Viewer-ASN"": [
+      ""16509""
+    ],
+    ""CloudFront-Viewer-Country"": [
+      ""US""
+    ],
+    ""Content-Type"": [
+      ""application/json; charset=utf-8""
+    ],
+    ""Host"": [
+      ""bsgf1dpgt1.execute-api.us-east-2.amazonaws.com""
+    ],
+    ""Stripe-Signature"": [
+      ""t=1688106016,v1=e9c1248f6beec50647126949e08c94cab5d80f0d06f17dd525dd251fa184455a,v0=9ef4d3959906bbba9d6db5ed9bb62106c8d92734059f9ead41de0fbbefed81e2""
+    ],
+    ""User-Agent"": [
+      ""Stripe/1.0 (+https://stripe.com/docs/webhooks)""
+    ],
+    ""Via"": [
+      ""1.1 5502255f9557c1e2c098b94110b6151c.cloudfront.net (CloudFront)""
+    ],
+    ""X-Amz-Cf-Id"": [
+      ""1pt-Esr1JJ_nPnZWbToY8AtTbacLeU3zOc8ZNC97fbWyCFk4tz-yvw==""
+    ],
+    ""X-Amzn-Trace-Id"": [
+      ""Root=1-649e7421-7b015ca4467293194ebc841b""
+    ],
+    ""X-Forwarded-For"": [
+      ""54.187.216.72, 15.158.54.21""
+    ],
+    ""X-Forwarded-Port"": [
+      ""443""
+    ],
+    ""X-Forwarded-Proto"": [
+      ""https""
+    ]
+  },
+  ""queryStringParameters"": null,
+  ""multiValueQueryStringParameters"": null,
+  ""pathParameters"": null,
+  ""stageVariables"": null,
+  ""requestContext"": {
+    ""resourceId"": ""e5lf6p"",
+    ""resourcePath"": ""/webhooks"",
+    ""httpMethod"": ""POST"",
+    ""extendedRequestId"": ""HUcVNHBuiYcF_uA="",
+    ""requestTime"": ""30/Jun/2023:06:20:17 +0000"",
+    ""path"": ""/webhooks/webhooks"",
+    ""accountId"": ""653625749031"",
+    ""protocol"": ""HTTP/1.1"",
+    ""stage"": ""webhooks"",
+    ""domainPrefix"": ""bsgf1dpgt1"",
+    ""requestTimeEpoch"": 1688106017070,
+    ""requestId"": ""92a8367b-7f70-463b-ae82-c173a302cc7f"",
+    ""identity"": {
+      ""cognitoIdentityPoolId"": null,
+      ""accountId"": null,
+      ""cognitoIdentityId"": null,
+      ""caller"": null,
+      ""sourceIp"": ""54.187.216.72"",
+      ""principalOrgId"": null,
+      ""accessKey"": null,
+      ""cognitoAuthenticationType"": null,
+      ""cognitoAuthenticationProvider"": null,
+      ""userArn"": null,
+      ""userAgent"": ""Stripe/1.0 (+https://stripe.com/docs/webhooks)"",
+      ""user"": null
+    },
+    ""domainName"": ""bsgf1dpgt1.execute-api.us-east-2.amazonaws.com"",
+    ""apiId"": ""bsgf1dpgt1""
+  },
+  ""body"": ""{
+  \""id\"": \""evt_1NOagmFTufv5jJIdpNX9jRxX\"",
+  \""object\"": \""event\"",
+  \""api_version\"": \""2022-11-15\"",
+  \""created\"": 1688106014,
+  \""data\"": {
+    \""object\"": {
+      \""id\"": \""cus_OAwZcy606y2ntb\"",
+      \""object\"": \""customer\"",
+      \""address\"": {
+        \""city\"": null,
+        \""country\"": \""MX\"",
+        \""line1\"": null,
+        \""line2\"": null,
+        \""postal_code\"": null,
+        \""state\"": null
+      },
+      \""balance\"": 0,
+      \""created\"": 1688106013,
+      \""currency\"": \""mxn\"",
+      \""default_source\"": null,
+      \""delinquent\"": false,
+      \""description\"": null,
+      \""discount\"": null,
+      \""email\"": \""test@cuervoai.com\"",
+      \""invoice_prefix\"": \""335FD8CC\"",
+      \""invoice_settings\"": {
+        \""custom_fields\"": null,
+        \""default_payment_method\"": null,
+        \""footer\"": null,
+        \""rendering_options\"": null
+      },
+      \""livemode\"": false,
+      \""metadata\"": {
+      },
+      \""name\"": \""diego test\"",
+      \""next_invoice_sequence\"": 2,
+      \""phone\"": \""+528117466017\"",
+      \""preferred_locales\"": [
+        \""en-US\"",
+        \""en\""
+      ],
+      \""shipping\"": null,
+      \""tax_exempt\"": \""none\"",
+      \""test_clock\"": null
+    },
+    \""previous_attributes\"": {
+      \""currency\"": null
+    }
+  },
+  \""livemode\"": false,
+  \""pending_webhooks\"": 3,
+  \""request\"": {
+    \""id\"": \""req_XrMsj4cg5H1C8S\"",
+    \""idempotency_key\"": \""0a1a9359-5b32-4ddf-828e-a8b639ab6139\""
+  },
+  \""type\"": \""customer.updated\""
+}"",
+  ""isBase64Encoded"": false
+}
+"
+"2023-06-30T06:20:17.247Z	d94eb59c-ed4a-437f-ac0b-9a13bb221992	INFO	Event: {
+  ""resource"": ""/webhooks"",
+  ""path"": ""/webhooks"",
+  ""httpMethod"": ""POST"",
+  ""headers"": {
+    ""Accept"": ""*/*; q=0.5, application/xml"",
+    ""Cache-Control"": ""no-cache"",
+    ""CloudFront-Forwarded-Proto"": ""https"",
+    ""CloudFront-Is-Desktop-Viewer"": ""true"",
+    ""CloudFront-Is-Mobile-Viewer"": ""false"",
+    ""CloudFront-Is-SmartTV-Viewer"": ""false"",
+    ""CloudFront-Is-Tablet-Viewer"": ""false"",
+    ""CloudFront-Viewer-ASN"": ""16509"",
+    ""CloudFront-Viewer-Country"": ""US"",
+    ""Content-Type"": ""application/json; charset=utf-8"",
+    ""Host"": ""bsgf1dpgt1.execute-api.us-east-2.amazonaws.com"",
+    ""Stripe-Signature"": ""t=1688106017,v1=305ed0083b23f208f860fa359e351a325f1b0294af1b139acfca60771d2be2d3,v0=52dfbcde38b6d1fc6aec3f4c2f9f11ca676e4bd893a3623d31cbf97ab62fcc3c"",
+    ""User-Agent"": ""Stripe/1.0 (+https://stripe.com/docs/webhooks)"",
+    ""Via"": ""1.1 b6cdb2111444305bd4957a473b711ad6.cloudfront.net (CloudFront)"",
+    ""X-Amz-Cf-Id"": ""ZWq36ny7PvbB90VWIoGUlfPcEbCGiHLi80nK8B9fwk0IJJpe58W3Mg=="",
+    ""X-Amzn-Trace-Id"": ""Root=1-649e7421-24e235c64cb2f006701526aa"",
+    ""X-Forwarded-For"": ""54.187.216.72, 15.158.54.45"",
+    ""X-Forwarded-Port"": ""443"",
+    ""X-Forwarded-Proto"": ""https""
+  },
+  ""multiValueHeaders"": {
+    ""Accept"": [
+      ""*/*; q=0.5, application/xml""
+    ],
+    ""Cache-Control"": [
+      ""no-cache""
+    ],
+    ""CloudFront-Forwarded-Proto"": [
+      ""https""
+    ],
+    ""CloudFront-Is-Desktop-Viewer"": [
+      ""true""
+    ],
+    ""CloudFront-Is-Mobile-Viewer"": [
+      ""false""
+    ],
+    ""CloudFront-Is-SmartTV-Viewer"": [
+      ""false""
+    ],
+    ""CloudFront-Is-Tablet-Viewer"": [
+      ""false""
+    ],
+    ""CloudFront-Viewer-ASN"": [
+      ""16509""
+    ],
+    ""CloudFront-Viewer-Country"": [
+      ""US""
+    ],
+    ""Content-Type"": [
+      ""application/json; charset=utf-8""
+    ],
+    ""Host"": [
+      ""bsgf1dpgt1.execute-api.us-east-2.amazonaws.com""
+    ],
+    ""Stripe-Signature"": [
+      ""t=1688106017,v1=305ed0083b23f208f860fa359e351a325f1b0294af1b139acfca60771d2be2d3,v0=52dfbcde38b6d1fc6aec3f4c2f9f11ca676e4bd893a3623d31cbf97ab62fcc3c""
+    ],
+    ""User-Agent"": [
+      ""Stripe/1.0 (+https://stripe.com/docs/webhooks)""
+    ],
+    ""Via"": [
+      ""1.1 b6cdb2111444305bd4957a473b711ad6.cloudfront.net (CloudFront)""
+    ],
+    ""X-Amz-Cf-Id"": [
+      ""ZWq36ny7PvbB90VWIoGUlfPcEbCGiHLi80nK8B9fwk0IJJpe58W3Mg==""
+    ],
+    ""X-Amzn-Trace-Id"": [
+      ""Root=1-649e7421-24e235c64cb2f006701526aa""
+    ],
+    ""X-Forwarded-For"": [
+      ""54.187.216.72, 15.158.54.45""
+    ],
+    ""X-Forwarded-Port"": [
+      ""443""
+    ],
+    ""X-Forwarded-Proto"": [
+      ""https""
+    ]
+  },
+  ""queryStringParameters"": null,
+  ""multiValueQueryStringParameters"": null,
+  ""pathParameters"": null,
+  ""stageVariables"": null,
+  ""requestContext"": {
+    ""resourceId"": ""e5lf6p"",
+    ""resourcePath"": ""/webhooks"",
+    ""httpMethod"": ""POST"",
+    ""extendedRequestId"": ""HUcVOHIaiYcFT3g="",
+    ""requestTime"": ""30/Jun/2023:06:20:17 +0000"",
+    ""path"": ""/webhooks/webhooks"",
+    ""accountId"": ""653625749031"",
+    ""protocol"": ""HTTP/1.1"",
+    ""stage"": ""webhooks"",
+    ""domainPrefix"": ""bsgf1dpgt1"",
+    ""requestTimeEpoch"": 1688106017199,
+    ""requestId"": ""ddbc93f6-689c-4f3e-a527-d00cc20ab96d"",
+    ""identity"": {
+      ""cognitoIdentityPoolId"": null,
+      ""accountId"": null,
+      ""cognitoIdentityId"": null,
+      ""caller"": null,
+      ""sourceIp"": ""54.187.216.72"",
+      ""principalOrgId"": null,
+      ""accessKey"": null,
+      ""cognitoAuthenticationType"": null,
+      ""cognitoAuthenticationProvider"": null,
+      ""userArn"": null,
+      ""userAgent"": ""Stripe/1.0 (+https://stripe.com/docs/webhooks)"",
+      ""user"": null
+    },
+    ""domainName"": ""bsgf1dpgt1.execute-api.us-east-2.amazonaws.com"",
+    ""apiId"": ""bsgf1dpgt1""
+  },
+  ""body"": ""{
+  \""id\"": \""evt_1NOagmFTufv5jJId0xV4elL6\"",
+  \""object\"": \""event\"",
+  \""api_version\"": \""2022-11-15\"",
+  \""created\"": 1688106014,
+  \""data\"": {
+    \""object\"": {
+      \""id\"": \""in_1NOagjFTufv5jJIdaaP6HUqf\"",
+      \""object\"": \""invoice\"",
+      \""account_country\"": \""US\"",
+      \""account_name\"": \""Yourbit, LLC\"",
+      \""account_tax_ids\"": null,
+      \""amount_due\"": 9900,
+      \""amount_paid\"": 0,
+      \""amount_remaining\"": 9900,
+      \""amount_shipping\"": 0,
+      \""application\"": null,
+      \""application_fee_amount\"": null,
+      \""attempt_count\"": 0,
+      \""attempted\"": false,
+      \""auto_advance\"": false,
+      \""automatic_tax\"": {
+        \""enabled\"": true,
+        \""status\"": \""complete\""
+      },
+      \""billing_reason\"": \""subscription_create\"",
+      \""charge\"": null,
+      \""collection_method\"": \""charge_automatically\"",
+      \""created\"": 1688106013,
+      \""currency\"": \""mxn\"",
+      \""custom_fields\"": null,
+      \""customer\"": \""cus_OAwZcy606y2ntb\"",
+      \""customer_address\"": {
+        \""city\"": null,
+        \""country\"": \""MX\"",
+        \""line1\"": null,
+        \""line2\"": null,
+        \""postal_code\"": null,
+        \""state\"": null
+      },
+      \""customer_email\"": \""test@cuervoai.com\"",
+      \""customer_name\"": \""diego test\"",
+      \""customer_phone\"": \""+528117466017\"",
+      \""customer_shipping\"": null,
+      \""customer_tax_exempt\"": \""none\"",
+      \""customer_tax_ids\"": [
+
+      ],
+      \""default_payment_method\"": null,
+      \""default_source\"": null,
+      \""default_tax_rates\"": [
+
+      ],
+      \""description\"": null,
+      \""discount\"": null,
+      \""discounts\"": [
+
+      ],
+      \""due_date\"": null,
+      \""effective_at\"": 1688106013,
+      \""ending_balance\"": 0,
+      \""footer\"": null,
+      \""from_invoice\"": null,
+      \""hosted_invoice_url\"": \""https://invoice.stripe.com/i/acct_1LmKQsFTufv5jJId/test_YWNjdF8xTG1LUXNGVHVmdjVqSklkLF9PQXdaVk8yd0p5aURVdnFlaW5zMHZEakZ1WFBxOUdTLDc4NjQ2ODE202009VPobEsp?s=ap\"",
+      \""invoice_pdf\"": \""https://pay.stripe.com/invoice/acct_1LmKQsFTufv5jJId/test_YWNjdF8xTG1LUXNGVHVmdjVqSklkLF9PQXdaVk8yd0p5aURVdnFlaW5zMHZEakZ1WFBxOUdTLDc4NjQ2ODE202009VPobEsp/pdf?s=ap\"",
+      \""last_finalization_error\"": null,
+      \""latest_revision\"": null,
+      \""lines\"": {
+        \""object\"": \""list\"",
+        \""data\"": [
+          {
+            \""id\"": \""il_1NOagjFTufv5jJIdkE23WVhR\"",
+            \""object\"": \""line_item\"",
+            \""amount\"": 9900,
+            \""amount_excluding_tax\"": 9900,
+            \""currency\"": \""mxn\"",
+            \""description\"": \""1 × Cuervo Subscription - 100 credits/mo (at $99.00 / month)\"",
+            \""discount_amounts\"": [
+
+            ],
+            \""discountable\"": true,
+            \""discounts\"": [
+
+            ],
+            \""livemode\"": false,
+            \""metadata\"": {
+            },
+            \""period\"": {
+              \""end\"": 1690698013,
+              \""start\"": 1688106013
+            },
+            \""plan\"": {
+              \""id\"": \""price_1NBjeCFTufv5jJIdT5jjOguS\"",
+              \""object\"": \""plan\"",
+              \""active\"": true,
+              \""aggregate_usage\"": null,
+              \""amount\"": 9900,
+              \""amount_decimal\"": \""9900\"",
+              \""billing_scheme\"": \""per_unit\"",
+              \""created\"": 1685042188,
+              \""currency\"": \""mxn\"",
+              \""interval\"": \""month\"",
+              \""interval_count\"": 1,
+              \""livemode\"": false,
+              \""metadata\"": {
+              },
+              \""nickname\"": null,
+              \""product\"": \""prod_Nxeysi9QhMmw6U\"",
+              \""tiers_mode\"": null,
+              \""transform_usage\"": null,
+              \""trial_period_days\"": null,
+              \""usage_type\"": \""licensed\""
+            },
+            \""price\"": {
+              \""id\"": \""price_1NBjeCFTufv5jJIdT5jjOguS\"",
+              \""object\"": \""price\"",
+              \""active\"": true,
+              \""billing_scheme\"": \""per_unit\"",
+              \""created\"": 1685042188,
+              \""currency\"": \""mxn\"",
+              \""custom_unit_amount\"": null,
+              \""livemode\"": false,
+              \""lookup_key\"": null,
+              \""metadata\"": {
+              },
+              \""nickname\"": null,
+              \""product\"": \""prod_Nxeysi9QhMmw6U\"",
+              \""recurring\"": {
+                \""aggregate_usage\"": null,
+                \""interval\"": \""month\"",
+                \""interval_count\"": 1,
+                \""trial_period_days\"": null,
+                \""usage_type\"": \""licensed\""
+              },
+              \""tax_behavior\"": \""inclusive\"",
+              \""tiers_mode\"": null,
+              \""transform_quantity\"": null,
+              \""type\"": \""recurring\"",
+              \""unit_amount\"": 9900,
+              \""unit_amount_decimal\"": \""9900\""
+            },
+            \""proration\"": false,
+            \""proration_details\"": {
+              \""credited_items\"": null
+            },
+            \""quantity\"": 1,
+            \""subscription\"": \""sub_1NOagjFTufv5jJId0xgDmmM7\"",
+            \""subscription_item\"": \""si_OAwZ7NQkljLPGx\"",
+            \""tax_amounts\"": [
+              {
+                \""amount\"": 0,
+                \""inclusive\"": true,
+                \""tax_rate\"": \""txr_1NBjgWFTufv5jJIdWpCVy4qi\"",
+                \""taxability_reason\"": \""not_supported\"",
+                \""taxable_amount\"": 0
+              }
+            ],
+            \""tax_rates\"": [
+
+            ],
+            \""type\"": \""subscription\"",
+            \""unit_amount_excluding_tax\"": \""9900\""
+          }
+        ],
+        \""has_more\"": false,
+        \""total_count\"": 1,
+        \""url\"": \""/v1/invoices/in_1NOagjFTufv5jJIdaaP6HUqf/lines\""
+      },
+      \""livemode\"": false,
+      \""metadata\"": {
+      },
+      \""next_payment_attempt\"": null,
+      \""number\"": \""335FD8CC-0001\"",
+      \""on_behalf_of\"": null,
+      \""paid\"": false,
+      \""paid_out_of_band\"": false,
+      \""payment_intent\"": \""pi_3NOagkFTufv5jJId1rK0vBmI\"",
+      \""payment_settings\"": {
+        \""default_mandate\"": null,
+        \""payment_method_options\"": null,
+        \""payment_method_types\"": null
+      },
+      \""period_end\"": 1688106013,
+      \""period_start\"": 1688106013,
+      \""post_payment_credit_notes_amount\"": 0,
+      \""pre_payment_credit_notes_amount\"": 0,
+      \""quote\"": null,
+      \""receipt_number\"": null,
+      \""rendering_options\"": null,
+      \""shipping_cost\"": null,
+      \""shipping_details\"": null,
+      \""starting_balance\"": 0,
+      \""statement_descriptor\"": null,
+      \""status\"": \""open\"",
+      \""status_transitions\"": {
+        \""finalized_at\"": 1688106013,
+        \""marked_uncollectible_at\"": null,
+        \""paid_at\"": null,
+        \""voided_at\"": null
+      },
+      \""subscription\"": \""sub_1NOagjFTufv5jJId0xgDmmM7\"",
+      \""subtotal\"": 9900,
+      \""subtotal_excluding_tax\"": 9900,
+      \""tax\"": 0,
+      \""test_clock\"": null,
+      \""total\"": 9900,
+      \""total_discount_amounts\"": [
+
+      ],
+      \""total_excluding_tax\"": 9900,
+      \""total_tax_amounts\"": [
+        {
+          \""amount\"": 0,
+          \""inclusive\"": true,
+          \""tax_rate\"": \""txr_1NBjgWFTufv5jJIdWpCVy4qi\"",
+          \""taxability_reason\"": \""not_supported\"",
+          \""taxable_amount\"": 0
+        }
+      ],
+      \""transfer_data\"": null,
+      \""webhooks_delivered_at\"": null
+    }
+  },
+  \""livemode\"": false,
+  \""pending_webhooks\"": 3,
+  \""request\"": {
+    \""id\"": \""req_XrMsj4cg5H1C8S\"",
+    \""idempotency_key\"": \""0a1a9359-5b32-4ddf-828e-a8b639ab6139\""
+  },
+  \""type\"": \""invoice.created\""
+}"",
+  ""isBase64Encoded"": false
+}
+"
+"2023-06-30T06:20:17.330Z	a4bfa6ff-490a-4d73-8333-7c1619050165	INFO	Event: {
+  ""resource"": ""/webhooks"",
+  ""path"": ""/webhooks"",
+  ""httpMethod"": ""POST"",
+  ""headers"": {
+    ""Accept"": ""*/*; q=0.5, application/xml"",
+    ""Cache-Control"": ""no-cache"",
+    ""CloudFront-Forwarded-Proto"": ""https"",
+    ""CloudFront-Is-Desktop-Viewer"": ""true"",
+    ""CloudFront-Is-Mobile-Viewer"": ""false"",
+    ""CloudFront-Is-SmartTV-Viewer"": ""false"",
+    ""CloudFront-Is-Tablet-Viewer"": ""false"",
+    ""CloudFront-Viewer-ASN"": ""16509"",
+    ""CloudFront-Viewer-Country"": ""US"",
+    ""Content-Type"": ""application/json; charset=utf-8"",
+    ""Host"": ""bsgf1dpgt1.execute-api.us-east-2.amazonaws.com"",
+    ""Stripe-Signature"": ""t=1688106017,v1=28b7aa5162b101da192cbcdbccb64ce269b44379606b0fb60bd01a91bdca86c5,v0=17d8c7c4f412118805550bd67b9d7fc76ca656441053e10516b11f7fe5fa7b96"",
+    ""User-Agent"": ""Stripe/1.0 (+https://stripe.com/docs/webhooks)"",
+    ""Via"": ""1.1 3698a5f586d9ecca74d570e41f4c8516.cloudfront.net (CloudFront)"",
+    ""X-Amz-Cf-Id"": ""DHvBL5xdSSEGjeZxJLyrGKRADXTLIrVP0VtTAswHGzcPVQBPZuq_Hw=="",
+    ""X-Amzn-Trace-Id"": ""Root=1-649e7421-5a5795ef616f901e0cc41a3b"",
+    ""X-Forwarded-For"": ""54.187.174.169, 15.158.54.45"",
+    ""X-Forwarded-Port"": ""443"",
+    ""X-Forwarded-Proto"": ""https""
+  },
+  ""multiValueHeaders"": {
+    ""Accept"": [
+      ""*/*; q=0.5, application/xml""
+    ],
+    ""Cache-Control"": [
+      ""no-cache""
+    ],
+    ""CloudFront-Forwarded-Proto"": [
+      ""https""
+    ],
+    ""CloudFront-Is-Desktop-Viewer"": [
+      ""true""
+    ],
+    ""CloudFront-Is-Mobile-Viewer"": [
+      ""false""
+    ],
+    ""CloudFront-Is-SmartTV-Viewer"": [
+      ""false""
+    ],
+    ""CloudFront-Is-Tablet-Viewer"": [
+      ""false""
+    ],
+    ""CloudFront-Viewer-ASN"": [
+      ""16509""
+    ],
+    ""CloudFront-Viewer-Country"": [
+      ""US""
+    ],
+    ""Content-Type"": [
+      ""application/json; charset=utf-8""
+    ],
+    ""Host"": [
+      ""bsgf1dpgt1.execute-api.us-east-2.amazonaws.com""
+    ],
+    ""Stripe-Signature"": [
+      ""t=1688106017,v1=28b7aa5162b101da192cbcdbccb64ce269b44379606b0fb60bd01a91bdca86c5,v0=17d8c7c4f412118805550bd67b9d7fc76ca656441053e10516b11f7fe5fa7b96""
+    ],
+    ""User-Agent"": [
+      ""Stripe/1.0 (+https://stripe.com/docs/webhooks)""
+    ],
+    ""Via"": [
+      ""1.1 3698a5f586d9ecca74d570e41f4c8516.cloudfront.net (CloudFront)""
+    ],
+    ""X-Amz-Cf-Id"": [
+      ""DHvBL5xdSSEGjeZxJLyrGKRADXTLIrVP0VtTAswHGzcPVQBPZuq_Hw==""
+    ],
+    ""X-Amzn-Trace-Id"": [
+      ""Root=1-649e7421-5a5795ef616f901e0cc41a3b""
+    ],
+    ""X-Forwarded-For"": [
+      ""54.187.174.169, 15.158.54.45""
+    ],
+    ""X-Forwarded-Port"": [
+      ""443""
+    ],
+    ""X-Forwarded-Proto"": [
+      ""https""
+    ]
+  },
+  ""queryStringParameters"": null,
+  ""multiValueQueryStringParameters"": null,
+  ""pathParameters"": null,
+  ""stageVariables"": null,
+  ""requestContext"": {
+    ""resourceId"": ""e5lf6p"",
+    ""resourcePath"": ""/webhooks"",
+    ""httpMethod"": ""POST"",
+    ""extendedRequestId"": ""HUcVPGffCYcFUPw="",
+    ""requestTime"": ""30/Jun/2023:06:20:17 +0000"",
+    ""path"": ""/webhooks/webhooks"",
+    ""accountId"": ""653625749031"",
+    ""protocol"": ""HTTP/1.1"",
+    ""stage"": ""webhooks"",
+    ""domainPrefix"": ""bsgf1dpgt1"",
+    ""requestTimeEpoch"": 1688106017276,
+    ""requestId"": ""522b4c49-38ba-47be-90b6-65bc28b8f666"",
+    ""identity"": {
+      ""cognitoIdentityPoolId"": null,
+      ""accountId"": null,
+      ""cognitoIdentityId"": null,
+      ""caller"": null,
+      ""sourceIp"": ""54.187.174.169"",
+      ""principalOrgId"": null,
+      ""accessKey"": null,
+      ""cognitoAuthenticationType"": null,
+      ""cognitoAuthenticationProvider"": null,
+      ""userArn"": null,
+      ""userAgent"": ""Stripe/1.0 (+https://stripe.com/docs/webhooks)"",
+      ""user"": null
+    },
+    ""domainName"": ""bsgf1dpgt1.execute-api.us-east-2.amazonaws.com"",
+    ""apiId"": ""bsgf1dpgt1""
+  },
+  ""body"": ""{
+  \""id\"": \""evt_1NOagnFTufv5jJIdt6PQPC2F\"",
+  \""object\"": \""event\"",
+  \""api_version\"": \""2022-11-15\"",
+  \""created\"": 1688106014,
+  \""data\"": {
+    \""object\"": {
+      \""id\"": \""in_1NOagjFTufv5jJIdaaP6HUqf\"",
+      \""object\"": \""invoice\"",
+      \""account_country\"": \""US\"",
+      \""account_name\"": \""Yourbit, LLC\"",
+      \""account_tax_ids\"": null,
+      \""amount_due\"": 9900,
+      \""amount_paid\"": 0,
+      \""amount_remaining\"": 9900,
+      \""amount_shipping\"": 0,
+      \""application\"": null,
+      \""application_fee_amount\"": null,
+      \""attempt_count\"": 0,
+      \""attempted\"": false,
+      \""auto_advance\"": false,
+      \""automatic_tax\"": {
+        \""enabled\"": true,
+        \""status\"": \""complete\""
+      },
+      \""billing_reason\"": \""subscription_create\"",
+      \""charge\"": null,
+      \""collection_method\"": \""charge_automatically\"",
+      \""created\"": 1688106013,
+      \""currency\"": \""mxn\"",
+      \""custom_fields\"": null,
+      \""customer\"": \""cus_OAwZcy606y2ntb\"",
+      \""customer_address\"": {
+        \""city\"": null,
+        \""country\"": \""MX\"",
+        \""line1\"": null,
+        \""line2\"": null,
+        \""postal_code\"": null,
+        \""state\"": null
+      },
+      \""customer_email\"": \""test@cuervoai.com\"",
+      \""customer_name\"": \""diego test\"",
+      \""customer_phone\"": \""+528117466017\"",
+      \""customer_shipping\"": null,
+      \""customer_tax_exempt\"": \""none\"",
+      \""customer_tax_ids\"": [
+
+      ],
+      \""default_payment_method\"": null,
+      \""default_source\"": null,
+      \""default_tax_rates\"": [
+
+      ],
+      \""description\"": null,
+      \""discount\"": null,
+      \""discounts\"": [
+
+      ],
+      \""due_date\"": null,
+      \""effective_at\"": 1688106013,
+      \""ending_balance\"": 0,
+      \""footer\"": null,
+      \""from_invoice\"": null,
+      \""hosted_invoice_url\"": \""https://invoice.stripe.com/i/acct_1LmKQsFTufv5jJId/test_YWNjdF8xTG1LUXNGVHVmdjVqSklkLF9PQXdaVk8yd0p5aURVdnFlaW5zMHZEakZ1WFBxOUdTLDc4NjQ2ODE30200R3MG0cOt?s=ap\"",
+      \""invoice_pdf\"": \""https://pay.stripe.com/invoice/acct_1LmKQsFTufv5jJId/test_YWNjdF8xTG1LUXNGVHVmdjVqSklkLF9PQXdaVk8yd0p5aURVdnFlaW5zMHZEakZ1WFBxOUdTLDc4NjQ2ODE30200R3MG0cOt/pdf?s=ap\"",
+      \""last_finalization_error\"": null,
+      \""latest_revision\"": null,
+      \""lines\"": {
+        \""object\"": \""list\"",
+        \""data\"": [
+          {
+            \""id\"": \""il_1NOagjFTufv5jJIdkE23WVhR\"",
+            \""object\"": \""line_item\"",
+            \""amount\"": 9900,
+            \""amount_excluding_tax\"": 9900,
+            \""currency\"": \""mxn\"",
+            \""description\"": \""1 × Cuervo Subscription - 100 credits/mo (at $99.00 / month)\"",
+            \""discount_amounts\"": [
+
+            ],
+            \""discountable\"": true,
+            \""discounts\"": [
+
+            ],
+            \""livemode\"": false,
+            \""metadata\"": {
+            },
+            \""period\"": {
+              \""end\"": 1690698013,
+              \""start\"": 1688106013
+            },
+            \""plan\"": {
+              \""id\"": \""price_1NBjeCFTufv5jJIdT5jjOguS\"",
+              \""object\"": \""plan\"",
+              \""active\"": true,
+              \""aggregate_usage\"": null,
+              \""amount\"": 9900,
+              \""amount_decimal\"": \""9900\"",
+              \""billing_scheme\"": \""per_unit\"",
+              \""created\"": 1685042188,
+              \""currency\"": \""mxn\"",
+              \""interval\"": \""month\"",
+              \""interval_count\"": 1,
+              \""livemode\"": false,
+              \""metadata\"": {
+              },
+              \""nickname\"": null,
+              \""product\"": \""prod_Nxeysi9QhMmw6U\"",
+              \""tiers_mode\"": null,
+              \""transform_usage\"": null,
+              \""trial_period_days\"": null,
+              \""usage_type\"": \""licensed\""
+            },
+            \""price\"": {
+              \""id\"": \""price_1NBjeCFTufv5jJIdT5jjOguS\"",
+              \""object\"": \""price\"",
+              \""active\"": true,
+              \""billing_scheme\"": \""per_unit\"",
+              \""created\"": 1685042188,
+              \""currency\"": \""mxn\"",
+              \""custom_unit_amount\"": null,
+              \""livemode\"": false,
+              \""lookup_key\"": null,
+              \""metadata\"": {
+              },
+              \""nickname\"": null,
+              \""product\"": \""prod_Nxeysi9QhMmw6U\"",
+              \""recurring\"": {
+                \""aggregate_usage\"": null,
+                \""interval\"": \""month\"",
+                \""interval_count\"": 1,
+                \""trial_period_days\"": null,
+                \""usage_type\"": \""licensed\""
+              },
+              \""tax_behavior\"": \""inclusive\"",
+              \""tiers_mode\"": null,
+              \""transform_quantity\"": null,
+              \""type\"": \""recurring\"",
+              \""unit_amount\"": 9900,
+              \""unit_amount_decimal\"": \""9900\""
+            },
+            \""proration\"": false,
+            \""proration_details\"": {
+              \""credited_items\"": null
+            },
+            \""quantity\"": 1,
+            \""subscription\"": \""sub_1NOagjFTufv5jJId0xgDmmM7\"",
+            \""subscription_item\"": \""si_OAwZ7NQkljLPGx\"",
+            \""tax_amounts\"": [
+              {
+                \""amount\"": 0,
+                \""inclusive\"": true,
+                \""tax_rate\"": \""txr_1NBjgWFTufv5jJIdWpCVy4qi\"",
+                \""taxability_reason\"": \""not_supported\"",
+                \""taxable_amount\"": 0
+              }
+            ],
+            \""tax_rates\"": [
+
+            ],
+            \""type\"": \""subscription\"",
+            \""unit_amount_excluding_tax\"": \""9900\""
+          }
+        ],
+        \""has_more\"": false,
+        \""total_count\"": 1,
+        \""url\"": \""/v1/invoices/in_1NOagjFTufv5jJIdaaP6HUqf/lines\""
+      },
+      \""livemode\"": false,
+      \""metadata\"": {
+      },
+      \""next_payment_attempt\"": null,
+      \""number\"": \""335FD8CC-0001\"",
+      \""on_behalf_of\"": null,
+      \""paid\"": false,
+      \""paid_out_of_band\"": false,
+      \""payment_intent\"": \""pi_3NOagkFTufv5jJId1rK0vBmI\"",
+      \""payment_settings\"": {
+        \""default_mandate\"": null,
+        \""payment_method_options\"": null,
+        \""payment_method_types\"": null
+      },
+      \""period_end\"": 1688106013,
+      \""period_start\"": 1688106013,
+      \""post_payment_credit_notes_amount\"": 0,
+      \""pre_payment_credit_notes_amount\"": 0,
+      \""quote\"": null,
+      \""receipt_number\"": null,
+      \""rendering_options\"": null,
+      \""shipping_cost\"": null,
+      \""shipping_details\"": null,
+      \""starting_balance\"": 0,
+      \""statement_descriptor\"": null,
+      \""status\"": \""open\"",
+      \""status_transitions\"": {
+        \""finalized_at\"": 1688106013,
+        \""marked_uncollectible_at\"": null,
+        \""paid_at\"": null,
+        \""voided_at\"": null
+      },
+      \""subscription\"": \""sub_1NOagjFTufv5jJId0xgDmmM7\"",
+      \""subtotal\"": 9900,
+      \""subtotal_excluding_tax\"": 9900,
+      \""tax\"": 0,
+      \""test_clock\"": null,
+      \""total\"": 9900,
+      \""total_discount_amounts\"": [
+
+      ],
+      \""total_excluding_tax\"": 9900,
+      \""total_tax_amounts\"": [
+        {
+          \""amount\"": 0,
+          \""inclusive\"": true,
+          \""tax_rate\"": \""txr_1NBjgWFTufv5jJIdWpCVy4qi\"",
+          \""taxability_reason\"": \""not_supported\"",
+          \""taxable_amount\"": 0
+        }
+      ],
+      \""transfer_data\"": null,
+      \""webhooks_delivered_at\"": null
+    }
+  },
+  \""livemode\"": false,
+  \""pending_webhooks\"": 3,
+  \""request\"": {
+    \""id\"": \""req_XrMsj4cg5H1C8S\"",
+    \""idempotency_key\"": \""0a1a9359-5b32-4ddf-828e-a8b639ab6139\""
+  },
+  \""type\"": \""invoice.finalized\""
+}"",
+  ""isBase64Encoded"": false
+}
+"
+"2023-06-30T06:20:17.395Z	661d0bd7-9736-4e46-b6d6-16cd730fa83c	INFO	Event: {
+  ""resource"": ""/webhooks"",
+  ""path"": ""/webhooks"",
+  ""httpMethod"": ""POST"",
+  ""headers"": {
+    ""Accept"": ""*/*; q=0.5, application/xml"",
+    ""Cache-Control"": ""no-cache"",
+    ""CloudFront-Forwarded-Proto"": ""https"",
+    ""CloudFront-Is-Desktop-Viewer"": ""true"",
+    ""CloudFront-Is-Mobile-Viewer"": ""false"",
+    ""CloudFront-Is-SmartTV-Viewer"": ""false"",
+    ""CloudFront-Is-Tablet-Viewer"": ""false"",
+    ""CloudFront-Viewer-ASN"": ""16509"",
+    ""CloudFront-Viewer-Country"": ""US"",
+    ""Content-Type"": ""application/json; charset=utf-8"",
+    ""Host"": ""bsgf1dpgt1.execute-api.us-east-2.amazonaws.com"",
+    ""Stripe-Signature"": ""t=1688106017,v1=616d1eaf6e32f31d541ce24d90b1971b5ce2e6bbf9288b88b65c1a7dd690f9ce,v0=265c2499d1dfef98547b05115f2a403f55429a3092332d1a48c08fa6869d88a8"",
+    ""User-Agent"": ""Stripe/1.0 (+https://stripe.com/docs/webhooks)"",
+    ""Via"": ""1.1 ba490acb2ea716cd57876286ed686786.cloudfront.net (CloudFront)"",
+    ""X-Amz-Cf-Id"": ""snl5bFcee6o2kx-XBqrjpWwA5ofjR6kNq0RAFB27MdBJUF-asmFhbw=="",
+    ""X-Amzn-Trace-Id"": ""Root=1-649e7421-34809734579a71d757fd4fff"",
+    ""X-Forwarded-For"": ""54.187.174.169, 15.158.54.45"",
+    ""X-Forwarded-Port"": ""443"",
+    ""X-Forwarded-Proto"": ""https""
+  },
+  ""multiValueHeaders"": {
+    ""Accept"": [
+      ""*/*; q=0.5, application/xml""
+    ],
+    ""Cache-Control"": [
+      ""no-cache""
+    ],
+    ""CloudFront-Forwarded-Proto"": [
+      ""https""
+    ],
+    ""CloudFront-Is-Desktop-Viewer"": [
+      ""true""
+    ],
+    ""CloudFront-Is-Mobile-Viewer"": [
+      ""false""
+    ],
+    ""CloudFront-Is-SmartTV-Viewer"": [
+      ""false""
+    ],
+    ""CloudFront-Is-Tablet-Viewer"": [
+      ""false""
+    ],
+    ""CloudFront-Viewer-ASN"": [
+      ""16509""
+    ],
+    ""CloudFront-Viewer-Country"": [
+      ""US""
+    ],
+    ""Content-Type"": [
+      ""application/json; charset=utf-8""
+    ],
+    ""Host"": [
+      ""bsgf1dpgt1.execute-api.us-east-2.amazonaws.com""
+    ],
+    ""Stripe-Signature"": [
+      ""t=1688106017,v1=616d1eaf6e32f31d541ce24d90b1971b5ce2e6bbf9288b88b65c1a7dd690f9ce,v0=265c2499d1dfef98547b05115f2a403f55429a3092332d1a48c08fa6869d88a8""
+    ],
+    ""User-Agent"": [
+      ""Stripe/1.0 (+https://stripe.com/docs/webhooks)""
+    ],
+    ""Via"": [
+      ""1.1 ba490acb2ea716cd57876286ed686786.cloudfront.net (CloudFront)""
+    ],
+    ""X-Amz-Cf-Id"": [
+      ""snl5bFcee6o2kx-XBqrjpWwA5ofjR6kNq0RAFB27MdBJUF-asmFhbw==""
+    ],
+    ""X-Amzn-Trace-Id"": [
+      ""Root=1-649e7421-34809734579a71d757fd4fff""
+    ],
+    ""X-Forwarded-For"": [
+      ""54.187.174.169, 15.158.54.45""
+    ],
+    ""X-Forwarded-Port"": [
+      ""443""
+    ],
+    ""X-Forwarded-Proto"": [
+      ""https""
+    ]
+  },
+  ""queryStringParameters"": null,
+  ""multiValueQueryStringParameters"": null,
+  ""pathParameters"": null,
+  ""stageVariables"": null,
+  ""requestContext"": {
+    ""resourceId"": ""e5lf6p"",
+    ""resourcePath"": ""/webhooks"",
+    ""httpMethod"": ""POST"",
+    ""extendedRequestId"": ""HUcVQG0aCYcFiWA="",
+    ""requestTime"": ""30/Jun/2023:06:20:17 +0000"",
+    ""path"": ""/webhooks/webhooks"",
+    ""accountId"": ""653625749031"",
+    ""protocol"": ""HTTP/1.1"",
+    ""stage"": ""webhooks"",
+    ""domainPrefix"": ""bsgf1dpgt1"",
+    ""requestTimeEpoch"": 1688106017331,
+    ""requestId"": ""55701208-a24c-4cf9-9997-104ff2498849"",
+    ""identity"": {
+      ""cognitoIdentityPoolId"": null,
+      ""accountId"": null,
+      ""cognitoIdentityId"": null,
+      ""caller"": null,
+      ""sourceIp"": ""54.187.174.169"",
+      ""principalOrgId"": null,
+      ""accessKey"": null,
+      ""cognitoAuthenticationType"": null,
+      ""cognitoAuthenticationProvider"": null,
+      ""userArn"": null,
+      ""userAgent"": ""Stripe/1.0 (+https://stripe.com/docs/webhooks)"",
+      ""user"": null
+    },
+    ""domainName"": ""bsgf1dpgt1.execute-api.us-east-2.amazonaws.com"",
+    ""apiId"": ""bsgf1dpgt1""
+  },
+  ""body"": ""{
+  \""id\"": \""evt_1NOagnFTufv5jJIdr7WNvbvw\"",
+  \""object\"": \""event\"",
+  \""api_version\"": \""2022-11-15\"",
+  \""created\"": 1688106014,
+  \""data\"": {
+    \""object\"": {
+      \""id\"": \""sub_1NOagjFTufv5jJId0xgDmmM7\"",
+      \""object\"": \""subscription\"",
+      \""application\"": null,
+      \""application_fee_percent\"": null,
+      \""automatic_tax\"": {
+        \""enabled\"": true
+      },
+      \""billing_cycle_anchor\"": 1688106013,
+      \""billing_thresholds\"": null,
+      \""cancel_at\"": null,
+      \""cancel_at_period_end\"": false,
+      \""canceled_at\"": null,
+      \""cancellation_details\"": {
+        \""comment\"": null,
+        \""feedback\"": null,
+        \""reason\"": null
+      },
+      \""collection_method\"": \""charge_automatically\"",
+      \""created\"": 1688106013,
+      \""currency\"": \""mxn\"",
+      \""current_period_end\"": 1690698013,
+      \""current_period_start\"": 1688106013,
+      \""customer\"": \""cus_OAwZcy606y2ntb\"",
+      \""days_until_due\"": null,
+      \""default_payment_method\"": null,
+      \""default_source\"": null,
+      \""default_tax_rates\"": [
+
+      ],
+      \""description\"": null,
+      \""discount\"": null,
+      \""ended_at\"": null,
+      \""items\"": {
+        \""object\"": \""list\"",
+        \""data\"": [
+          {
+            \""id\"": \""si_OAwZ7NQkljLPGx\"",
+            \""object\"": \""subscription_item\"",
+            \""billing_thresholds\"": null,
+            \""created\"": 1688106014,
+            \""metadata\"": {
+            },
+            \""plan\"": {
+              \""id\"": \""price_1NBjeCFTufv5jJIdT5jjOguS\"",
+              \""object\"": \""plan\"",
+              \""active\"": true,
+              \""aggregate_usage\"": null,
+              \""amount\"": 9900,
+              \""amount_decimal\"": \""9900\"",
+              \""billing_scheme\"": \""per_unit\"",
+              \""created\"": 1685042188,
+              \""currency\"": \""mxn\"",
+              \""interval\"": \""month\"",
+              \""interval_count\"": 1,
+              \""livemode\"": false,
+              \""metadata\"": {
+              },
+              \""nickname\"": null,
+              \""product\"": \""prod_Nxeysi9QhMmw6U\"",
+              \""tiers_mode\"": null,
+              \""transform_usage\"": null,
+              \""trial_period_days\"": null,
+              \""usage_type\"": \""licensed\""
+            },
+            \""price\"": {
+              \""id\"": \""price_1NBjeCFTufv5jJIdT5jjOguS\"",
+              \""object\"": \""price\"",
+              \""active\"": true,
+              \""billing_scheme\"": \""per_unit\"",
+              \""created\"": 1685042188,
+              \""currency\"": \""mxn\"",
+              \""custom_unit_amount\"": null,
+              \""livemode\"": false,
+              \""lookup_key\"": null,
+              \""metadata\"": {
+              },
+              \""nickname\"": null,
+              \""product\"": \""prod_Nxeysi9QhMmw6U\"",
+              \""recurring\"": {
+                \""aggregate_usage\"": null,
+                \""interval\"": \""month\"",
+                \""interval_count\"": 1,
+                \""trial_period_days\"": null,
+                \""usage_type\"": \""licensed\""
+              },
+              \""tax_behavior\"": \""inclusive\"",
+              \""tiers_mode\"": null,
+              \""transform_quantity\"": null,
+              \""type\"": \""recurring\"",
+              \""unit_amount\"": 9900,
+              \""unit_amount_decimal\"": \""9900\""
+            },
+            \""quantity\"": 1,
+            \""subscription\"": \""sub_1NOagjFTufv5jJId0xgDmmM7\"",
+            \""tax_rates\"": [
+
+            ]
+          }
+        ],
+        \""has_more\"": false,
+        \""total_count\"": 1,
+        \""url\"": \""/v1/subscription_items?subscription=sub_1NOagjFTufv5jJId0xgDmmM7\""
+      },
+      \""latest_invoice\"": \""in_1NOagjFTufv5jJIdaaP6HUqf\"",
+      \""livemode\"": false,
+      \""metadata\"": {
+      },
+      \""next_pending_invoice_item_invoice\"": null,
+      \""on_behalf_of\"": null,
+      \""pause_collection\"": null,
+      \""payment_settings\"": {
+        \""payment_method_options\"": null,
+        \""payment_method_types\"": null,
+        \""save_default_payment_method\"": \""off\""
+      },
+      \""pending_invoice_item_interval\"": null,
+      \""pending_setup_intent\"": null,
+      \""pending_update\"": null,
+      \""plan\"": {
+        \""id\"": \""price_1NBjeCFTufv5jJIdT5jjOguS\"",
+        \""object\"": \""plan\"",
+        \""active\"": true,
+        \""aggregate_usage\"": null,
+        \""amount\"": 9900,
+        \""amount_decimal\"": \""9900\"",
+        \""billing_scheme\"": \""per_unit\"",
+        \""created\"": 1685042188,
+        \""currency\"": \""mxn\"",
+        \""interval\"": \""month\"",
+        \""interval_count\"": 1,
+        \""livemode\"": false,
+        \""metadata\"": {
+        },
+        \""nickname\"": null,
+        \""product\"": \""prod_Nxeysi9QhMmw6U\"",
+        \""tiers_mode\"": null,
+        \""transform_usage\"": null,
+        \""trial_period_days\"": null,
+        \""usage_type\"": \""licensed\""
+      },
+      \""quantity\"": 1,
+      \""schedule\"": null,
+      \""start_date\"": 1688106013,
+      \""status\"": \""incomplete\"",
+      \""test_clock\"": null,
+      \""transfer_data\"": null,
+      \""trial_end\"": null,
+      \""trial_settings\"": {
+        \""end_behavior\"": {
+          \""missing_payment_method\"": \""create_invoice\""
+        }
+      },
+      \""trial_start\"": null
+    }
+  },
+  \""livemode\"": false,
+  \""pending_webhooks\"": 3,
+  \""request\"": {
+    \""id\"": \""req_XrMsj4cg5H1C8S\"",
+    \""idempotency_key\"": \""0a1a9359-5b32-4ddf-828e-a8b639ab6139\""
+  },
+  \""type\"": \""customer.subscription.created\""
+}"",
+  ""isBase64Encoded"": false
+}
+"
+"2023-06-30T06:20:17.495Z	7df2c463-e2ef-45f7-b258-8cd67c2654dc	INFO	Event: {
+  ""resource"": ""/webhooks"",
+  ""path"": ""/webhooks"",
+  ""httpMethod"": ""POST"",
+  ""headers"": {
+    ""Accept"": ""*/*; q=0.5, application/xml"",
+    ""Cache-Control"": ""no-cache"",
+    ""CloudFront-Forwarded-Proto"": ""https"",
+    ""CloudFront-Is-Desktop-Viewer"": ""true"",
+    ""CloudFront-Is-Mobile-Viewer"": ""false"",
+    ""CloudFront-Is-SmartTV-Viewer"": ""false"",
+    ""CloudFront-Is-Tablet-Viewer"": ""false"",
+    ""CloudFront-Viewer-ASN"": ""16509"",
+    ""CloudFront-Viewer-Country"": ""US"",
+    ""Content-Type"": ""application/json; charset=utf-8"",
+    ""Host"": ""bsgf1dpgt1.execute-api.us-east-2.amazonaws.com"",
+    ""Stripe-Signature"": ""t=1688106017,v1=b0f63ea2a938b74dc3a09d0bb872d5781bd4b8e163fb8a48778b273a1f142dbd,v0=489036fc3db68b9408e1f00dd5ace8abeb5e0addc850e3a762451fa1db3db8df"",
+    ""User-Agent"": ""Stripe/1.0 (+https://stripe.com/docs/webhooks)"",
+    ""Via"": ""1.1 b6cdb2111444305bd4957a473b711ad6.cloudfront.net (CloudFront)"",
+    ""X-Amz-Cf-Id"": ""fmthZWzpPhGL8oPgxOyC99ACadFGVvRIMEhe1ji8J8rfMt4ZkRIgmQ=="",
+    ""X-Amzn-Trace-Id"": ""Root=1-649e7421-7fab654d54a87ff9168912bc"",
+    ""X-Forwarded-For"": ""54.187.174.169, 15.158.54.7"",
+    ""X-Forwarded-Port"": ""443"",
+    ""X-Forwarded-Proto"": ""https""
+  },
+  ""multiValueHeaders"": {
+    ""Accept"": [
+      ""*/*; q=0.5, application/xml""
+    ],
+    ""Cache-Control"": [
+      ""no-cache""
+    ],
+    ""CloudFront-Forwarded-Proto"": [
+      ""https""
+    ],
+    ""CloudFront-Is-Desktop-Viewer"": [
+      ""true""
+    ],
+    ""CloudFront-Is-Mobile-Viewer"": [
+      ""false""
+    ],
+    ""CloudFront-Is-SmartTV-Viewer"": [
+      ""false""
+    ],
+    ""CloudFront-Is-Tablet-Viewer"": [
+      ""false""
+    ],
+    ""CloudFront-Viewer-ASN"": [
+      ""16509""
+    ],
+    ""CloudFront-Viewer-Country"": [
+      ""US""
+    ],
+    ""Content-Type"": [
+      ""application/json; charset=utf-8""
+    ],
+    ""Host"": [
+      ""bsgf1dpgt1.execute-api.us-east-2.amazonaws.com""
+    ],
+    ""Stripe-Signature"": [
+      ""t=1688106017,v1=b0f63ea2a938b74dc3a09d0bb872d5781bd4b8e163fb8a48778b273a1f142dbd,v0=489036fc3db68b9408e1f00dd5ace8abeb5e0addc850e3a762451fa1db3db8df""
+    ],
+    ""User-Agent"": [
+      ""Stripe/1.0 (+https://stripe.com/docs/webhooks)""
+    ],
+    ""Via"": [
+      ""1.1 b6cdb2111444305bd4957a473b711ad6.cloudfront.net (CloudFront)""
+    ],
+    ""X-Amz-Cf-Id"": [
+      ""fmthZWzpPhGL8oPgxOyC99ACadFGVvRIMEhe1ji8J8rfMt4ZkRIgmQ==""
+    ],
+    ""X-Amzn-Trace-Id"": [
+      ""Root=1-649e7421-7fab654d54a87ff9168912bc""
+    ],
+    ""X-Forwarded-For"": [
+      ""54.187.174.169, 15.158.54.7""
+    ],
+    ""X-Forwarded-Port"": [
+      ""443""
+    ],
+    ""X-Forwarded-Proto"": [
+      ""https""
+    ]
+  },
+  ""queryStringParameters"": null,
+  ""multiValueQueryStringParameters"": null,
+  ""pathParameters"": null,
+  ""stageVariables"": null,
+  ""requestContext"": {
+    ""resourceId"": ""e5lf6p"",
+    ""resourcePath"": ""/webhooks"",
+    ""httpMethod"": ""POST"",
+    ""extendedRequestId"": ""HUcVRH6BCYcFS0A="",
+    ""requestTime"": ""30/Jun/2023:06:20:17 +0000"",
+    ""path"": ""/webhooks/webhooks"",
+    ""accountId"": ""653625749031"",
+    ""protocol"": ""HTTP/1.1"",
+    ""stage"": ""webhooks"",
+    ""domainPrefix"": ""bsgf1dpgt1"",
+    ""requestTimeEpoch"": 1688106017442,
+    ""requestId"": ""e1d480c8-0b89-4c02-a90b-ce7cb56bcf48"",
+    ""identity"": {
+      ""cognitoIdentityPoolId"": null,
+      ""accountId"": null,
+      ""cognitoIdentityId"": null,
+      ""caller"": null,
+      ""sourceIp"": ""54.187.174.169"",
+      ""principalOrgId"": null,
+      ""accessKey"": null,
+      ""cognitoAuthenticationType"": null,
+      ""cognitoAuthenticationProvider"": null,
+      ""userArn"": null,
+      ""userAgent"": ""Stripe/1.0 (+https://stripe.com/docs/webhooks)"",
+      ""user"": null
+    },
+    ""domainName"": ""bsgf1dpgt1.execute-api.us-east-2.amazonaws.com"",
+    ""apiId"": ""bsgf1dpgt1""
+  },
+  ""body"": ""{
+  \""id\"": \""evt_1NOagnFTufv5jJIdZry5yRLC\"",
+  \""object\"": \""event\"",
+  \""api_version\"": \""2022-11-15\"",
+  \""created\"": 1688106016,
+  \""data\"": {
+    \""object\"": {
+      \""id\"": \""in_1NOagjFTufv5jJIdaaP6HUqf\"",
+      \""object\"": \""invoice\"",
+      \""account_country\"": \""US\"",
+      \""account_name\"": \""Yourbit, LLC\"",
+      \""account_tax_ids\"": null,
+      \""amount_due\"": 9900,
+      \""amount_paid\"": 9900,
+      \""amount_remaining\"": 0,
+      \""amount_shipping\"": 0,
+      \""application\"": null,
+      \""application_fee_amount\"": null,
+      \""attempt_count\"": 1,
+      \""attempted\"": true,
+      \""auto_advance\"": false,
+      \""automatic_tax\"": {
+        \""enabled\"": true,
+        \""status\"": \""complete\""
+      },
+      \""billing_reason\"": \""subscription_create\"",
+      \""charge\"": \""ch_3NOagkFTufv5jJId1zEldpzj\"",
+      \""collection_method\"": \""charge_automatically\"",
+      \""created\"": 1688106013,
+      \""currency\"": \""mxn\"",
+      \""custom_fields\"": null,
+      \""customer\"": \""cus_OAwZcy606y2ntb\"",
+      \""customer_address\"": {
+        \""city\"": null,
+        \""country\"": \""MX\"",
+        \""line1\"": null,
+        \""line2\"": null,
+        \""postal_code\"": null,
+        \""state\"": null
+      },
+      \""customer_email\"": \""test@cuervoai.com\"",
+      \""customer_name\"": \""diego test\"",
+      \""customer_phone\"": \""+528117466017\"",
+      \""customer_shipping\"": null,
+      \""customer_tax_exempt\"": \""none\"",
+      \""customer_tax_ids\"": [
+
+      ],
+      \""default_payment_method\"": null,
+      \""default_source\"": null,
+      \""default_tax_rates\"": [
+
+      ],
+      \""description\"": null,
+      \""discount\"": null,
+      \""discounts\"": [
+
+      ],
+      \""due_date\"": null,
+      \""effective_at\"": 1688106013,
+      \""ending_balance\"": 0,
+      \""footer\"": null,
+      \""from_invoice\"": null,
+      \""hosted_invoice_url\"": \""https://invoice.stripe.com/i/acct_1LmKQsFTufv5jJId/test_YWNjdF8xTG1LUXNGVHVmdjVqSklkLF9PQXdaVk8yd0p5aURVdnFlaW5zMHZEakZ1WFBxOUdTLDc4NjQ2ODE30200R3MG0cOt?s=ap\"",
+      \""invoice_pdf\"": \""https://pay.stripe.com/invoice/acct_1LmKQsFTufv5jJId/test_YWNjdF8xTG1LUXNGVHVmdjVqSklkLF9PQXdaVk8yd0p5aURVdnFlaW5zMHZEakZ1WFBxOUdTLDc4NjQ2ODE30200R3MG0cOt/pdf?s=ap\"",
+      \""last_finalization_error\"": null,
+      \""latest_revision\"": null,
+      \""lines\"": {
+        \""object\"": \""list\"",
+        \""data\"": [
+          {
+            \""id\"": \""il_1NOagjFTufv5jJIdkE23WVhR\"",
+            \""object\"": \""line_item\"",
+            \""amount\"": 9900,
+            \""amount_excluding_tax\"": 9900,
+            \""currency\"": \""mxn\"",
+            \""description\"": \""1 × Cuervo Subscription - 100 credits/mo (at $99.00 / month)\"",
+            \""discount_amounts\"": [
+
+            ],
+            \""discountable\"": true,
+            \""discounts\"": [
+
+            ],
+            \""livemode\"": false,
+            \""metadata\"": {
+            },
+            \""period\"": {
+              \""end\"": 1690698013,
+              \""start\"": 1688106013
+            },
+            \""plan\"": {
+              \""id\"": \""price_1NBjeCFTufv5jJIdT5jjOguS\"",
+              \""object\"": \""plan\"",
+              \""active\"": true,
+              \""aggregate_usage\"": null,
+              \""amount\"": 9900,
+              \""amount_decimal\"": \""9900\"",
+              \""billing_scheme\"": \""per_unit\"",
+              \""created\"": 1685042188,
+              \""currency\"": \""mxn\"",
+              \""interval\"": \""month\"",
+              \""interval_count\"": 1,
+              \""livemode\"": false,
+              \""metadata\"": {
+              },
+              \""nickname\"": null,
+              \""product\"": \""prod_Nxeysi9QhMmw6U\"",
+              \""tiers_mode\"": null,
+              \""transform_usage\"": null,
+              \""trial_period_days\"": null,
+              \""usage_type\"": \""licensed\""
+            },
+            \""price\"": {
+              \""id\"": \""price_1NBjeCFTufv5jJIdT5jjOguS\"",
+              \""object\"": \""price\"",
+              \""active\"": true,
+              \""billing_scheme\"": \""per_unit\"",
+              \""created\"": 1685042188,
+              \""currency\"": \""mxn\"",
+              \""custom_unit_amount\"": null,
+              \""livemode\"": false,
+              \""lookup_key\"": null,
+              \""metadata\"": {
+              },
+              \""nickname\"": null,
+              \""product\"": \""prod_Nxeysi9QhMmw6U\"",
+              \""recurring\"": {
+                \""aggregate_usage\"": null,
+                \""interval\"": \""month\"",
+                \""interval_count\"": 1,
+                \""trial_period_days\"": null,
+                \""usage_type\"": \""licensed\""
+              },
+              \""tax_behavior\"": \""inclusive\"",
+              \""tiers_mode\"": null,
+              \""transform_quantity\"": null,
+              \""type\"": \""recurring\"",
+              \""unit_amount\"": 9900,
+              \""unit_amount_decimal\"": \""9900\""
+            },
+            \""proration\"": false,
+            \""proration_details\"": {
+              \""credited_items\"": null
+            },
+            \""quantity\"": 1,
+            \""subscription\"": \""sub_1NOagjFTufv5jJId0xgDmmM7\"",
+            \""subscription_item\"": \""si_OAwZ7NQkljLPGx\"",
+            \""tax_amounts\"": [
+              {
+                \""amount\"": 0,
+                \""inclusive\"": true,
+                \""tax_rate\"": \""txr_1NBjgWFTufv5jJIdWpCVy4qi\"",
+                \""taxability_reason\"": \""not_supported\"",
+                \""taxable_amount\"": 0
+              }
+            ],
+            \""tax_rates\"": [
+
+            ],
+            \""type\"": \""subscription\"",
+            \""unit_amount_excluding_tax\"": \""9900\""
+          }
+        ],
+        \""has_more\"": false,
+        \""total_count\"": 1,
+        \""url\"": \""/v1/invoices/in_1NOagjFTufv5jJIdaaP6HUqf/lines\""
+      },
+      \""livemode\"": false,
+      \""metadata\"": {
+      },
+      \""next_payment_attempt\"": null,
+      \""number\"": \""335FD8CC-0001\"",
+      \""on_behalf_of\"": null,
+      \""paid\"": true,
+      \""paid_out_of_band\"": false,
+      \""payment_intent\"": \""pi_3NOagkFTufv5jJId1rK0vBmI\"",
+      \""payment_settings\"": {
+        \""default_mandate\"": null,
+        \""payment_method_options\"": null,
+        \""payment_method_types\"": null
+      },
+      \""period_end\"": 1688106013,
+      \""period_start\"": 1688106013,
+      \""post_payment_credit_notes_amount\"": 0,
+      \""pre_payment_credit_notes_amount\"": 0,
+      \""quote\"": null,
+      \""receipt_number\"": null,
+      \""rendering_options\"": null,
+      \""shipping_cost\"": null,
+      \""shipping_details\"": null,
+      \""starting_balance\"": 0,
+      \""statement_descriptor\"": null,
+      \""status\"": \""paid\"",
+      \""status_transitions\"": {
+        \""finalized_at\"": 1688106013,
+        \""marked_uncollectible_at\"": null,
+        \""paid_at\"": 1688106015,
+        \""voided_at\"": null
+      },
+      \""subscription\"": \""sub_1NOagjFTufv5jJId0xgDmmM7\"",
+      \""subtotal\"": 9900,
+      \""subtotal_excluding_tax\"": 9900,
+      \""tax\"": 0,
+      \""test_clock\"": null,
+      \""total\"": 9900,
+      \""total_discount_amounts\"": [
+
+      ],
+      \""total_excluding_tax\"": 9900,
+      \""total_tax_amounts\"": [
+        {
+          \""amount\"": 0,
+          \""inclusive\"": true,
+          \""tax_rate\"": \""txr_1NBjgWFTufv5jJIdWpCVy4qi\"",
+          \""taxability_reason\"": \""not_supported\"",
+          \""taxable_amount\"": 0
+        }
+      ],
+      \""transfer_data\"": null,
+      \""webhooks_delivered_at\"": null
+    },
+    \""previous_attributes\"": {
+      \""amount_paid\"": 0,
+      \""amount_remaining\"": 9900,
+      \""attempt_count\"": 0,
+      \""attempted\"": false,
+      \""charge\"": null,
+      \""paid\"": false,
+      \""status\"": \""open\"",
+      \""status_transitions\"": {
+        \""paid_at\"": null
+      }
+    }
+  },
+  \""livemode\"": false,
+  \""pending_webhooks\"": 3,
+  \""request\"": {
+    \""id\"": \""req_XrMsj4cg5H1C8S\"",
+    \""idempotency_key\"": \""0a1a9359-5b32-4ddf-828e-a8b639ab6139\""
+  },
+  \""type\"": \""invoice.updated\""
+}"",
+  ""isBase64Encoded"": false
+}
+"
+"2023-06-30T06:20:17.593Z	7df09386-7eef-48d7-9582-fd7427f79d78	INFO	Event: {
+  ""resource"": ""/webhooks"",
+  ""path"": ""/webhooks"",
+  ""httpMethod"": ""POST"",
+  ""headers"": {
+    ""Accept"": ""*/*; q=0.5, application/xml"",
+    ""Cache-Control"": ""no-cache"",
+    ""CloudFront-Forwarded-Proto"": ""https"",
+    ""CloudFront-Is-Desktop-Viewer"": ""true"",
+    ""CloudFront-Is-Mobile-Viewer"": ""false"",
+    ""CloudFront-Is-SmartTV-Viewer"": ""false"",
+    ""CloudFront-Is-Tablet-Viewer"": ""false"",
+    ""CloudFront-Viewer-ASN"": ""16509"",
+    ""CloudFront-Viewer-Country"": ""US"",
+    ""Content-Type"": ""application/json; charset=utf-8"",
+    ""Host"": ""bsgf1dpgt1.execute-api.us-east-2.amazonaws.com"",
+    ""Stripe-Signature"": ""t=1688106017,v1=9aac763746a79b029388a66b8f6b0172922c840f3d2e19f6cc762332fa3e98e2,v0=c2c58987961fe144789b2527c2918f3891061b7d6721edbcb9b6b0c4b6443e95"",
+    ""User-Agent"": ""Stripe/1.0 (+https://stripe.com/docs/webhooks)"",
+    ""Via"": ""1.1 f3802d173009698413044360f84de06c.cloudfront.net (CloudFront)"",
+    ""X-Amz-Cf-Id"": ""A9b-Os4hxOKX7Ufaf6u3_NvbXFFhHpIKq2yp2M3kooYJcs_7dijRBA=="",
+    ""X-Amzn-Trace-Id"": ""Root=1-649e7421-0fb9c2a66a443465494f587d"",
+    ""X-Forwarded-For"": ""54.187.216.72, 15.158.54.21"",
+    ""X-Forwarded-Port"": ""443"",
+    ""X-Forwarded-Proto"": ""https""
+  },
+  ""multiValueHeaders"": {
+    ""Accept"": [
+      ""*/*; q=0.5, application/xml""
+    ],
+    ""Cache-Control"": [
+      ""no-cache""
+    ],
+    ""CloudFront-Forwarded-Proto"": [
+      ""https""
+    ],
+    ""CloudFront-Is-Desktop-Viewer"": [
+      ""true""
+    ],
+    ""CloudFront-Is-Mobile-Viewer"": [
+      ""false""
+    ],
+    ""CloudFront-Is-SmartTV-Viewer"": [
+      ""false""
+    ],
+    ""CloudFront-Is-Tablet-Viewer"": [
+      ""false""
+    ],
+    ""CloudFront-Viewer-ASN"": [
+      ""16509""
+    ],
+    ""CloudFront-Viewer-Country"": [
+      ""US""
+    ],
+    ""Content-Type"": [
+      ""application/json; charset=utf-8""
+    ],
+    ""Host"": [
+      ""bsgf1dpgt1.execute-api.us-east-2.amazonaws.com""
+    ],
+    ""Stripe-Signature"": [
+      ""t=1688106017,v1=9aac763746a79b029388a66b8f6b0172922c840f3d2e19f6cc762332fa3e98e2,v0=c2c58987961fe144789b2527c2918f3891061b7d6721edbcb9b6b0c4b6443e95""
+    ],
+    ""User-Agent"": [
+      ""Stripe/1.0 (+https://stripe.com/docs/webhooks)""
+    ],
+    ""Via"": [
+      ""1.1 f3802d173009698413044360f84de06c.cloudfront.net (CloudFront)""
+    ],
+    ""X-Amz-Cf-Id"": [
+      ""A9b-Os4hxOKX7Ufaf6u3_NvbXFFhHpIKq2yp2M3kooYJcs_7dijRBA==""
+    ],
+    ""X-Amzn-Trace-Id"": [
+      ""Root=1-649e7421-0fb9c2a66a443465494f587d""
+    ],
+    ""X-Forwarded-For"": [
+      ""54.187.216.72, 15.158.54.21""
+    ],
+    ""X-Forwarded-Port"": [
+      ""443""
+    ],
+    ""X-Forwarded-Proto"": [
+      ""https""
+    ]
+  },
+  ""queryStringParameters"": null,
+  ""multiValueQueryStringParameters"": null,
+  ""pathParameters"": null,
+  ""stageVariables"": null,
+  ""requestContext"": {
+    ""resourceId"": ""e5lf6p"",
+    ""resourcePath"": ""/webhooks"",
+    ""httpMethod"": ""POST"",
+    ""extendedRequestId"": ""HUcVSEcXiYcFaVA="",
+    ""requestTime"": ""30/Jun/2023:06:20:17 +0000"",
+    ""path"": ""/webhooks/webhooks"",
+    ""accountId"": ""653625749031"",
+    ""protocol"": ""HTTP/1.1"",
+    ""stage"": ""webhooks"",
+    ""domainPrefix"": ""bsgf1dpgt1"",
+    ""requestTimeEpoch"": 1688106017538,
+    ""requestId"": ""8252a2d1-94d7-4cb7-8168-dfcf048be50e"",
+    ""identity"": {
+      ""cognitoIdentityPoolId"": null,
+      ""accountId"": null,
+      ""cognitoIdentityId"": null,
+      ""caller"": null,
+      ""sourceIp"": ""54.187.216.72"",
+      ""principalOrgId"": null,
+      ""accessKey"": null,
+      ""cognitoAuthenticationType"": null,
+      ""cognitoAuthenticationProvider"": null,
+      ""userArn"": null,
+      ""userAgent"": ""Stripe/1.0 (+https://stripe.com/docs/webhooks)"",
+      ""user"": null
+    },
+    ""domainName"": ""bsgf1dpgt1.execute-api.us-east-2.amazonaws.com"",
+    ""apiId"": ""bsgf1dpgt1""
+  },
+  ""body"": ""{
+  \""id\"": \""evt_1NOagnFTufv5jJIdsGP5BxRV\"",
+  \""object\"": \""event\"",
+  \""api_version\"": \""2022-11-15\"",
+  \""created\"": 1688106016,
+  \""data\"": {
+    \""object\"": {
+      \""id\"": \""in_1NOagjFTufv5jJIdaaP6HUqf\"",
+      \""object\"": \""invoice\"",
+      \""account_country\"": \""US\"",
+      \""account_name\"": \""Yourbit, LLC\"",
+      \""account_tax_ids\"": null,
+      \""amount_due\"": 9900,
+      \""amount_paid\"": 9900,
+      \""amount_remaining\"": 0,
+      \""amount_shipping\"": 0,
+      \""application\"": null,
+      \""application_fee_amount\"": null,
+      \""attempt_count\"": 1,
+      \""attempted\"": true,
+      \""auto_advance\"": false,
+      \""automatic_tax\"": {
+        \""enabled\"": true,
+        \""status\"": \""complete\""
+      },
+      \""billing_reason\"": \""subscription_create\"",
+      \""charge\"": \""ch_3NOagkFTufv5jJId1zEldpzj\"",
+      \""collection_method\"": \""charge_automatically\"",
+      \""created\"": 1688106013,
+      \""currency\"": \""mxn\"",
+      \""custom_fields\"": null,
+      \""customer\"": \""cus_OAwZcy606y2ntb\"",
+      \""customer_address\"": {
+        \""city\"": null,
+        \""country\"": \""MX\"",
+        \""line1\"": null,
+        \""line2\"": null,
+        \""postal_code\"": null,
+        \""state\"": null
+      },
+      \""customer_email\"": \""test@cuervoai.com\"",
+      \""customer_name\"": \""diego test\"",
+      \""customer_phone\"": \""+528117466017\"",
+      \""customer_shipping\"": null,
+      \""customer_tax_exempt\"": \""none\"",
+      \""customer_tax_ids\"": [
+
+      ],
+      \""default_payment_method\"": null,
+      \""default_source\"": null,
+      \""default_tax_rates\"": [
+
+      ],
+      \""description\"": null,
+      \""discount\"": null,
+      \""discounts\"": [
+
+      ],
+      \""due_date\"": null,
+      \""effective_at\"": 1688106013,
+      \""ending_balance\"": 0,
+      \""footer\"": null,
+      \""from_invoice\"": null,
+      \""hosted_invoice_url\"": \""https://invoice.stripe.com/i/acct_1LmKQsFTufv5jJId/test_YWNjdF8xTG1LUXNGVHVmdjVqSklkLF9PQXdaVk8yd0p5aURVdnFlaW5zMHZEakZ1WFBxOUdTLDc4NjQ2ODE30200R3MG0cOt?s=ap\"",
+      \""invoice_pdf\"": \""https://pay.stripe.com/invoice/acct_1LmKQsFTufv5jJId/test_YWNjdF8xTG1LUXNGVHVmdjVqSklkLF9PQXdaVk8yd0p5aURVdnFlaW5zMHZEakZ1WFBxOUdTLDc4NjQ2ODE30200R3MG0cOt/pdf?s=ap\"",
+      \""last_finalization_error\"": null,
+      \""latest_revision\"": null,
+      \""lines\"": {
+        \""object\"": \""list\"",
+        \""data\"": [
+          {
+            \""id\"": \""il_1NOagjFTufv5jJIdkE23WVhR\"",
+            \""object\"": \""line_item\"",
+            \""amount\"": 9900,
+            \""amount_excluding_tax\"": 9900,
+            \""currency\"": \""mxn\"",
+            \""description\"": \""1 × Cuervo Subscription - 100 credits/mo (at $99.00 / month)\"",
+            \""discount_amounts\"": [
+
+            ],
+            \""discountable\"": true,
+            \""discounts\"": [
+
+            ],
+            \""livemode\"": false,
+            \""metadata\"": {
+            },
+            \""period\"": {
+              \""end\"": 1690698013,
+              \""start\"": 1688106013
+            },
+            \""plan\"": {
+              \""id\"": \""price_1NBjeCFTufv5jJIdT5jjOguS\"",
+              \""object\"": \""plan\"",
+              \""active\"": true,
+              \""aggregate_usage\"": null,
+              \""amount\"": 9900,
+              \""amount_decimal\"": \""9900\"",
+              \""billing_scheme\"": \""per_unit\"",
+              \""created\"": 1685042188,
+              \""currency\"": \""mxn\"",
+              \""interval\"": \""month\"",
+              \""interval_count\"": 1,
+              \""livemode\"": false,
+              \""metadata\"": {
+              },
+              \""nickname\"": null,
+              \""product\"": \""prod_Nxeysi9QhMmw6U\"",
+              \""tiers_mode\"": null,
+              \""transform_usage\"": null,
+              \""trial_period_days\"": null,
+              \""usage_type\"": \""licensed\""
+            },
+            \""price\"": {
+              \""id\"": \""price_1NBjeCFTufv5jJIdT5jjOguS\"",
+              \""object\"": \""price\"",
+              \""active\"": true,
+              \""billing_scheme\"": \""per_unit\"",
+              \""created\"": 1685042188,
+              \""currency\"": \""mxn\"",
+              \""custom_unit_amount\"": null,
+              \""livemode\"": false,
+              \""lookup_key\"": null,
+              \""metadata\"": {
+              },
+              \""nickname\"": null,
+              \""product\"": \""prod_Nxeysi9QhMmw6U\"",
+              \""recurring\"": {
+                \""aggregate_usage\"": null,
+                \""interval\"": \""month\"",
+                \""interval_count\"": 1,
+                \""trial_period_days\"": null,
+                \""usage_type\"": \""licensed\""
+              },
+              \""tax_behavior\"": \""inclusive\"",
+              \""tiers_mode\"": null,
+              \""transform_quantity\"": null,
+              \""type\"": \""recurring\"",
+              \""unit_amount\"": 9900,
+              \""unit_amount_decimal\"": \""9900\""
+            },
+            \""proration\"": false,
+            \""proration_details\"": {
+              \""credited_items\"": null
+            },
+            \""quantity\"": 1,
+            \""subscription\"": \""sub_1NOagjFTufv5jJId0xgDmmM7\"",
+            \""subscription_item\"": \""si_OAwZ7NQkljLPGx\"",
+            \""tax_amounts\"": [
+              {
+                \""amount\"": 0,
+                \""inclusive\"": true,
+                \""tax_rate\"": \""txr_1NBjgWFTufv5jJIdWpCVy4qi\"",
+                \""taxability_reason\"": \""not_supported\"",
+                \""taxable_amount\"": 0
+              }
+            ],
+            \""tax_rates\"": [
+
+            ],
+            \""type\"": \""subscription\"",
+            \""unit_amount_excluding_tax\"": \""9900\""
+          }
+        ],
+        \""has_more\"": false,
+        \""total_count\"": 1,
+        \""url\"": \""/v1/invoices/in_1NOagjFTufv5jJIdaaP6HUqf/lines\""
+      },
+      \""livemode\"": false,
+      \""metadata\"": {
+      },
+      \""next_payment_attempt\"": null,
+      \""number\"": \""335FD8CC-0001\"",
+      \""on_behalf_of\"": null,
+      \""paid\"": true,
+      \""paid_out_of_band\"": false,
+      \""payment_intent\"": \""pi_3NOagkFTufv5jJId1rK0vBmI\"",
+      \""payment_settings\"": {
+        \""default_mandate\"": null,
+        \""payment_method_options\"": null,
+        \""payment_method_types\"": null
+      },
+      \""period_end\"": 1688106013,
+      \""period_start\"": 1688106013,
+      \""post_payment_credit_notes_amount\"": 0,
+      \""pre_payment_credit_notes_amount\"": 0,
+      \""quote\"": null,
+      \""receipt_number\"": null,
+      \""rendering_options\"": null,
+      \""shipping_cost\"": null,
+      \""shipping_details\"": null,
+      \""starting_balance\"": 0,
+      \""statement_descriptor\"": null,
+      \""status\"": \""paid\"",
+      \""status_transitions\"": {
+        \""finalized_at\"": 1688106013,
+        \""marked_uncollectible_at\"": null,
+        \""paid_at\"": 1688106015,
+        \""voided_at\"": null
+      },
+      \""subscription\"": \""sub_1NOagjFTufv5jJId0xgDmmM7\"",
+      \""subtotal\"": 9900,
+      \""subtotal_excluding_tax\"": 9900,
+      \""tax\"": 0,
+      \""test_clock\"": null,
+      \""total\"": 9900,
+      \""total_discount_amounts\"": [
+
+      ],
+      \""total_excluding_tax\"": 9900,
+      \""total_tax_amounts\"": [
+        {
+          \""amount\"": 0,
+          \""inclusive\"": true,
+          \""tax_rate\"": \""txr_1NBjgWFTufv5jJIdWpCVy4qi\"",
+          \""taxability_reason\"": \""not_supported\"",
+          \""taxable_amount\"": 0
+        }
+      ],
+      \""transfer_data\"": null,
+      \""webhooks_delivered_at\"": null
+    }
+  },
+  \""livemode\"": false,
+  \""pending_webhooks\"": 3,
+  \""request\"": {
+    \""id\"": \""req_XrMsj4cg5H1C8S\"",
+    \""idempotency_key\"": \""0a1a9359-5b32-4ddf-828e-a8b639ab6139\""
+  },
+  \""type\"": \""invoice.payment_succeeded\""
+}"",
+  ""isBase64Encoded"": false
+}
+"
+"2023-06-30T06:20:17.611Z	33e2e65f-f762-47f4-9b3d-fc96afc8bad9	INFO	Event: {
+  ""resource"": ""/webhooks"",
+  ""path"": ""/webhooks"",
+  ""httpMethod"": ""POST"",
+  ""headers"": {
+    ""Accept"": ""*/*; q=0.5, application/xml"",
+    ""Cache-Control"": ""no-cache"",
+    ""CloudFront-Forwarded-Proto"": ""https"",
+    ""CloudFront-Is-Desktop-Viewer"": ""true"",
+    ""CloudFront-Is-Mobile-Viewer"": ""false"",
+    ""CloudFront-Is-SmartTV-Viewer"": ""false"",
+    ""CloudFront-Is-Tablet-Viewer"": ""false"",
+    ""CloudFront-Viewer-ASN"": ""16509"",
+    ""CloudFront-Viewer-Country"": ""US"",
+    ""Content-Type"": ""application/json; charset=utf-8"",
+    ""Host"": ""bsgf1dpgt1.execute-api.us-east-2.amazonaws.com"",
+    ""Stripe-Signature"": ""t=1688106017,v1=8e45c5fd31c61eb310d9d030adc692581f1f8066d2f81b7717ecb3497883f714,v0=c7aa8b527069d2012f51996452d47172e0960896ef976059f5bbf64305ac2e7a"",
+    ""User-Agent"": ""Stripe/1.0 (+https://stripe.com/docs/webhooks)"",
+    ""Via"": ""1.1 b5695e36d7fbc522ece27885d73757ae.cloudfront.net (CloudFront)"",
+    ""X-Amz-Cf-Id"": ""bJZoMrZO0u98nVUlLS1VyzDvvgVAwWh7-LybEleKYbMRPBPFdQTbAQ=="",
+    ""X-Amzn-Trace-Id"": ""Root=1-649e7421-5b3316133eaaebf5244b182d"",
+    ""X-Forwarded-For"": ""54.187.205.235, 15.158.54.5"",
+    ""X-Forwarded-Port"": ""443"",
+    ""X-Forwarded-Proto"": ""https""
+  },
+  ""multiValueHeaders"": {
+    ""Accept"": [
+      ""*/*; q=0.5, application/xml""
+    ],
+    ""Cache-Control"": [
+      ""no-cache""
+    ],
+    ""CloudFront-Forwarded-Proto"": [
+      ""https""
+    ],
+    ""CloudFront-Is-Desktop-Viewer"": [
+      ""true""
+    ],
+    ""CloudFront-Is-Mobile-Viewer"": [
+      ""false""
+    ],
+    ""CloudFront-Is-SmartTV-Viewer"": [
+      ""false""
+    ],
+    ""CloudFront-Is-Tablet-Viewer"": [
+      ""false""
+    ],
+    ""CloudFront-Viewer-ASN"": [
+      ""16509""
+    ],
+    ""CloudFront-Viewer-Country"": [
+      ""US""
+    ],
+    ""Content-Type"": [
+      ""application/json; charset=utf-8""
+    ],
+    ""Host"": [
+      ""bsgf1dpgt1.execute-api.us-east-2.amazonaws.com""
+    ],
+    ""Stripe-Signature"": [
+      ""t=1688106017,v1=8e45c5fd31c61eb310d9d030adc692581f1f8066d2f81b7717ecb3497883f714,v0=c7aa8b527069d2012f51996452d47172e0960896ef976059f5bbf64305ac2e7a""
+    ],
+    ""User-Agent"": [
+      ""Stripe/1.0 (+https://stripe.com/docs/webhooks)""
+    ],
+    ""Via"": [
+      ""1.1 b5695e36d7fbc522ece27885d73757ae.cloudfront.net (CloudFront)""
+    ],
+    ""X-Amz-Cf-Id"": [
+      ""bJZoMrZO0u98nVUlLS1VyzDvvgVAwWh7-LybEleKYbMRPBPFdQTbAQ==""
+    ],
+    ""X-Amzn-Trace-Id"": [
+      ""Root=1-649e7421-5b3316133eaaebf5244b182d""
+    ],
+    ""X-Forwarded-For"": [
+      ""54.187.205.235, 15.158.54.5""
+    ],
+    ""X-Forwarded-Port"": [
+      ""443""
+    ],
+    ""X-Forwarded-Proto"": [
+      ""https""
+    ]
+  },
+  ""queryStringParameters"": null,
+  ""multiValueQueryStringParameters"": null,
+  ""pathParameters"": null,
+  ""stageVariables"": null,
+  ""requestContext"": {
+    ""resourceId"": ""e5lf6p"",
+    ""resourcePath"": ""/webhooks"",
+    ""httpMethod"": ""POST"",
+    ""extendedRequestId"": ""HUcVSGoDiYcFuBA="",
+    ""requestTime"": ""30/Jun/2023:06:20:17 +0000"",
+    ""path"": ""/webhooks/webhooks"",
+    ""accountId"": ""653625749031"",
+    ""protocol"": ""HTTP/1.1"",
+    ""stage"": ""webhooks"",
+    ""domainPrefix"": ""bsgf1dpgt1"",
+    ""requestTimeEpoch"": 1688106017565,
+    ""requestId"": ""8f347e93-654d-40f9-8daa-4884da685b5c"",
+    ""identity"": {
+      ""cognitoIdentityPoolId"": null,
+      ""accountId"": null,
+      ""cognitoIdentityId"": null,
+      ""caller"": null,
+      ""sourceIp"": ""54.187.205.235"",
+      ""principalOrgId"": null,
+      ""accessKey"": null,
+      ""cognitoAuthenticationType"": null,
+      ""cognitoAuthenticationProvider"": null,
+      ""userArn"": null,
+      ""userAgent"": ""Stripe/1.0 (+https://stripe.com/docs/webhooks)"",
+      ""user"": null
+    },
+    ""domainName"": ""bsgf1dpgt1.execute-api.us-east-2.amazonaws.com"",
+    ""apiId"": ""bsgf1dpgt1""
+  },
+  ""body"": ""{
+  \""id\"": \""evt_1NOagnFTufv5jJIdHf8tpoN3\"",
+  \""object\"": \""event\"",
+  \""api_version\"": \""2022-11-15\"",
+  \""created\"": 1688106016,
+  \""data\"": {
+    \""object\"": {
+      \""id\"": \""in_1NOagjFTufv5jJIdaaP6HUqf\"",
+      \""object\"": \""invoice\"",
+      \""account_country\"": \""US\"",
+      \""account_name\"": \""Yourbit, LLC\"",
+      \""account_tax_ids\"": null,
+      \""amount_due\"": 9900,
+      \""amount_paid\"": 9900,
+      \""amount_remaining\"": 0,
+      \""amount_shipping\"": 0,
+      \""application\"": null,
+      \""application_fee_amount\"": null,
+      \""attempt_count\"": 1,
+      \""attempted\"": true,
+      \""auto_advance\"": false,
+      \""automatic_tax\"": {
+        \""enabled\"": true,
+        \""status\"": \""complete\""
+      },
+      \""billing_reason\"": \""subscription_create\"",
+      \""charge\"": \""ch_3NOagkFTufv5jJId1zEldpzj\"",
+      \""collection_method\"": \""charge_automatically\"",
+      \""created\"": 1688106013,
+      \""currency\"": \""mxn\"",
+      \""custom_fields\"": null,
+      \""customer\"": \""cus_OAwZcy606y2ntb\"",
+      \""customer_address\"": {
+        \""city\"": null,
+        \""country\"": \""MX\"",
+        \""line1\"": null,
+        \""line2\"": null,
+        \""postal_code\"": null,
+        \""state\"": null
+      },
+      \""customer_email\"": \""test@cuervoai.com\"",
+      \""customer_name\"": \""diego test\"",
+      \""customer_phone\"": \""+528117466017\"",
+      \""customer_shipping\"": null,
+      \""customer_tax_exempt\"": \""none\"",
+      \""customer_tax_ids\"": [
+
+      ],
+      \""default_payment_method\"": null,
+      \""default_source\"": null,
+      \""default_tax_rates\"": [
+
+      ],
+      \""description\"": null,
+      \""discount\"": null,
+      \""discounts\"": [
+
+      ],
+      \""due_date\"": null,
+      \""effective_at\"": 1688106013,
+      \""ending_balance\"": 0,
+      \""footer\"": null,
+      \""from_invoice\"": null,
+      \""hosted_invoice_url\"": \""https://invoice.stripe.com/i/acct_1LmKQsFTufv5jJId/test_YWNjdF8xTG1LUXNGVHVmdjVqSklkLF9PQXdaVk8yd0p5aURVdnFlaW5zMHZEakZ1WFBxOUdTLDc4NjQ2ODE30200R3MG0cOt?s=ap\"",
+      \""invoice_pdf\"": \""https://pay.stripe.com/invoice/acct_1LmKQsFTufv5jJId/test_YWNjdF8xTG1LUXNGVHVmdjVqSklkLF9PQXdaVk8yd0p5aURVdnFlaW5zMHZEakZ1WFBxOUdTLDc4NjQ2ODE30200R3MG0cOt/pdf?s=ap\"",
+      \""last_finalization_error\"": null,
+      \""latest_revision\"": null,
+      \""lines\"": {
+        \""object\"": \""list\"",
+        \""data\"": [
+          {
+            \""id\"": \""il_1NOagjFTufv5jJIdkE23WVhR\"",
+            \""object\"": \""line_item\"",
+            \""amount\"": 9900,
+            \""amount_excluding_tax\"": 9900,
+            \""currency\"": \""mxn\"",
+            \""description\"": \""1 × Cuervo Subscription - 100 credits/mo (at $99.00 / month)\"",
+            \""discount_amounts\"": [
+
+            ],
+            \""discountable\"": true,
+            \""discounts\"": [
+
+            ],
+            \""livemode\"": false,
+            \""metadata\"": {
+            },
+            \""period\"": {
+              \""end\"": 1690698013,
+              \""start\"": 1688106013
+            },
+            \""plan\"": {
+              \""id\"": \""price_1NBjeCFTufv5jJIdT5jjOguS\"",
+              \""object\"": \""plan\"",
+              \""active\"": true,
+              \""aggregate_usage\"": null,
+              \""amount\"": 9900,
+              \""amount_decimal\"": \""9900\"",
+              \""billing_scheme\"": \""per_unit\"",
+              \""created\"": 1685042188,
+              \""currency\"": \""mxn\"",
+              \""interval\"": \""month\"",
+              \""interval_count\"": 1,
+              \""livemode\"": false,
+              \""metadata\"": {
+              },
+              \""nickname\"": null,
+              \""product\"": \""prod_Nxeysi9QhMmw6U\"",
+              \""tiers_mode\"": null,
+              \""transform_usage\"": null,
+              \""trial_period_days\"": null,
+              \""usage_type\"": \""licensed\""
+            },
+            \""price\"": {
+              \""id\"": \""price_1NBjeCFTufv5jJIdT5jjOguS\"",
+              \""object\"": \""price\"",
+              \""active\"": true,
+              \""billing_scheme\"": \""per_unit\"",
+              \""created\"": 1685042188,
+              \""currency\"": \""mxn\"",
+              \""custom_unit_amount\"": null,
+              \""livemode\"": false,
+              \""lookup_key\"": null,
+              \""metadata\"": {
+              },
+              \""nickname\"": null,
+              \""product\"": \""prod_Nxeysi9QhMmw6U\"",
+              \""recurring\"": {
+                \""aggregate_usage\"": null,
+                \""interval\"": \""month\"",
+                \""interval_count\"": 1,
+                \""trial_period_days\"": null,
+                \""usage_type\"": \""licensed\""
+              },
+              \""tax_behavior\"": \""inclusive\"",
+              \""tiers_mode\"": null,
+              \""transform_quantity\"": null,
+              \""type\"": \""recurring\"",
+              \""unit_amount\"": 9900,
+              \""unit_amount_decimal\"": \""9900\""
+            },
+            \""proration\"": false,
+            \""proration_details\"": {
+              \""credited_items\"": null
+            },
+            \""quantity\"": 1,
+            \""subscription\"": \""sub_1NOagjFTufv5jJId0xgDmmM7\"",
+            \""subscription_item\"": \""si_OAwZ7NQkljLPGx\"",
+            \""tax_amounts\"": [
+              {
+                \""amount\"": 0,
+                \""inclusive\"": true,
+                \""tax_rate\"": \""txr_1NBjgWFTufv5jJIdWpCVy4qi\"",
+                \""taxability_reason\"": \""not_supported\"",
+                \""taxable_amount\"": 0
+              }
+            ],
+            \""tax_rates\"": [
+
+            ],
+            \""type\"": \""subscription\"",
+            \""unit_amount_excluding_tax\"": \""9900\""
+          }
+        ],
+        \""has_more\"": false,
+        \""total_count\"": 1,
+        \""url\"": \""/v1/invoices/in_1NOagjFTufv5jJIdaaP6HUqf/lines\""
+      },
+      \""livemode\"": false,
+      \""metadata\"": {
+      },
+      \""next_payment_attempt\"": null,
+      \""number\"": \""335FD8CC-0001\"",
+      \""on_behalf_of\"": null,
+      \""paid\"": true,
+      \""paid_out_of_band\"": false,
+      \""payment_intent\"": \""pi_3NOagkFTufv5jJId1rK0vBmI\"",
+      \""payment_settings\"": {
+        \""default_mandate\"": null,
+        \""payment_method_options\"": null,
+        \""payment_method_types\"": null
+      },
+      \""period_end\"": 1688106013,
+      \""period_start\"": 1688106013,
+      \""post_payment_credit_notes_amount\"": 0,
+      \""pre_payment_credit_notes_amount\"": 0,
+      \""quote\"": null,
+      \""receipt_number\"": null,
+      \""rendering_options\"": null,
+      \""shipping_cost\"": null,
+      \""shipping_details\"": null,
+      \""starting_balance\"": 0,
+      \""statement_descriptor\"": null,
+      \""status\"": \""paid\"",
+      \""status_transitions\"": {
+        \""finalized_at\"": 1688106013,
+        \""marked_uncollectible_at\"": null,
+        \""paid_at\"": 1688106015,
+        \""voided_at\"": null
+      },
+      \""subscription\"": \""sub_1NOagjFTufv5jJId0xgDmmM7\"",
+      \""subtotal\"": 9900,
+      \""subtotal_excluding_tax\"": 9900,
+      \""tax\"": 0,
+      \""test_clock\"": null,
+      \""total\"": 9900,
+      \""total_discount_amounts\"": [
+
+      ],
+      \""total_excluding_tax\"": 9900,
+      \""total_tax_amounts\"": [
+        {
+          \""amount\"": 0,
+          \""inclusive\"": true,
+          \""tax_rate\"": \""txr_1NBjgWFTufv5jJIdWpCVy4qi\"",
+          \""taxability_reason\"": \""not_supported\"",
+          \""taxable_amount\"": 0
+        }
+      ],
+      \""transfer_data\"": null,
+      \""webhooks_delivered_at\"": null
+    }
+  },
+  \""livemode\"": false,
+  \""pending_webhooks\"": 3,
+  \""request\"": {
+    \""id\"": \""req_XrMsj4cg5H1C8S\"",
+    \""idempotency_key\"": \""0a1a9359-5b32-4ddf-828e-a8b639ab6139\""
+  },
+  \""type\"": \""invoice.paid\""
+}"",
+  ""isBase64Encoded"": false
+}
+"
+"2023-06-30T06:20:17.805Z	388fc75f-5d6e-4590-8478-cbf23b80d721	INFO	Event: {
+  ""resource"": ""/webhooks"",
+  ""path"": ""/webhooks"",
+  ""httpMethod"": ""POST"",
+  ""headers"": {
+    ""Accept"": ""*/*; q=0.5, application/xml"",
+    ""Cache-Control"": ""no-cache"",
+    ""CloudFront-Forwarded-Proto"": ""https"",
+    ""CloudFront-Is-Desktop-Viewer"": ""true"",
+    ""CloudFront-Is-Mobile-Viewer"": ""false"",
+    ""CloudFront-Is-SmartTV-Viewer"": ""false"",
+    ""CloudFront-Is-Tablet-Viewer"": ""false"",
+    ""CloudFront-Viewer-ASN"": ""16509"",
+    ""CloudFront-Viewer-Country"": ""US"",
+    ""Content-Type"": ""application/json; charset=utf-8"",
+    ""Host"": ""bsgf1dpgt1.execute-api.us-east-2.amazonaws.com"",
+    ""Stripe-Signature"": ""t=1688106017,v1=47b3746270395ee90522f67490355f3f8372ba79564cb1527b695f53a7fe8be1,v0=6cc03e59b2dad9d6da046fcf3ed89da7541c3bc046f1317215a0ef2ba4c47b62"",
+    ""User-Agent"": ""Stripe/1.0 (+https://stripe.com/docs/webhooks)"",
+    ""Via"": ""1.1 6af36c6902a46beec743522a9bbb3ab0.cloudfront.net (CloudFront)"",
+    ""X-Amz-Cf-Id"": ""qXwpxkX6JCC-w8r4VHv24GhmtjDMFPyDVVSwWEh0qBniDJ1huQ9dJw=="",
+    ""X-Amzn-Trace-Id"": ""Root=1-649e7421-4251e1064e89fa233ba9534c"",
+    ""X-Forwarded-For"": ""54.187.216.72, 15.158.54.5"",
+    ""X-Forwarded-Port"": ""443"",
+    ""X-Forwarded-Proto"": ""https""
+  },
+  ""multiValueHeaders"": {
+    ""Accept"": [
+      ""*/*; q=0.5, application/xml""
+    ],
+    ""Cache-Control"": [
+      ""no-cache""
+    ],
+    ""CloudFront-Forwarded-Proto"": [
+      ""https""
+    ],
+    ""CloudFront-Is-Desktop-Viewer"": [
+      ""true""
+    ],
+    ""CloudFront-Is-Mobile-Viewer"": [
+      ""false""
+    ],
+    ""CloudFront-Is-SmartTV-Viewer"": [
+      ""false""
+    ],
+    ""CloudFront-Is-Tablet-Viewer"": [
+      ""false""
+    ],
+    ""CloudFront-Viewer-ASN"": [
+      ""16509""
+    ],
+    ""CloudFront-Viewer-Country"": [
+      ""US""
+    ],
+    ""Content-Type"": [
+      ""application/json; charset=utf-8""
+    ],
+    ""Host"": [
+      ""bsgf1dpgt1.execute-api.us-east-2.amazonaws.com""
+    ],
+    ""Stripe-Signature"": [
+      ""t=1688106017,v1=47b3746270395ee90522f67490355f3f8372ba79564cb1527b695f53a7fe8be1,v0=6cc03e59b2dad9d6da046fcf3ed89da7541c3bc046f1317215a0ef2ba4c47b62""
+    ],
+    ""User-Agent"": [
+      ""Stripe/1.0 (+https://stripe.com/docs/webhooks)""
+    ],
+    ""Via"": [
+      ""1.1 6af36c6902a46beec743522a9bbb3ab0.cloudfront.net (CloudFront)""
+    ],
+    ""X-Amz-Cf-Id"": [
+      ""qXwpxkX6JCC-w8r4VHv24GhmtjDMFPyDVVSwWEh0qBniDJ1huQ9dJw==""
+    ],
+    ""X-Amzn-Trace-Id"": [
+      ""Root=1-649e7421-4251e1064e89fa233ba9534c""
+    ],
+    ""X-Forwarded-For"": [
+      ""54.187.216.72, 15.158.54.5""
+    ],
+    ""X-Forwarded-Port"": [
+      ""443""
+    ],
+    ""X-Forwarded-Proto"": [
+      ""https""
+    ]
+  },
+  ""queryStringParameters"": null,
+  ""multiValueQueryStringParameters"": null,
+  ""pathParameters"": null,
+  ""stageVariables"": null,
+  ""requestContext"": {
+    ""resourceId"": ""e5lf6p"",
+    ""resourcePath"": ""/webhooks"",
+    ""httpMethod"": ""POST"",
+    ""extendedRequestId"": ""HUcVUHkCCYcFyEg="",
+    ""requestTime"": ""30/Jun/2023:06:20:17 +0000"",
+    ""path"": ""/webhooks/webhooks"",
+    ""accountId"": ""653625749031"",
+    ""protocol"": ""HTTP/1.1"",
+    ""stage"": ""webhooks"",
+    ""domainPrefix"": ""bsgf1dpgt1"",
+    ""requestTimeEpoch"": 1688106017749,
+    ""requestId"": ""99e09927-5083-45a7-b57a-fcf099761745"",
+    ""identity"": {
+      ""cognitoIdentityPoolId"": null,
+      ""accountId"": null,
+      ""cognitoIdentityId"": null,
+      ""caller"": null,
+      ""sourceIp"": ""54.187.216.72"",
+      ""principalOrgId"": null,
+      ""accessKey"": null,
+      ""cognitoAuthenticationType"": null,
+      ""cognitoAuthenticationProvider"": null,
+      ""userArn"": null,
+      ""userAgent"": ""Stripe/1.0 (+https://stripe.com/docs/webhooks)"",
+      ""user"": null
+    },
+    ""domainName"": ""bsgf1dpgt1.execute-api.us-east-2.amazonaws.com"",
+    ""apiId"": ""bsgf1dpgt1""
+  },
+  ""body"": ""{
+  \""id\"": \""evt_1NOagnFTufv5jJIdS6OcxHg1\"",
+  \""object\"": \""event\"",
+  \""api_version\"": \""2022-11-15\"",
+  \""created\"": 1688106016,
+  \""data\"": {
+    \""object\"": {
+      \""id\"": \""sub_1NOagjFTufv5jJId0xgDmmM7\"",
+      \""object\"": \""subscription\"",
+      \""application\"": null,
+      \""application_fee_percent\"": null,
+      \""automatic_tax\"": {
+        \""enabled\"": true
+      },
+      \""billing_cycle_anchor\"": 1688106013,
+      \""billing_thresholds\"": null,
+      \""cancel_at\"": null,
+      \""cancel_at_period_end\"": false,
+      \""canceled_at\"": null,
+      \""cancellation_details\"": {
+        \""comment\"": null,
+        \""feedback\"": null,
+        \""reason\"": null
+      },
+      \""collection_method\"": \""charge_automatically\"",
+      \""created\"": 1688106013,
+      \""currency\"": \""mxn\"",
+      \""current_period_end\"": 1690698013,
+      \""current_period_start\"": 1688106013,
+      \""customer\"": \""cus_OAwZcy606y2ntb\"",
+      \""days_until_due\"": null,
+      \""default_payment_method\"": \""pm_1NOagiFTufv5jJIdAHQQ44K5\"",
+      \""default_source\"": null,
+      \""default_tax_rates\"": [
+
+      ],
+      \""description\"": null,
+      \""discount\"": null,
+      \""ended_at\"": null,
+      \""items\"": {
+        \""object\"": \""list\"",
+        \""data\"": [
+          {
+            \""id\"": \""si_OAwZ7NQkljLPGx\"",
+            \""object\"": \""subscription_item\"",
+            \""billing_thresholds\"": null,
+            \""created\"": 1688106014,
+            \""metadata\"": {
+            },
+            \""plan\"": {
+              \""id\"": \""price_1NBjeCFTufv5jJIdT5jjOguS\"",
+              \""object\"": \""plan\"",
+              \""active\"": true,
+              \""aggregate_usage\"": null,
+              \""amount\"": 9900,
+              \""amount_decimal\"": \""9900\"",
+              \""billing_scheme\"": \""per_unit\"",
+              \""created\"": 1685042188,
+              \""currency\"": \""mxn\"",
+              \""interval\"": \""month\"",
+              \""interval_count\"": 1,
+              \""livemode\"": false,
+              \""metadata\"": {
+              },
+              \""nickname\"": null,
+              \""product\"": \""prod_Nxeysi9QhMmw6U\"",
+              \""tiers_mode\"": null,
+              \""transform_usage\"": null,
+              \""trial_period_days\"": null,
+              \""usage_type\"": \""licensed\""
+            },
+            \""price\"": {
+              \""id\"": \""price_1NBjeCFTufv5jJIdT5jjOguS\"",
+              \""object\"": \""price\"",
+              \""active\"": true,
+              \""billing_scheme\"": \""per_unit\"",
+              \""created\"": 1685042188,
+              \""currency\"": \""mxn\"",
+              \""custom_unit_amount\"": null,
+              \""livemode\"": false,
+              \""lookup_key\"": null,
+              \""metadata\"": {
+              },
+              \""nickname\"": null,
+              \""product\"": \""prod_Nxeysi9QhMmw6U\"",
+              \""recurring\"": {
+                \""aggregate_usage\"": null,
+                \""interval\"": \""month\"",
+                \""interval_count\"": 1,
+                \""trial_period_days\"": null,
+                \""usage_type\"": \""licensed\""
+              },
+              \""tax_behavior\"": \""inclusive\"",
+              \""tiers_mode\"": null,
+              \""transform_quantity\"": null,
+              \""type\"": \""recurring\"",
+              \""unit_amount\"": 9900,
+              \""unit_amount_decimal\"": \""9900\""
+            },
+            \""quantity\"": 1,
+            \""subscription\"": \""sub_1NOagjFTufv5jJId0xgDmmM7\"",
+            \""tax_rates\"": [
+
+            ]
+          }
+        ],
+        \""has_more\"": false,
+        \""total_count\"": 1,
+        \""url\"": \""/v1/subscription_items?subscription=sub_1NOagjFTufv5jJId0xgDmmM7\""
+      },
+      \""latest_invoice\"": \""in_1NOagjFTufv5jJIdaaP6HUqf\"",
+      \""livemode\"": false,
+      \""metadata\"": {
+      },
+      \""next_pending_invoice_item_invoice\"": null,
+      \""on_behalf_of\"": null,
+      \""pause_collection\"": null,
+      \""payment_settings\"": {
+        \""payment_method_options\"": null,
+        \""payment_method_types\"": null,
+        \""save_default_payment_method\"": \""off\""
+      },
+      \""pending_invoice_item_interval\"": null,
+      \""pending_setup_intent\"": null,
+      \""pending_update\"": null,
+      \""plan\"": {
+        \""id\"": \""price_1NBjeCFTufv5jJIdT5jjOguS\"",
+        \""object\"": \""plan\"",
+        \""active\"": true,
+        \""aggregate_usage\"": null,
+        \""amount\"": 9900,
+        \""amount_decimal\"": \""9900\"",
+        \""billing_scheme\"": \""per_unit\"",
+        \""created\"": 1685042188,
+        \""currency\"": \""mxn\"",
+        \""interval\"": \""month\"",
+        \""interval_count\"": 1,
+        \""livemode\"": false,
+        \""metadata\"": {
+        },
+        \""nickname\"": null,
+        \""product\"": \""prod_Nxeysi9QhMmw6U\"",
+        \""tiers_mode\"": null,
+        \""transform_usage\"": null,
+        \""trial_period_days\"": null,
+        \""usage_type\"": \""licensed\""
+      },
+      \""quantity\"": 1,
+      \""schedule\"": null,
+      \""start_date\"": 1688106013,
+      \""status\"": \""active\"",
+      \""test_clock\"": null,
+      \""transfer_data\"": null,
+      \""trial_end\"": null,
+      \""trial_settings\"": {
+        \""end_behavior\"": {
+          \""missing_payment_method\"": \""create_invoice\""
+        }
+      },
+      \""trial_start\"": null
+    },
+    \""previous_attributes\"": {
+      \""default_payment_method\"": null,
+      \""status\"": \""incomplete\""
+    }
+  },
+  \""livemode\"": false,
+  \""pending_webhooks\"": 3,
+  \""request\"": {
+    \""id\"": \""req_XrMsj4cg5H1C8S\"",
+    \""idempotency_key\"": \""0a1a9359-5b32-4ddf-828e-a8b639ab6139\""
+  },
+  \""type\"": \""customer.subscription.updated\""
+}"",
+  ""isBase64Encoded"": false
+}
+"
+"2023-06-30T06:20:18.009Z	a472232f-1dd9-4c99-bc84-486c3b8fa899	INFO	Event: {
+  ""resource"": ""/webhooks"",
+  ""path"": ""/webhooks"",
+  ""httpMethod"": ""POST"",
+  ""headers"": {
+    ""Accept"": ""*/*; q=0.5, application/xml"",
+    ""Cache-Control"": ""no-cache"",
+    ""CloudFront-Forwarded-Proto"": ""https"",
+    ""CloudFront-Is-Desktop-Viewer"": ""true"",
+    ""CloudFront-Is-Mobile-Viewer"": ""false"",
+    ""CloudFront-Is-SmartTV-Viewer"": ""false"",
+    ""CloudFront-Is-Tablet-Viewer"": ""false"",
+    ""CloudFront-Viewer-ASN"": ""16509"",
+    ""CloudFront-Viewer-Country"": ""US"",
+    ""Content-Type"": ""application/json; charset=utf-8"",
+    ""Host"": ""bsgf1dpgt1.execute-api.us-east-2.amazonaws.com"",
+    ""Stripe-Signature"": ""t=1688106017,v1=71033e8f349e97094cc75396b295571399a33c34e8e976469111bf57cfad5c83,v0=6f5568f834c66ce4a3e74a25cddcc5ce91ed0e093f0e5e761dc2d850a0328603"",
+    ""User-Agent"": ""Stripe/1.0 (+https://stripe.com/docs/webhooks)"",
+    ""Via"": ""1.1 8ead054384c1626556ee4410cad35692.cloudfront.net (CloudFront)"",
+    ""X-Amz-Cf-Id"": ""du8aufPBKzfrvnQ67j0gMVuoA3gf5PFZLOh7QUPTaxfFr1anKVoWAQ=="",
+    ""X-Amzn-Trace-Id"": ""Root=1-649e7421-548ebb2e6451ae440067dee1"",
+    ""X-Forwarded-For"": ""54.187.205.235, 15.158.54.47"",
+    ""X-Forwarded-Port"": ""443"",
+    ""X-Forwarded-Proto"": ""https""
+  },
+  ""multiValueHeaders"": {
+    ""Accept"": [
+      ""*/*; q=0.5, application/xml""
+    ],
+    ""Cache-Control"": [
+      ""no-cache""
+    ],
+    ""CloudFront-Forwarded-Proto"": [
+      ""https""
+    ],
+    ""CloudFront-Is-Desktop-Viewer"": [
+      ""true""
+    ],
+    ""CloudFront-Is-Mobile-Viewer"": [
+      ""false""
+    ],
+    ""CloudFront-Is-SmartTV-Viewer"": [
+      ""false""
+    ],
+    ""CloudFront-Is-Tablet-Viewer"": [
+      ""false""
+    ],
+    ""CloudFront-Viewer-ASN"": [
+      ""16509""
+    ],
+    ""CloudFront-Viewer-Country"": [
+      ""US""
+    ],
+    ""Content-Type"": [
+      ""application/json; charset=utf-8""
+    ],
+    ""Host"": [
+      ""bsgf1dpgt1.execute-api.us-east-2.amazonaws.com""
+    ],
+    ""Stripe-Signature"": [
+      ""t=1688106017,v1=71033e8f349e97094cc75396b295571399a33c34e8e976469111bf57cfad5c83,v0=6f5568f834c66ce4a3e74a25cddcc5ce91ed0e093f0e5e761dc2d850a0328603""
+    ],
+    ""User-Agent"": [
+      ""Stripe/1.0 (+https://stripe.com/docs/webhooks)""
+    ],
+    ""Via"": [
+      ""1.1 8ead054384c1626556ee4410cad35692.cloudfront.net (CloudFront)""
+    ],
+    ""X-Amz-Cf-Id"": [
+      ""du8aufPBKzfrvnQ67j0gMVuoA3gf5PFZLOh7QUPTaxfFr1anKVoWAQ==""
+    ],
+    ""X-Amzn-Trace-Id"": [
+      ""Root=1-649e7421-548ebb2e6451ae440067dee1""
+    ],
+    ""X-Forwarded-For"": [
+      ""54.187.205.235, 15.158.54.47""
+    ],
+    ""X-Forwarded-Port"": [
+      ""443""
+    ],
+    ""X-Forwarded-Proto"": [
+      ""https""
+    ]
+  },
+  ""queryStringParameters"": null,
+  ""multiValueQueryStringParameters"": null,
+  ""pathParameters"": null,
+  ""stageVariables"": null,
+  ""requestContext"": {
+    ""resourceId"": ""e5lf6p"",
+    ""resourcePath"": ""/webhooks"",
+    ""httpMethod"": ""POST"",
+    ""extendedRequestId"": ""HUcVWFJHiYcFQsQ="",
+    ""requestTime"": ""30/Jun/2023:06:20:17 +0000"",
+    ""path"": ""/webhooks/webhooks"",
+    ""accountId"": ""653625749031"",
+    ""protocol"": ""HTTP/1.1"",
+    ""stage"": ""webhooks"",
+    ""domainPrefix"": ""bsgf1dpgt1"",
+    ""requestTimeEpoch"": 1688106017935,
+    ""requestId"": ""586ba481-d8a6-446d-8541-250acf499f49"",
+    ""identity"": {
+      ""cognitoIdentityPoolId"": null,
+      ""accountId"": null,
+      ""cognitoIdentityId"": null,
+      ""caller"": null,
+      ""sourceIp"": ""54.187.205.235"",
+      ""principalOrgId"": null,
+      ""accessKey"": null,
+      ""cognitoAuthenticationType"": null,
+      ""cognitoAuthenticationProvider"": null,
+      ""userArn"": null,
+      ""userAgent"": ""Stripe/1.0 (+https://stripe.com/docs/webhooks)"",
+      ""user"": null
+    },
+    ""domainName"": ""bsgf1dpgt1.execute-api.us-east-2.amazonaws.com"",
+    ""apiId"": ""bsgf1dpgt1""
+  },
+  ""body"": ""{
+  \""id\"": \""evt_3NOagkFTufv5jJId1fdh0Tz8\"",
+  \""object\"": \""event\"",
+  \""api_version\"": \""2022-11-15\"",
+  \""created\"": 1688106014,
+  \""data\"": {
+    \""object\"": {
+      \""id\"": \""pi_3NOagkFTufv5jJId1rK0vBmI\"",
+      \""object\"": \""payment_intent\"",
+      \""amount\"": 9900,
+      \""amount_capturable\"": 0,
+      \""amount_details\"": {
+        \""tip\"": {
+        }
+      },
+      \""amount_received\"": 0,
+      \""application\"": null,
+      \""application_fee_amount\"": null,
+      \""automatic_payment_methods\"": null,
+      \""canceled_at\"": null,
+      \""cancellation_reason\"": null,
+      \""capture_method\"": \""automatic\"",
+      \""client_secret\"": \""pi_3NOagkFTufv5jJId1rK0vBmI_secret_Z27a6FhmAkv4zfnFKiZEJRPpS\"",
+      \""confirmation_method\"": \""automatic\"",
+      \""created\"": 1688106014,
+      \""currency\"": \""mxn\"",
+      \""customer\"": \""cus_OAwZcy606y2ntb\"",
+      \""description\"": \""Subscription creation\"",
+      \""invoice\"": \""in_1NOagjFTufv5jJIdaaP6HUqf\"",
+      \""last_payment_error\"": null,
+      \""latest_charge\"": null,
+      \""livemode\"": false,
+      \""metadata\"": {
+      },
+      \""next_action\"": null,
+      \""on_behalf_of\"": null,
+      \""payment_method\"": null,
+      \""payment_method_options\"": {
+        \""card\"": {
+          \""installments\"": null,
+          \""mandate_options\"": null,
+          \""network\"": null,
+          \""request_three_d_secure\"": \""automatic\""
+        }
+      },
+      \""payment_method_types\"": [
+        \""card\""
+      ],
+      \""processing\"": null,
+      \""receipt_email\"": null,
+      \""review\"": null,
+      \""setup_future_usage\"": \""off_session\"",
+      \""shipping\"": null,
+      \""source\"": null,
+      \""statement_descriptor\"": null,
+      \""statement_descriptor_suffix\"": null,
+      \""status\"": \""requires_payment_method\"",
+      \""transfer_data\"": null,
+      \""transfer_group\"": null
+    }
+  },
+  \""livemode\"": false,
+  \""pending_webhooks\"": 3,
+  \""request\"": {
+    \""id\"": \""req_XrMsj4cg5H1C8S\"",
+    \""idempotency_key\"": \""0a1a9359-5b32-4ddf-828e-a8b639ab6139\""
+  },
+  \""type\"": \""payment_intent.created\""
+}"",
+  ""isBase64Encoded"": false
+}
+"
+"2023-06-30T06:20:18.143Z	b871c1c8-5298-4ab9-8cab-82d0eeff2b54	INFO	Event: {
+  ""resource"": ""/webhooks"",
+  ""path"": ""/webhooks"",
+  ""httpMethod"": ""POST"",
+  ""headers"": {
+    ""Accept"": ""*/*; q=0.5, application/xml"",
+    ""Cache-Control"": ""no-cache"",
+    ""CloudFront-Forwarded-Proto"": ""https"",
+    ""CloudFront-Is-Desktop-Viewer"": ""true"",
+    ""CloudFront-Is-Mobile-Viewer"": ""false"",
+    ""CloudFront-Is-SmartTV-Viewer"": ""false"",
+    ""CloudFront-Is-Tablet-Viewer"": ""false"",
+    ""CloudFront-Viewer-ASN"": ""16509"",
+    ""CloudFront-Viewer-Country"": ""US"",
+    ""Content-Type"": ""application/json; charset=utf-8"",
+    ""Host"": ""bsgf1dpgt1.execute-api.us-east-2.amazonaws.com"",
+    ""Stripe-Signature"": ""t=1688106017,v1=5da0845cd4b40248f70f3801d73a8383003f7825527a9fbcce3faba056525802,v0=e3008e395ac416462a0ce1d9596471fe34d455221fb33acab2387e58d8f2ac79"",
+    ""User-Agent"": ""Stripe/1.0 (+https://stripe.com/docs/webhooks)"",
+    ""Via"": ""1.1 a87682502db4b394cc6ba84510da9f98.cloudfront.net (CloudFront)"",
+    ""X-Amz-Cf-Id"": ""UwlB5j4WgTvw3t_2eeir0nIzg_GBxIbJUCQh0KoBGQKrvkEvn9M3BQ=="",
+    ""X-Amzn-Trace-Id"": ""Root=1-649e7421-21a3eea30e5b5e671afd8656"",
+    ""X-Forwarded-For"": ""54.187.174.169, 15.158.54.21"",
+    ""X-Forwarded-Port"": ""443"",
+    ""X-Forwarded-Proto"": ""https""
+  },
+  ""multiValueHeaders"": {
+    ""Accept"": [
+      ""*/*; q=0.5, application/xml""
+    ],
+    ""Cache-Control"": [
+      ""no-cache""
+    ],
+    ""CloudFront-Forwarded-Proto"": [
+      ""https""
+    ],
+    ""CloudFront-Is-Desktop-Viewer"": [
+      ""true""
+    ],
+    ""CloudFront-Is-Mobile-Viewer"": [
+      ""false""
+    ],
+    ""CloudFront-Is-SmartTV-Viewer"": [
+      ""false""
+    ],
+    ""CloudFront-Is-Tablet-Viewer"": [
+      ""false""
+    ],
+    ""CloudFront-Viewer-ASN"": [
+      ""16509""
+    ],
+    ""CloudFront-Viewer-Country"": [
+      ""US""
+    ],
+    ""Content-Type"": [
+      ""application/json; charset=utf-8""
+    ],
+    ""Host"": [
+      ""bsgf1dpgt1.execute-api.us-east-2.amazonaws.com""
+    ],
+    ""Stripe-Signature"": [
+      ""t=1688106017,v1=5da0845cd4b40248f70f3801d73a8383003f7825527a9fbcce3faba056525802,v0=e3008e395ac416462a0ce1d9596471fe34d455221fb33acab2387e58d8f2ac79""
+    ],
+    ""User-Agent"": [
+      ""Stripe/1.0 (+https://stripe.com/docs/webhooks)""
+    ],
+    ""Via"": [
+      ""1.1 a87682502db4b394cc6ba84510da9f98.cloudfront.net (CloudFront)""
+    ],
+    ""X-Amz-Cf-Id"": [
+      ""UwlB5j4WgTvw3t_2eeir0nIzg_GBxIbJUCQh0KoBGQKrvkEvn9M3BQ==""
+    ],
+    ""X-Amzn-Trace-Id"": [
+      ""Root=1-649e7421-21a3eea30e5b5e671afd8656""
+    ],
+    ""X-Forwarded-For"": [
+      ""54.187.174.169, 15.158.54.21""
+    ],
+    ""X-Forwarded-Port"": [
+      ""443""
+    ],
+    ""X-Forwarded-Proto"": [
+      ""https""
+    ]
+  },
+  ""queryStringParameters"": null,
+  ""multiValueQueryStringParameters"": null,
+  ""pathParameters"": null,
+  ""stageVariables"": null,
+  ""requestContext"": {
+    ""resourceId"": ""e5lf6p"",
+    ""resourcePath"": ""/webhooks"",
+    ""httpMethod"": ""POST"",
+    ""extendedRequestId"": ""HUcVUGYrCYcF2WA="",
+    ""requestTime"": ""30/Jun/2023:06:20:17 +0000"",
+    ""path"": ""/webhooks/webhooks"",
+    ""accountId"": ""653625749031"",
+    ""protocol"": ""HTTP/1.1"",
+    ""stage"": ""webhooks"",
+    ""domainPrefix"": ""bsgf1dpgt1"",
+    ""requestTimeEpoch"": 1688106017762,
+    ""requestId"": ""aa5eeca3-79c5-485a-ae1d-75db5e80f6db"",
+    ""identity"": {
+      ""cognitoIdentityPoolId"": null,
+      ""accountId"": null,
+      ""cognitoIdentityId"": null,
+      ""caller"": null,
+      ""sourceIp"": ""54.187.174.169"",
+      ""principalOrgId"": null,
+      ""accessKey"": null,
+      ""cognitoAuthenticationType"": null,
+      ""cognitoAuthenticationProvider"": null,
+      ""userArn"": null,
+      ""userAgent"": ""Stripe/1.0 (+https://stripe.com/docs/webhooks)"",
+      ""user"": null
+    },
+    ""domainName"": ""bsgf1dpgt1.execute-api.us-east-2.amazonaws.com"",
+    ""apiId"": ""bsgf1dpgt1""
+  },
+  ""body"": ""{
+  \""id\"": \""evt_3NOagkFTufv5jJId1i21huHK\"",
+  \""object\"": \""event\"",
+  \""api_version\"": \""2022-11-15\"",
+  \""created\"": 1688106015,
+  \""data\"": {
+    \""object\"": {
+      \""id\"": \""pi_3NOagkFTufv5jJId1rK0vBmI\"",
+      \""object\"": \""payment_intent\"",
+      \""amount\"": 9900,
+      \""amount_capturable\"": 0,
+      \""amount_details\"": {
+        \""tip\"": {
+        }
+      },
+      \""amount_received\"": 9900,
+      \""application\"": null,
+      \""application_fee_amount\"": null,
+      \""automatic_payment_methods\"": null,
+      \""canceled_at\"": null,
+      \""cancellation_reason\"": null,
+      \""capture_method\"": \""automatic\"",
+      \""client_secret\"": \""pi_3NOagkFTufv5jJId1rK0vBmI_secret_Z27a6FhmAkv4zfnFKiZEJRPpS\"",
+      \""confirmation_method\"": \""automatic\"",
+      \""created\"": 1688106014,
+      \""currency\"": \""mxn\"",
+      \""customer\"": \""cus_OAwZcy606y2ntb\"",
+      \""description\"": \""Subscription creation\"",
+      \""invoice\"": \""in_1NOagjFTufv5jJIdaaP6HUqf\"",
+      \""last_payment_error\"": null,
+      \""latest_charge\"": \""ch_3NOagkFTufv5jJId1zEldpzj\"",
+      \""livemode\"": false,
+      \""metadata\"": {
+      },
+      \""next_action\"": null,
+      \""on_behalf_of\"": null,
+      \""payment_method\"": \""pm_1NOagiFTufv5jJIdAHQQ44K5\"",
+      \""payment_method_options\"": {
+        \""card\"": {
+          \""installments\"": null,
+          \""mandate_options\"": null,
+          \""network\"": null,
+          \""request_three_d_secure\"": \""automatic\"",
+          \""setup_future_usage\"": \""off_session\""
+        }
+      },
+      \""payment_method_types\"": [
+        \""card\""
+      ],
+      \""processing\"": null,
+      \""receipt_email\"": null,
+      \""review\"": null,
+      \""setup_future_usage\"": \""off_session\"",
+      \""shipping\"": null,
+      \""source\"": null,
+      \""statement_descriptor\"": null,
+      \""statement_descriptor_suffix\"": null,
+      \""status\"": \""succeeded\"",
+      \""transfer_data\"": null,
+      \""transfer_group\"": null
+    }
+  },
+  \""livemode\"": false,
+  \""pending_webhooks\"": 3,
+  \""request\"": {
+    \""id\"": \""req_XrMsj4cg5H1C8S\"",
+    \""idempotency_key\"": \""0a1a9359-5b32-4ddf-828e-a8b639ab6139\""
+  },
+  \""type\"": \""payment_intent.succeeded\""
+}"",
+  ""isBase64Encoded"": false
+}
+"
